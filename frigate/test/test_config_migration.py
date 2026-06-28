@@ -27,7 +27,7 @@ class TestMigrateModels(unittest.TestCase):
         migrated = migrate_models(
             {
                 "detectors": {"coral": {"type": "edgetpu", "device": "pci:0"}},
-                "model": {"path": "plus://abc", "width": 320},
+                "model": {"path": "/config/model_cache/abc.onnx", "width": 320},
             }
         )
 
@@ -36,7 +36,7 @@ class TestMigrateModels(unittest.TestCase):
             [
                 {
                     "scene": "default",
-                    "path": "plus://abc",
+                    "path": "/config/model_cache/abc.onnx",
                     "width": 320,
                     "devices": ["edgetpu:pci:0"],
                 }

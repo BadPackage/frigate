@@ -1,4 +1,3 @@
-import json
 import os
 import tempfile
 import unittest
@@ -6,7 +5,6 @@ from copy import deepcopy
 from unittest.mock import patch
 
 import numpy as np
-import requests
 from pydantic import ValidationError
 from ruamel.yaml.constructor import DuplicateKeyError
 
@@ -34,32 +32,6 @@ class TestConfig(unittest.TestCase):
                         "fps": 5,
                     },
                 }
-            },
-        }
-
-        self.plus_model_info = {
-            "id": "e63b7345cc83a84ed79dedfc99c16616",
-            "name": "SSDLite Mobiledet",
-            "description": "Fine tuned model",
-            "trainDate": "2023-04-28T23:22:01.262Z",
-            "type": "ssd",
-            "supportedDetectors": ["cpu", "edgetpu"],
-            "width": 320,
-            "height": 320,
-            "inputShape": "nhwc",
-            "pixelFormat": "rgb",
-            "labelMap": {
-                "0": "amazon",
-                "1": "car",
-                "2": "cat",
-                "3": "deer",
-                "4": "dog",
-                "5": "face",
-                "6": "fedex",
-                "7": "license_plate",
-                "8": "package",
-                "9": "person",
-                "10": "ups",
             },
         }
 
@@ -1574,62 +1546,6 @@ class TestConfig(unittest.TestCase):
 
         frigate_config = FrigateConfig(**config)
         assert frigate_config.primary_model.merged_labelmap[0] == "person"
-
-    def test_plus_labelmap(self):
-        with open(os.path.join(MODEL_CACHE_DIR, "test"), "w") as f:
-            json.dump(self.plus_model_info, f)
-        with open(os.path.join(MODEL_CACHE_DIR, "test.json"), "w") as f:
-            json.dump(self.plus_model_info, f)
-
-        config = {
-            "mqtt": {"host": "mqtt"},
-            "models": [{"path": "plus://test", "devices": ["cpu"]}],
-            "cameras": {
-                "back": {
-                    "ffmpeg": {
-                        "inputs": [
-                            {
-                                "path": "rtsp://10.0.0.1:554/video",
-                                "roles": ["detect"],
-                            },
-                        ]
-                    },
-                    "detect": {
-                        "height": 1080,
-                        "width": 1920,
-                        "fps": 5,
-                    },
-                }
-            },
-        }
-
-        frigate_config = FrigateConfig(**config)
-        assert frigate_config.primary_model.merged_labelmap[0] == "amazon"
-
-    @patch(
-        "frigate.plus.PlusApi.get_model_download_url",
-        side_effect=requests.exceptions.ConnectionError,
-    )
-    def test_plus_unreachable_is_validation_error(self, _):
-        config = {
-            "mqtt": {"host": "mqtt"},
-            "models": [{"path": "plus://unreachable", "devices": ["cpu"]}],
-            "cameras": {
-                "back": {
-                    "ffmpeg": {
-                        "inputs": [
-                            {
-                                "path": "rtsp://10.0.0.1:554/video",
-                                "roles": ["detect"],
-                            },
-                        ]
-                    },
-                }
-            },
-        }
-
-        with self.assertRaisesRegex(ValidationError, "Unable to connect to Frigate+"):
-            FrigateConfig(**config)
 
     def test_fails_on_invalid_role(self):
         config = {

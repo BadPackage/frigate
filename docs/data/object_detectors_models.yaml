@@ -831,7 +831,7 @@ xdna2:
       label: YOLOv9
       recommended: true
       download: |-
-        Prepare the model using the frigate-xdna setup instructions linked above. For local YOLO models, Frigate must have access to the same ONNX file bytes as the sidecar. The example below uses YOLOv9-C at 320x320. Frigate+ models may instead use the same `plus://MODEL_ID` in Frigate and the sidecar.
+        Prepare the model using the frigate-xdna setup instructions linked above. For local YOLO models, Frigate must have access to the same ONNX file bytes as the sidecar. The example below uses YOLOv9-C at 320x320.
       ui: |-
         Navigate to **Settings > System > Detection models** and add a model. The ZMQ endpoint is not reported by the hardware probe, so set `devices` to `zmq:tcp://xdna:5555` in YAML. Then, on the same model, open the **Custom Model** tab and configure:
 

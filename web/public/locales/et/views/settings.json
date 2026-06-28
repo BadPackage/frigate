@@ -247,7 +247,6 @@
     "authentication": "Autentimise seaded - Frigate",
     "cameraReview": "Kaamerate kordusvaatuste seaded - Frigate",
     "general": "Profiili seaded - Frigate",
-    "frigatePlus": "Frigate+ seaded - Frigate",
     "notifications": "Teavituste seaded - Frigate",
     "cameraManagement": "Kaamerate haldus - Frigate",
     "masksAndZones": "Maskide ja tsoonide haldus - Frigate",
@@ -329,26 +328,6 @@
       "suspend": "Peata arvuti töö"
     }
   },
-  "frigatePlus": {
-    "title": "Frigate+ seadistused",
-    "unsavedChanges": "Frigate+ seadistuste muudatused on salvestamata",
-    "toast": {
-      "success": "Frigate+ seadistuste muudatused on salvestatud. Muudatuste kasutuselevõtmiseks käivita Frigate uuesti."
-    },
-    "snapshotConfig": {
-      "title": "Hetkvõtte seadistused",
-      "table": {
-        "snapshots": "Hetkvõtted",
-        "camera": "Kaamera"
-      }
-    },
-    "modelInfo": {
-      "plusModelType": {
-        "userModel": "Peenhäälestatud"
-      },
-      "cameras": "Kaamerad"
-    }
-  },
   "masksAndZones": {
     "zones": {
       "point_one": "{{count}} punkt",
@@ -421,7 +400,6 @@
     "users": "Kasutajad",
     "roles": "Rollid",
     "notifications": "Teavitused",
-    "frigateplus": "Frigate+",
     "cameraReview": "Ülevaatamine",
     "profiles": "Profiilid",
     "integrationLpr": "Sõidukite numbrimärkide tuvastus",

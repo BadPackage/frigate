@@ -35,7 +35,6 @@ import { DetectionHardware } from "@/types/hardware";
 import { summarizeDevices } from "@/utils/detectionHardware";
 import { DEFAULT_SCENE, getSceneLabel } from "@/utils/modelUtil";
 import { HardwarePicker } from "./HardwarePicker";
-import { ModelSourcePicker } from "./ModelSourcePicker";
 
 type DetectionModel = {
   scene?: string;
@@ -44,7 +43,7 @@ type DetectionModel = {
 };
 
 // scene and devices get dedicated controls; everything else is the model itself
-const CUSTOM_MODEL_FIELDS = [
+const MODEL_FIELDS = [
   "path",
   "labelmap_path",
   "width",
@@ -54,19 +53,6 @@ const CUSTOM_MODEL_FIELDS = [
   "input_dtype",
   "model_type",
 ];
-
-/**
- * The fields a model can edit. A Frigate+ model's size, format, type, and
- * labels come from its model info, so only its path stays editable.
- */
-const editableFields = (model: DetectionModel): string[] =>
-  typeof model.path === "string" && model.path.startsWith("plus://")
-    ? ["path"]
-    : CUSTOM_MODEL_FIELDS;
-
-/** The detector a model runs on, which is the prefix of its device strings. */
-const detectorForModel = (model: DetectionModel): string | undefined =>
-  model.devices?.[0]?.split(":")[0];
 
 const asModelList = (formData: unknown): DetectionModel[] => {
   if (!Array.isArray(formData)) {
@@ -170,18 +156,6 @@ export function ModelsField(props: FieldProps) {
   }, [models.length]);
 
   const cameras = formContext?.fullConfig?.cameras;
-  const savedModels = formContext?.fullConfig?.models;
-
-  // `plus` is a readonly field stripped from the form data, so read it from the
-  // full config. Match on path rather than index, which shifts when a model is
-  // added or removed, or scene, which can be renamed.
-  const savedPlusForPath = useCallback(
-    (path: unknown) =>
-      typeof path === "string"
-        ? savedModels?.find((saved) => saved.path === path)?.plus
-        : undefined,
-    [savedModels],
-  );
 
   // a model serves the cameras naming its scene, and like the backend, the
   // default model also serves every camera whose scene has no model of its own
@@ -448,16 +422,11 @@ export function ModelsField(props: FieldProps) {
                     onChange={(devices) => updateModel(index, { devices })}
                   />
 
-                  <ModelSourcePicker
-                    path={model.path}
-                    plus={savedPlusForPath(model.path)}
-                    detector={detectorForModel(model)}
-                    disabled={disabled || readonly}
-                    onPathChange={(path) => updateModel(index, { path })}
-                    customFields={editableFields(model).map((fieldName) =>
+                  <div className="space-y-6">
+                    {MODEL_FIELDS.map((fieldName) =>
                       renderField(index, fieldName),
                     )}
-                  />
+                  </div>
                 </CardContent>
               </CollapsibleContent>
             </Collapsible>

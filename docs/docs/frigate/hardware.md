@@ -345,7 +345,7 @@ The inference time of a rk3588 with all 3 cores enabled is typically 25-30 ms fo
 
 Frigate supports AMD XDNA2 NPUs through the community-maintained
 frigate-xdna ZMQ sidecar. It works with stock Frigate and supports
-Frigate+ models or compatible local YOLO ONNX models. Models are compiled
+compatible local YOLO ONNX models. Models are compiled
 once on the target system and cached for subsequent use.
 
 Currently qualified on **Ryzen AI Max 300 / Strix Halo**. Other XDNA2

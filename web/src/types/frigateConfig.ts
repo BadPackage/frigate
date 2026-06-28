@@ -432,18 +432,6 @@ export type DetectionModelConfig = {
   colormap: { [key: string]: [number, number, number] };
   attributes_map: { [key: string]: string[] };
   all_attributes: string[];
-  plus?: {
-    name: string;
-    id: string;
-    trainDate: string;
-    baseModel: string;
-    isBaseModel: boolean;
-    supportedDetectors: string[];
-    // which Hailo device a Hailo model was built for, absent on every other model
-    hailoDevice?: string;
-    width: number;
-    height: number;
-  } | null;
 };
 
 export interface FrigateConfig {
@@ -597,10 +585,6 @@ export interface FrigateConfig {
     };
     mask: string[];
     track: string[];
-  };
-
-  plus: {
-    enabled: boolean;
   };
 
   proxy: {

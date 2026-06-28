@@ -21,7 +21,6 @@ from frigate.const import REGEX_JSON
 from frigate.detectors import ModelConfig
 from frigate.detectors.detector_config import DEFAULT_SCENE
 from frigate.detectors.device import DeviceParseError, DeviceSpec, parse_device
-from frigate.plus import PlusApi
 from frigate.util.builtin import (
     deep_merge,
     get_ffmpeg_arg_list,
@@ -724,7 +723,6 @@ class FrigateConfig(FrigateBaseModel):
         exclude=True,
     )
 
-    _plus_api: PlusApi
     _model_devices: dict[str, list[DeviceSpec]]
     # scene -> model, including the scenes of duplicate models folded into another
     _scene_models: dict[str, ModelConfig]
@@ -733,10 +731,6 @@ class FrigateConfig(FrigateBaseModel):
     _all_attribute_logos: list[str]
     _all_attributes_map: dict[str, list[str]]
     _all_labels: set[str]
-
-    @property
-    def plus_api(self) -> PlusApi:
-        return self._plus_api
 
     @property
     def all_attributes(self) -> list[str]:
@@ -835,7 +829,6 @@ class FrigateConfig(FrigateBaseModel):
                     model_config.setdefault(default_key, default_value)
 
         loaded = ModelConfig.model_validate(model_config)
-        loaded.check_and_load_plus_model(self.plus_api, detector)
         loaded.compute_model_hash()
         return loaded
 
@@ -1023,15 +1016,6 @@ class FrigateConfig(FrigateBaseModel):
 
     @model_validator(mode="after")
     def post_validation(self, info: ValidationInfo) -> Self:
-        # Load plus api from context, if possible.
-        self._plus_api = None
-        if isinstance(info.context, dict):
-            self._plus_api = info.context.get("plus_api")
-
-        # Ensure self._plus_api is set, if no explicit value is provided.
-        if self._plus_api is None:
-            self._plus_api = PlusApi()
-
         # set notifications state
         self.notifications.enabled_in_config = self.notifications.enabled
 
@@ -1548,9 +1532,5 @@ class FrigateConfig(FrigateBaseModel):
         return cls.parse(config_yaml, is_json=False, **context)
 
     @classmethod
-    def parse_object(
-        cls, obj: Any, *, plus_api: PlusApi | None = None, install: bool = False
-    ):
-        return cls.model_validate(
-            obj, context={"plus_api": plus_api, "install": install}
-        )
+    def parse_object(cls, obj: Any, *, install: bool = False):
+        return cls.model_validate(obj, context={"install": install})

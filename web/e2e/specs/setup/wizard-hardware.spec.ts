@@ -124,7 +124,7 @@ test.describe("setup wizard hardware @high @mobile", () => {
     await expect.poll(() => restarts).toHaveLength(1);
   });
 
-  test("defers model setup for onnx hardware without Frigate+", async ({
+  test("defers model setup for onnx hardware", async ({
     frigateApp,
     page,
   }) => {

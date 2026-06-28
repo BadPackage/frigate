@@ -60,7 +60,6 @@ class TestEventCleanupSnapshots(unittest.TestCase):
             box=[],
             area=0,
             retain_indefinitely=False,
-            plus_id="",
             model_hash="",
             detector_type="cpu",
             model_type="ssd",

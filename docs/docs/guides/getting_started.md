@@ -167,7 +167,7 @@ Opens the [Add Camera Wizard](../configuration/cameras.md#adding-a-camera-with-t
 
 **Object detection**
 
-Lists the detection hardware Frigate found on your system, such as a Coral, an Intel GPU or NPU, or a discrete GPU, and configures the one you pick. NVIDIA and AMD GPUs need a model before detection can start, so the wizard offers your Frigate+ models if you have them, or lets you finish setup and add one later under <NavPath path="Settings > System > Detection models" />.
+Lists the detection hardware Frigate found on your system, such as a Coral, an Intel GPU or NPU, or a discrete GPU, and configures the one you pick. NVIDIA and AMD GPUs need a model before detection can start, so the wizard lets you finish setup and add one later under <NavPath path="Settings > System > Detection models" />.
 
 **Hardware acceleration**
 

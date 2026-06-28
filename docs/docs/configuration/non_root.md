@@ -356,7 +356,7 @@ It's in its own table so it can sit alongside an existing ruleset without touchi
 
 Two things break when you do this. The manufacturer's phone app stops working, which is the point, and camera clocks drift, because most of them set their time over NTP and are bad at it. Point them at an NTP server on your own network rather than opening the VLAN back up, or their timestamps and Frigate's will disagree.
 
-Frigate itself needs some outbound access, though nearly all of it is optional. The startup version check is the only piece that's on by default, and `telemetry.version_check: false` turns it off. Everything else (model downloads for the enrichment features, push notifications, Frigate+, and cloud GenAI providers) only reaches out once you enable that feature. See [Network Requirements](/frigate/network_requirements) for the full list and how to run fully offline.
+Frigate itself needs some outbound access, though nearly all of it is optional. The startup version check is the only piece that's on by default, and `telemetry.version_check: false` turns it off. Everything else (model downloads for the enrichment features, push notifications, and cloud GenAI providers) only reaches out once you enable that feature. See [Network Requirements](/frigate/network_requirements) for the full list and how to run fully offline.
 
 For containers that only talk to each other, an internal compose network gets you the same isolation without involving the router:
 

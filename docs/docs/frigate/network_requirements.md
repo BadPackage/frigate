@@ -12,7 +12,7 @@ Frigate is designed to run locally and does not require a persistent internet co
 Frigate's internet usage falls into three categories:
 
 1. **One-time model downloads**: ML models are downloaded the first time a feature is enabled, then cached locally. No internet is needed on subsequent startups.
-2. **Optional cloud services**: Features like Frigate+ and Generative AI connect to external APIs only when explicitly configured.
+2. **Optional cloud services**: Features like Generative AI connect to external APIs only when explicitly configured.
 3. **Build-time dependencies**: Components bundled into the Docker image during the build process. These require no internet at runtime.
 
 :::tip
@@ -106,12 +106,6 @@ If your Frigate instance has restricted internet access, you can point model dow
 
 These features connect to external services during normal operation and require internet whenever they are active.
 
-### Frigate+
-
-When a Frigate+ API key is configured, Frigate communicates with `https://api.frigate.video` to download models, upload snapshots for training, submit annotations, and report false positives. Remove the API key to disable all Frigate+ network activity.
-
-See [Frigate+](/integrations/plus) for details.
-
 ### Generative AI
 
 When a Generative AI provider is configured, Frigate sends images and prompts to the configured provider for event descriptions, chat, and camera monitoring. Available providers:
@@ -171,7 +165,7 @@ To run Frigate in an air-gapped or offline environment:
 2. **Pre-download the training base weights**: If you plan to train custom classification models, set `TF_KERAS_MOBILENET_V2_WEIGHTS_URL` before training, then run one training job while online. Without this variable the base weights are cached outside `/config/` and are lost whenever the container is recreated, so a later training run will fail offline. If the machine never has internet access, copy the weights in manually as described below.
 3. **Disable version check**: Set `telemetry.version_check: false` in your configuration.
 4. **Block outbound model requests**: Set the `HF_HUB_OFFLINE=1` and `TRANSFORMERS_OFFLINE=1` environment variables to prevent HuggingFace and Transformers from attempting any network requests.
-5. **Avoid cloud features**: Do not configure Frigate+, Generative AI providers that require internet, or cloud MQTT brokers.
+5. **Avoid cloud features**: Do not configure Generative AI providers that require internet, or cloud MQTT brokers.
 6. **Use local model mirrors**: If limited internet is available, set the `HF_ENDPOINT`, `GITHUB_ENDPOINT`, `GITHUB_RAW_ENDPOINT`, and `TF_KERAS_MOBILENET_V2_WEIGHTS_URL` environment variables to point to local mirrors.
 
 After these steps, Frigate will operate with no outbound internet connections.

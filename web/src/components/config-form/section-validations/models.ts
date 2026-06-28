@@ -26,7 +26,7 @@ function defaultModelPath(detector: string): string | undefined {
  * backend, which still combines them at startup.
  */
 function normalizeModelPath(path: string): string {
-  // plus://<id> and other URLs are compared as written
+  // URLs are compared as written
   if (path.includes("://")) {
     return path;
   }

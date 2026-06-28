@@ -419,13 +419,13 @@ As a general rule, features that read recordings prefer the main stream and fall
 | Tracking details and Explore clip playback                                               | Main, falling back to sub where the main recordings have expired                                              |
 | Exports                                                                                  | Both (main preferred with sub fallback by default), or exactly one stream when a quality is selected in the export dialog |
 | Clip downloads                                                                           | Main; sub is used when no main recordings remain in the range (streams are never mixed in one file)           |
-| Frames grabbed from a recording in History (download snapshot, submit frame to Frigate+) | Main preferred, sub fallback                                                                                  |
+| Frames grabbed from a recording in History (download snapshot)                           | Main preferred, sub fallback                                                                                  |
 | Audio extraction (e.g., transcription)                                                   | Main preferred, sub fallback                                                                                  |
 | Motion search                                                                            | Main only                                                                                                     |
 | Review timeline motion data                                                              | Main only                                                                                                     |
 | Storage usage statistics                                                                 | Both streams counted, and listed separately per camera                                                        |
 
-This table covers only features that read recordings from disk. Tracked object snapshots and thumbnails (the images shown in Explore and sent with notifications, and the images submitted to Frigate+ from a tracked object) are captured live from the `detect` stream as the object is tracked, never from recordings, so sub stream recording does not affect them.
+This table covers only features that read recordings from disk. Tracked object snapshots and thumbnails (the images shown in Explore and sent with notifications) are captured live from the `detect` stream as the object is tracked, never from recordings, so sub stream recording does not affect them.
 
 ### Trade-offs
 

@@ -55,7 +55,7 @@ If you expected continuous footage but only configured motion/event retention, a
 `alerts` and `detections` retention only keep footage that overlaps a tracked object, so they depend on object detection running:
 
 - **Detection must be enabled.** If `detect: enabled: False`, no alerts or detections are ever created, so alert/detection retention keeps nothing. (Continuous and motion retention still work with detection disabled.)
-- **The object must be supported by your model.** If you track an object your model doesn't support (for example `deer` or `license_plate` on the default model), Frigate never detects it and never records for it. Check your logs for warnings such as `... is configured to track ['deer'] objects, which are not supported by the current model` and remove unsupported objects or switch to a model (e.g. [Frigate+](/plus/)) that includes them.
+- **The object must be supported by your model.** If you track an object your model doesn't support (for example `deer` or `license_plate` on the default model), Frigate never detects it and never records for it. Check your logs for warnings such as `... is configured to track ['deer'] objects, which are not supported by the current model` and remove unsupported objects or switch to a model that includes them.
 
 </FaqItem>
 

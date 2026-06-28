@@ -11,7 +11,6 @@
     "general": "UI Settings - Frigate",
     "globalConfig": "Global Configuration - Frigate",
     "cameraConfig": "Camera Configuration - Frigate",
-    "frigatePlus": "Frigate+ Settings - Frigate",
     "detectorsAndModel": "Detectors and model - Frigate",
     "notifications": "Notification Settings - Frigate",
     "maintenance": "Maintenance - Frigate",
@@ -116,7 +115,6 @@
     "notifications": "Notifications",
     "triggers": "Triggers",
     "debug": "Debug",
-    "frigateplus": "Frigate+",
     "maintenance": "Maintenance",
     "mediaSync": "Media sync",
     "regionGrid": "Region grid"
@@ -1262,65 +1260,6 @@
       }
     }
   },
-  "frigatePlus": {
-    "title": "Frigate+ Settings",
-    "description": "Frigate+ is a subscription service that provides access to additional features and capabilities for your Frigate instance, including the ability to use custom object detection models trained on your own data. You can manage your Frigate+ model settings here.",
-    "cardTitles": {
-      "api": "API",
-      "currentModel": "Current Model",
-      "otherModels": "Other Models",
-      "configuration": "Configuration"
-    },
-    "apiKey": {
-      "title": "Frigate+ API Key",
-      "validated": "Frigate+ API key is detected and validated",
-      "notValidated": "Frigate+ API key is not detected or not validated",
-      "desc": "The Frigate+ API key enables integration with the Frigate+ service.",
-      "plusLink": "Read more about Frigate+"
-    },
-    "snapshotConfig": {
-      "title": "Snapshot Configuration",
-      "desc": "Submitting to Frigate+ requires snapshots to be enabled in your config.",
-      "cleanCopyWarning": "Some cameras have snapshots disabled",
-      "table": {
-        "camera": "Camera",
-        "snapshots": "Snapshots"
-      }
-    },
-    "modelInfo": {
-      "title": "Model Information",
-      "modelType": "Model Type",
-      "trainDate": "Train Date",
-      "baseModel": "Base Model",
-      "plusModelType": {
-        "baseModel": "Base Model",
-        "userModel": "Fine-Tuned"
-      },
-      "supportedDetectors": "Supported Detectors",
-      "cameras": "Cameras",
-      "loading": "Loading model information…",
-      "error": "Failed to load model information",
-      "noModelLoaded": "No Frigate+ model is currently loaded.",
-      "availableModels": "Available Frigate+ models",
-      "loadingAvailableModels": "Loading available models…",
-      "selectModel": "Select a model",
-      "noModelsAvailable": "No models available",
-      "showIncompatible": "Show incompatible models",
-      "filter": {
-        "ariaLabel": "Filter models by type",
-        "baseModels": "Base Models",
-        "fineTunedModels": "Fine-tuned Models"
-      },
-      "modelSelect": "Your available models on Frigate+ can be selected here. Note that only models compatible with your current detector configuration can be selected."
-    },
-    "changeInDetectorsAndModel": "Change model",
-    "unsavedChanges": "Unsaved Frigate+ settings changes",
-    "restart_required": "Restart required (Frigate+ model changed)",
-    "toast": {
-      "success": "Frigate+ settings have been saved. Restart Frigate to apply changes.",
-      "error": "Failed to save config changes: {{errorMessage}}"
-    }
-  },
   "triggers": {
     "documentTitle": "Triggers",
     "semanticSearch": {
@@ -2093,13 +2032,6 @@
       "description": "The hardware this model runs its detection on.",
       "detectorCountDescription": "How many detection processes to run on this hardware. More detectors keep up with more cameras, at the cost of extra device memory.",
       "unitsDescription": "Each unit runs its own detection process. A unit that can't be shared, such as a Coral, can only be used by one model."
-    },
-    "tabs": {
-      "plus": "Frigate+",
-      "custom": "Custom Model"
-    },
-    "plusModel": {
-      "noModelSelected": "Select a Frigate+ model"
     }
   }
 }

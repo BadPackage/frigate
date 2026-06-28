@@ -58,8 +58,7 @@
       "detecting": "Checking for detection hardware...",
       "probeFailed": "Hardware detection is unavailable. You can configure detection later in Settings.",
       "recommended": "Recommended",
-      "modelRequired": "{{name}} needs a detection model before it can run. Pick a Frigate+ model, or finish setup and add one under Settings > Detection models.",
-      "plusModelPlaceholder": "Select a Frigate+ model",
+      "modelRequired": "{{name}} needs a detection model before it can run. Finish setup and add one under Settings > Detection models.",
       "continueWithout": "Continue without detection"
     },
     "recording": {
