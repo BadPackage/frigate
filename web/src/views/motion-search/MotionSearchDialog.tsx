@@ -256,7 +256,7 @@ export default function MotionSearchDialog({
 
               <TransformWrapper
                 minScale={1.0}
-                wheel={{ smoothStep: 0.005 }}
+                wheel={{ step: 0.005 }}
                 panning={{ disabled: !isDesktop && !panMode }}
                 pinch={{ disabled: !isDesktop && !panMode }}
                 doubleClick={{ disabled: !isDesktop && !panMode }}

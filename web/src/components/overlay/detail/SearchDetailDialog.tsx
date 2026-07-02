@@ -1664,7 +1664,7 @@ export function ObjectSnapshotTab({
           imgLoaded ? "visible" : "invisible",
         )}
       >
-        <TransformWrapper minScale={1.0} wheel={{ smoothStep: 0.005 }}>
+        <TransformWrapper minScale={1.0} wheel={{ step: 0.005 }}>
           <div className="flex w-full flex-col space-y-3 overflow-hidden">
             <TransformComponent
               wrapperStyle={{

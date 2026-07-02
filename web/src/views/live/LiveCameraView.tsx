@@ -662,7 +662,7 @@ export default function LiveCameraView({
   return (
     <TransformWrapper
       minScale={1.0}
-      wheel={{ smoothStep: 0.005 }}
+      wheel={{ step: 0.005 }}
       disabled={debug || clickOverlay}
       panning={{ disabled: clickOverlay }}
     >
