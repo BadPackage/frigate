@@ -9,6 +9,7 @@ Use of a GPU or AI accelerator is highly recommended. See the upstream [object d
 ## Fork notes
 
 - **Frigate+ removed.** All Frigate+ cloud functionality (model submission, snapshot/false-positive upload, hosted model download via `plus://`, and the related UI/API/config) has been stripped out. This fork runs entirely on local and custom models.
+- **Newer dependencies.** Python and npm dependencies are kept more up to date than upstream, and CUDA has been upgraded (CUDA 13). Compatibility with older setups is not a priority; images are built locally.
 - **Rust migration planned.** The backend is being migrated away from Python. Expect the `frigate/` Python tree to be progressively replaced.
 
 ## Features
