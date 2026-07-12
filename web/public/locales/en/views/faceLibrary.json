@@ -57,7 +57,9 @@
     "renameFace": "Rename Face",
     "deleteFace": "Delete Face",
     "uploadImage": "Upload Image",
-    "reprocessFace": "Reprocess Face"
+    "reprocessFace": "Reprocess Face",
+    "trainFaces": "Train Faces As",
+    "reclassifyFaces": "Reclassify Faces"
   },
   "imageEntry": {
     "validation": {
@@ -84,7 +86,11 @@
       "renamedFace": "Successfully renamed face to {{name}}",
       "trainedFace": "Successfully trained face.",
       "reclassifiedFace": "Successfully reclassified face.",
-      "updatedFaceScore": "Successfully updated face score to {{name}} ({{score}})."
+      "updatedFaceScore": "Successfully updated face score to {{name}} ({{score}}).",
+      "trainedFaces_one": "Successfully trained {{count}} face image as {{name}}.",
+      "trainedFaces_other": "Successfully trained {{count}} face images as {{name}}.",
+      "reclassifiedFaces_one": "Successfully reclassified {{count}} face image as {{name}}.",
+      "reclassifiedFaces_other": "Successfully reclassified {{count}} face images as {{name}}."
     },
     "error": {
       "uploadingImageFailed": "Failed to upload image: {{errorMessage}}",

@@ -61,6 +61,23 @@ def invalid_name_response(value: str) -> JSONResponse:
     )
 
 
+def collect_request_names(
+    json: dict[str, Any], list_key: str, single_key: str
+) -> list[str]:
+    """Gather the file names a request targets.
+
+    Bulk clients send a list while older clients send a single name, and either
+    or both may be present.
+    """
+    names = [name for name in json.get(list_key, []) if name]
+    single_name = json.get(single_key, "")
+
+    if single_name:
+        names.append(single_name)
+
+    return names
+
+
 @router.get(
     "/faces",
     response_model=FacesResponse,
@@ -144,13 +161,13 @@ def reclassify_face(request: Request, body: dict = None):
 @router.post(
     "/faces/train/{name}/classify",
     response_model=GenericResponse,
-    summary="Classify and save a face training image",
-    description="""Adds a training image to a specific face name for face recognition.
-    Accepts either a training file from the train directory or an event_id to extract
-    the face from. The image is saved to the face's directory and the face classifier
-    is cleared to incorporate the new training data. Returns a success message with
-    the new filename or an error if face recognition is not enabled, the file/event
-    is invalid, or the face cannot be extracted.""",
+    summary="Classify and save face training images",
+    description="""Adds one or more training images to a specific face name for face
+    recognition. Accepts a training file (or list of training files) from the train
+    directory, or an event_id to extract the face from. The images are saved to the
+    face's directory and the face classifier is cleared to incorporate the new
+    training data. Returns a success message or an error if face recognition is not
+    enabled, a file/event is invalid, or the face cannot be extracted.""",
 )
 def train_face(request: Request, name: str, body: dict = None):
     if not request.app.frigate_config.face_recognition.enabled:
@@ -160,13 +177,10 @@ def train_face(request: Request, name: str, body: dict = None):
         )
 
     json: dict[str, Any] = body or {}
-    training_file_name = json.get("training_file", "")
-    training_file = (
-        safe_join(FACE_DIR, "train", training_file_name) if training_file_name else None
-    )
+    training_file_names = collect_request_names(json, "training_files", "training_file")
     event_id = json.get("event_id")
 
-    if not training_file_name and not event_id:
+    if not training_file_names and not event_id:
         return JSONResponse(
             content=(
                 {
@@ -177,18 +191,23 @@ def train_face(request: Request, name: str, body: dict = None):
             status_code=400,
         )
 
-    if training_file_name and (
-        training_file is None or not os.path.isfile(training_file)
-    ):
-        return JSONResponse(
-            content=(
-                {
-                    "success": False,
-                    "message": f"Invalid filename or no file exists: {training_file_name}",
-                }
-            ),
-            status_code=404,
-        )
+    training_files: list[str] = []
+
+    for training_file_name in training_file_names:
+        training_file = safe_join(FACE_DIR, "train", training_file_name)
+
+        if training_file is None or not os.path.isfile(training_file):
+            return JSONResponse(
+                content=(
+                    {
+                        "success": False,
+                        "message": f"Invalid filename or no file exists: {training_file_name}",
+                    }
+                ),
+                status_code=404,
+            )
+
+        training_files.append(training_file)
 
     sanitized_name = sanitize_path_component(name)
     new_file_folder = safe_join(FACE_DIR, name)
@@ -196,13 +215,15 @@ def train_face(request: Request, name: str, body: dict = None):
     if sanitized_name is None or new_file_folder is None:
         return invalid_name_response(name)
 
-    new_name = f"{sanitized_name}-{datetime.datetime.now().timestamp()}.webp"
-
     os.makedirs(new_file_folder, exist_ok=True)
 
-    if training_file_name:
-        shutil.move(training_file, os.path.join(new_file_folder, new_name))
+    if training_files:
+        for training_file in training_files:
+            new_name = f"{sanitized_name}-{datetime.datetime.now().timestamp()}.webp"
+            shutil.move(training_file, os.path.join(new_file_folder, new_name))
     else:
+        new_name = f"{sanitized_name}-{datetime.datetime.now().timestamp()}.webp"
+
         try:
             event: Event = Event.get(Event.id == event_id)
         except DoesNotExist:
@@ -255,7 +276,7 @@ def train_face(request: Request, name: str, body: dict = None):
         content=(
             {
                 "success": True,
-                "message": f"Successfully saved {training_file_name} as {new_name}.",
+                "message": f"Successfully saved {len(training_files) or 1} face image(s) to {sanitized_name}.",
             }
         ),
         status_code=200,
@@ -366,11 +387,11 @@ def recognize_face(request: Request, file: UploadFile):
     "/faces/{name}/reclassify",
     response_model=GenericResponse,
     dependencies=[Depends(require_role(["admin"]))],
-    summary="Reclassify a face image to a different name",
-    description="""Moves a single face image from one person's folder to another.
-    The image is moved and renamed, and the face classifier is cleared to
-    incorporate the change. Returns a success message or an error if the
-    image or target name is invalid.""",
+    summary="Reclassify face images to a different name",
+    description="""Moves one or more face images from one person's folder to another.
+    The images are moved and renamed, and the face classifier is cleared to
+    incorporate the change. Returns a success message or an error if an
+    image or the target name is invalid.""",
 )
 def reclassify_face_image(request: Request, name: str, body: dict = None):
     if not request.app.frigate_config.face_recognition.enabled:
@@ -380,15 +401,15 @@ def reclassify_face_image(request: Request, name: str, body: dict = None):
         )
 
     json: dict[str, Any] = body or {}
-    image_id = sanitize_path_component(json.get("id", ""))
+    image_ids = collect_request_names(json, "ids", "id")
     new_name = sanitize_path_component(json.get("new_name", ""))
 
-    if not image_id or not new_name:
+    if not image_ids or not new_name:
         return JSONResponse(
             content=(
                 {
                     "success": False,
-                    "message": "Both 'id' and 'new_name' are required.",
+                    "message": "Both 'id' (or 'ids') and 'new_name' are required.",
                 }
             ),
             status_code=400,
@@ -411,23 +432,29 @@ def reclassify_face_image(request: Request, name: str, body: dict = None):
     if source_folder is None or target_folder is None:
         return invalid_name_response(name)
 
-    source_file = os.path.join(source_folder, image_id)
+    source_files: list[str] = []
 
-    if not os.path.isfile(source_file):
-        return JSONResponse(
-            content=(
-                {
-                    "success": False,
-                    "message": f"Image not found: {image_id}",
-                }
-            ),
-            status_code=404,
-        )
+    for image_id in image_ids:
+        source_file = safe_join(source_folder, image_id)
 
-    target_filename = f"{new_name}-{datetime.datetime.now().timestamp()}.webp"
+        if source_file is None or not os.path.isfile(source_file):
+            return JSONResponse(
+                content=(
+                    {
+                        "success": False,
+                        "message": f"Image not found: {image_id}",
+                    }
+                ),
+                status_code=404,
+            )
+
+        source_files.append(source_file)
 
     os.makedirs(target_folder, exist_ok=True)
-    shutil.move(source_file, os.path.join(target_folder, target_filename))
+
+    for source_file in source_files:
+        target_filename = f"{new_name}-{datetime.datetime.now().timestamp()}.webp"
+        shutil.move(source_file, os.path.join(target_folder, target_filename))
 
     # Clean up empty source folder
     if os.path.exists(source_folder) and not os.listdir(source_folder):
@@ -915,9 +942,9 @@ def delete_classification_dataset_images(
     "/classification/{name}/dataset/{category}/reclassify",
     response_model=GenericResponse,
     dependencies=[Depends(require_role(["admin"]))],
-    summary="Reclassify a dataset image to a different category",
-    description="""Moves a single dataset image from one category to another.
-    The image is re-saved as PNG in the target category and removed from the source.""",
+    summary="Reclassify dataset images to a different category",
+    description="""Moves one or more dataset images from one category to another.
+    The images are re-saved as PNG in the target category and removed from the source.""",
 )
 def reclassify_classification_image(
     request: Request, name: str, category: str, body: dict = None
@@ -936,15 +963,15 @@ def reclassify_classification_image(
         )
 
     json: dict[str, Any] = body or {}
-    image_id = sanitize_path_component(json.get("id", ""))
+    image_ids = collect_request_names(json, "ids", "id")
     new_category = sanitize_path_component(json.get("new_category", ""))
 
-    if not image_id or not new_category:
+    if not image_ids or not new_category:
         return JSONResponse(
             content=(
                 {
                     "success": False,
-                    "message": "Both 'id' and 'new_category' are required.",
+                    "message": "Both 'id' (or 'ids') and 'new_category' are required.",
                 }
             ),
             status_code=400,
@@ -968,28 +995,34 @@ def reclassify_classification_image(
     if sanitized_name is None or source_folder is None or target_folder is None:
         return invalid_name_response(name)
 
-    source_file = os.path.join(source_folder, image_id)
+    source_files: list[str] = []
 
-    if not os.path.isfile(source_file):
-        return JSONResponse(
-            content=(
-                {
-                    "success": False,
-                    "message": f"Image not found: {image_id}",
-                }
-            ),
-            status_code=404,
-        )
+    for image_id in image_ids:
+        source_file = safe_join(source_folder, image_id)
 
-    random_id = "".join(random.choices(string.ascii_lowercase + string.digits, k=6))
-    timestamp = datetime.datetime.now().timestamp()
-    new_name = f"{new_category}-{timestamp}-{random_id}.png"
+        if source_file is None or not os.path.isfile(source_file):
+            return JSONResponse(
+                content=(
+                    {
+                        "success": False,
+                        "message": f"Image not found: {image_id}",
+                    }
+                ),
+                status_code=404,
+            )
+
+        source_files.append(source_file)
 
     os.makedirs(target_folder, exist_ok=True)
 
-    img = cv2.imread(source_file)
-    cv2.imwrite(os.path.join(target_folder, new_name), img)
-    os.unlink(source_file)
+    for source_file in source_files:
+        random_id = "".join(random.choices(string.ascii_lowercase + string.digits, k=6))
+        timestamp = datetime.datetime.now().timestamp()
+        new_name = f"{new_category}-{timestamp}-{random_id}.png"
+
+        img = cv2.imread(source_file)
+        cv2.imwrite(os.path.join(target_folder, new_name), img)
+        os.unlink(source_file)
 
     # Clean up empty source folder (unless it is "none")
     if (
@@ -1108,9 +1141,9 @@ def rename_classification_category(
     "/classification/{name}/dataset/categorize",
     response_model=GenericResponse,
     dependencies=[Depends(require_role(["admin"]))],
-    summary="Categorize a classification image",
-    description="""Categorizes a specific classification image for a given classification model and category.
-    The image must exist in the specified category. Returns a success message or an error if the name or category is invalid.""",
+    summary="Categorize classification images",
+    description="""Categorizes one or more classification train images for a given classification model and category.
+    The images must exist in the train directory. Returns a success message or an error if the name or category is invalid.""",
 )
 def categorize_classification_image(request: Request, name: str, body: dict = None):
     config: FrigateConfig = request.app.frigate_config
@@ -1128,32 +1161,29 @@ def categorize_classification_image(request: Request, name: str, body: dict = No
 
     json: dict[str, Any] = body or {}
     category = sanitize_path_component(json.get("category", ""))
-    training_file_name = json.get("training_file", "")
-    training_file = (
-        safe_join(CLIPS_DIR, name, "train", training_file_name)
-        if training_file_name
-        else None
-    )
+    training_file_names = collect_request_names(json, "training_files", "training_file")
 
     if category is None:
         return invalid_name_response(json.get("category", ""))
 
-    if training_file_name and (
-        training_file is None or not os.path.isfile(training_file)
-    ):
-        return JSONResponse(
-            content=(
-                {
-                    "success": False,
-                    "message": f"Invalid filename or no file exists: {training_file_name}",
-                }
-            ),
-            status_code=404,
-        )
+    training_files: list[str] = []
 
-    random_id = "".join(random.choices(string.ascii_lowercase + string.digits, k=6))
-    timestamp = datetime.datetime.now().timestamp()
-    new_name = f"{category}-{timestamp}-{random_id}.png"
+    for training_file_name in training_file_names:
+        training_file = safe_join(CLIPS_DIR, name, "train", training_file_name)
+
+        if training_file is None or not os.path.isfile(training_file):
+            return JSONResponse(
+                content=(
+                    {
+                        "success": False,
+                        "message": f"Invalid filename or no file exists: {training_file_name}",
+                    }
+                ),
+                status_code=404,
+            )
+
+        training_files.append(training_file)
+
     new_file_folder = safe_join(CLIPS_DIR, name, "dataset", category)
 
     if new_file_folder is None:
@@ -1161,10 +1191,15 @@ def categorize_classification_image(request: Request, name: str, body: dict = No
 
     os.makedirs(new_file_folder, exist_ok=True)
 
-    # use opencv because webp images can not be used to train
-    img = cv2.imread(training_file)
-    cv2.imwrite(os.path.join(new_file_folder, new_name), img)
-    os.unlink(training_file)
+    for training_file in training_files:
+        random_id = "".join(random.choices(string.ascii_lowercase + string.digits, k=6))
+        timestamp = datetime.datetime.now().timestamp()
+        new_name = f"{category}-{timestamp}-{random_id}.png"
+
+        # use opencv because webp images can not be used to train
+        img = cv2.imread(training_file)
+        cv2.imwrite(os.path.join(new_file_folder, new_name), img)
+        os.unlink(training_file)
 
     return JSONResponse(
         content=({"success": True, "message": "Successfully categorized image."}),

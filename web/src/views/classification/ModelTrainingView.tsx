@@ -304,6 +304,56 @@ export default function ModelTrainingView({ model }: ModelTrainingViewProps) {
     [pageToggle, model, refreshTrain, refreshDataset, t],
   );
 
+  const onBulkCategorize = useCallback(
+    (category: string) => {
+      const imageCount = selectedImages.length;
+      const request =
+        pageToggle == "train"
+          ? axios.post(`/classification/${model.name}/dataset/categorize`, {
+              category,
+              training_files: selectedImages,
+            })
+          : axios.post(
+              `/classification/${model.name}/dataset/${pageToggle}/reclassify`,
+              {
+                ids: selectedImages,
+                new_category: category,
+              },
+            );
+
+      request
+        .then((resp) => {
+          if (resp.status == 200) {
+            const message =
+              pageToggle == "train"
+                ? t("toast.success.categorizedImages", { count: imageCount })
+                : t("toast.success.reclassifiedImages", {
+                    count: imageCount,
+                  });
+            toast.success(message, {
+              position: "top-center",
+            });
+            setSelectedImages([]);
+            refreshAll();
+          }
+        })
+        .catch((error) => {
+          const errorMessage =
+            error.response?.data?.message ||
+            error.response?.data?.detail ||
+            "Unknown error";
+          const message =
+            pageToggle == "train"
+              ? t("toast.error.categorizeFailed", { errorMessage })
+              : t("toast.error.reclassifyFailed", { errorMessage });
+          toast.error(message, {
+            position: "top-center",
+          });
+        });
+    },
+    [pageToggle, model, selectedImages, refreshAll, t],
+  );
+
   const onReclassify = useCallback(
     (image: string, newCategory: string) => {
       axios
@@ -489,6 +539,30 @@ export default function ModelTrainingView({ model }: ModelTrainingViewProps) {
                 </>
               )}
             </div>
+            <ClassificationSelectionDialog
+              classes={Object.keys(dataset || {})}
+              modelName={model.name}
+              excludeCategory={pageToggle != "train" ? pageToggle : undefined}
+              dialogLabel={
+                pageToggle == "train"
+                  ? t("categorizeImagesAs")
+                  : t("reclassifyImagesAs")
+              }
+              tooltipLabel={
+                pageToggle == "train"
+                  ? t("categorizeImages")
+                  : t("reclassifyImages")
+              }
+              onCategorize={onBulkCategorize}
+            >
+              <Button className="flex gap-2">
+                <TbCategoryPlus className="size-7 rounded-md p-1 text-secondary-foreground" />
+                {isDesktop &&
+                  (pageToggle == "train"
+                    ? t("button.categorizeImages")
+                    : t("button.reclassifyImages"))}
+              </Button>
+            </ClassificationSelectionDialog>
             <Button
               className="flex gap-2"
               onClick={() => setDeleteDialogOpen(selectedImages)}

@@ -33,7 +33,7 @@ type ClassificationSelectionDialogProps = {
   className?: string;
   classes: string[];
   modelName: string;
-  image: string;
+  image?: string;
   onRefresh?: () => void;
   onCategorize?: (category: string) => void;
   excludeCategory?: string;

@@ -14,7 +14,9 @@
     "trainModel": "Train Model",
     "addClassification": "Add Classification",
     "deleteModels": "Delete Models",
-    "editModel": "Edit Model"
+    "editModel": "Edit Model",
+    "categorizeImages": "Classify Images As",
+    "reclassifyImages": "Reclassify Images"
   },
   "tooltip": {
     "trainingInProgress": "Model is currently training",
@@ -35,7 +37,11 @@
       "deletedCategory_one": "Deleted {{count}} class",
       "deletedCategory_other": "Deleted {{count}} classes",
       "deletedImage_one": "Deleted {{count}} image",
-      "deletedImage_other": "Deleted {{count}} images"
+      "deletedImage_other": "Deleted {{count}} images",
+      "categorizedImages_one": "Successfully classified {{count}} image",
+      "categorizedImages_other": "Successfully classified {{count}} images",
+      "reclassifiedImages_one": "Successfully reclassified {{count}} image",
+      "reclassifiedImages_other": "Successfully reclassified {{count}} images"
     },
     "error": {
       "deleteImageFailed": "Failed to delete: {{errorMessage}}",
@@ -208,5 +214,9 @@
         "description": "Not all classes have examples. Try generating new examples to find the missing class, or continue and use the Recent Classifications view to add images later."
       }
     }
-  }
+  },
+  "categorizeImages": "Classify Images",
+  "categorizeImagesAs": "Classify Images As:",
+  "reclassifyImages": "Reclassify Images",
+  "reclassifyImagesAs": "Reclassify Images As:"
 }

@@ -295,6 +295,56 @@ export default function FaceLibrary() {
     [pageToggle, refreshFaces, t],
   );
 
+  const onBulkTrain = useCallback(
+    (trainName: string) => {
+      const faceCount = selectedFaces.length;
+      const request =
+        pageToggle == "train"
+          ? axios.post(`/faces/train/${trainName}/classify`, {
+              training_files: selectedFaces,
+            })
+          : axios.post(`/faces/${pageToggle}/reclassify`, {
+              ids: selectedFaces,
+              new_name: trainName,
+            });
+
+      request
+        .then((resp) => {
+          if (resp.status == 200) {
+            const message =
+              pageToggle == "train"
+                ? t("toast.success.trainedFaces", {
+                    count: faceCount,
+                    name: trainName,
+                  })
+                : t("toast.success.reclassifiedFaces", {
+                    count: faceCount,
+                    name: trainName,
+                  });
+            toast.success(message, {
+              position: "top-center",
+            });
+            setSelectedFaces([]);
+            refreshFaces();
+          }
+        })
+        .catch((error) => {
+          const errorMessage =
+            error.response?.data?.message ||
+            error.response?.data?.detail ||
+            "Unknown error";
+          const message =
+            pageToggle == "train"
+              ? t("toast.error.trainFailed", { errorMessage })
+              : t("toast.error.reclassifyFailed", { errorMessage });
+          toast.error(message, {
+            position: "top-center",
+          });
+        });
+    },
+    [pageToggle, selectedFaces, refreshFaces, t],
+  );
+
   // keyboard
 
   const contentRef = useRef<HTMLDivElement | null>(null);
@@ -435,6 +485,25 @@ export default function FaceLibrary() {
                 </>
               )}
             </div>
+            <FaceSelectionDialog
+              faceNames={faces}
+              excludeName={pageToggle != "train" ? pageToggle : undefined}
+              dialogLabel={
+                pageToggle == "train" ? t("trainFaceAs") : t("reclassifyFaceAs")
+              }
+              tooltipLabel={
+                pageToggle == "train" ? t("trainFace") : t("reclassifyFace")
+              }
+              onTrainAttempt={onBulkTrain}
+            >
+              <Button className="flex gap-2">
+                <AddFaceIcon className="size-7 rounded-md p-1 text-secondary-foreground" />
+                {isDesktop &&
+                  (pageToggle == "train"
+                    ? t("button.trainFaces")
+                    : t("button.reclassifyFaces"))}
+              </Button>
+            </FaceSelectionDialog>
             <Button
               className="flex gap-2"
               onClick={() =>
