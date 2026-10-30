@@ -148,14 +148,52 @@ test.describe("genai provider settings @medium", () => {
     await frigateApp.page.getByRole("option", { name: "qwen3" }).click();
     await expect(model).toHaveText("qwen3");
 
-    // the model picked for llamacpp must not carry over to openai, and the
-    // saved one isn't filled back in since the endpoint may have changed
+    // the model picked for llamacpp must not carry over to openai. With no
+    // other edits the section is back to its saved state, so the form shows
+    // the saved model again and has nothing to save
+    await provider.click();
+    await frigateApp.page
+      .getByRole("option", { name: "openai", exact: true })
+      .click();
+
+    await expect(model).toHaveText("gpt-4o");
+    await expect(frigateApp.page.getByText(UNSAVED)).toBeHidden();
+  });
+
+  test("switching back to the saved provider after editing the endpoint keeps the model cleared", async ({
+    frigateApp,
+  }) => {
+    await installRoutes(
+      frigateApp.page,
+      {
+        provider: "openai",
+        model: "gpt-4o",
+        roles: ["descriptions"],
+      },
+      { models: ["gpt-4o", "qwen3"], supports_transcription: true },
+    );
+    await frigateApp.goto(SETTINGS_URL);
+
+    const model = frigateApp.page.locator(`#root_${ENTRY}_model`);
+    const provider = frigateApp.page.locator(`#root_${ENTRY}_provider`);
+    await expect(model).toHaveText("gpt-4o");
+
+    await provider.click();
+    await frigateApp.page.getByRole("option", { name: "llamacpp" }).click();
+    await model.click();
+    await frigateApp.page.getByRole("option", { name: "qwen3" }).click();
+    await frigateApp.page
+      .locator(`#root_${ENTRY}_base_url`)
+      .fill("http://llama:8080");
+
+    // the saved model isn't filled back in since the endpoint changed
     await provider.click();
     await frigateApp.page
       .getByRole("option", { name: "openai", exact: true })
       .click();
 
     await expect(model).toHaveText(MODEL_PLACEHOLDER);
+    await expect(frigateApp.page.getByText(UNSAVED)).toBeVisible();
   });
 
   test("undo after switching provider brings back the saved model", async ({
