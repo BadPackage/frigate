@@ -20,6 +20,23 @@ function ignoreDynamicNamespaceKeys(): Plugin {
     "",
     "_one",
     "_other",
+    // Newer extractor versions expand template literals over every value of
+    // the variable's type, including branches that never reach that t() call
+    // (they are handled by other keys first)
+    "export.time.1",
+    "export.time.4",
+    "export.time.8",
+    "export.time.12",
+    "export.time.24",
+    "export.time.timeline",
+    "dialog.preset.timelinem",
+    "dialog.preset.customm",
+    "noCameras.restricted.buttonText",
+    // From t(`stream.technology.name.${type}`), which falls back to the raw
+    // stream type through defaultValue
+    "stream.technology.name.debug",
+    // From <Trans> blocks whose only children are elements
+    "<0></0>",
   ]);
 
   return {
