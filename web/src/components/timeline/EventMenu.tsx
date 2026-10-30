@@ -115,7 +115,7 @@ export default function EventMenu({
       <span tabIndex={0} className="sr-only" />
       <DropdownMenu modal={false} open={isOpen} onOpenChange={setIsOpen}>
         <DropdownMenuTrigger>
-          <div className="rounded p-1 pr-2" role="button">
+          <div className="rounded-sm p-1 pr-2" role="button">
             <HiDotsHorizontal className="size-4 text-muted-foreground" />
           </div>
         </DropdownMenuTrigger>

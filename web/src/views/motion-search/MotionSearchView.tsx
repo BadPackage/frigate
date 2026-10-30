@@ -1053,8 +1053,8 @@ export default function MotionSearchView({
 
   const timelinePanel = (
     <>
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-[30px] w-full bg-gradient-to-b from-secondary to-transparent" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[30px] w-full bg-gradient-to-t from-secondary to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-[30px] w-full bg-linear-to-b from-secondary to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[30px] w-full bg-linear-to-t from-secondary to-transparent" />
 
       <SaveExportOverlay
         className="pointer-events-none absolute inset-x-0 top-0 z-30"
@@ -1165,7 +1165,7 @@ export default function MotionSearchView({
         </div>
       )}
 
-      <ScrollArea className="flex-1 [&>[data-radix-scroll-area-viewport]>div]:!block">
+      <ScrollArea className="flex-1 [&>[data-radix-scroll-area-viewport]>div]:block!">
         {isSearching && (
           <div className="flex flex-col gap-1.5 border-b p-3">
             <div className="flex items-center gap-2">
@@ -1261,7 +1261,7 @@ export default function MotionSearchView({
           )}
 
         {(searchResults.length > 0 || (hasSearched && !isSearching)) && (
-          <div className="border-t px-1.5 pb-1.5 pt-3">
+          <div className="border-t px-1.5 pt-3 pb-1.5">
             <h3 className="text-sm font-medium tracking-wide text-muted-foreground">
               {searchResults.length > 0 && (
                 <span className="ml-1.5">{searchResults.length}</span>
@@ -1529,21 +1529,21 @@ export default function MotionSearchView({
                   ? "mr-2 h-full min-h-0 min-w-0 flex-1 items-center"
                   : "mx-2 h-full min-h-0 min-w-0 flex-1"
                 : mainCameraAspect === "tall"
-                  ? "flex-1 portrait:h-[40dvh] portrait:max-h-[40dvh] portrait:flex-shrink-0 portrait:flex-grow-0 portrait:basis-auto portrait:items-center portrait:justify-center"
-                  : "flex-1 portrait:max-h-[40dvh] portrait:flex-shrink-0 portrait:flex-grow-0 portrait:basis-auto landscape:items-center landscape:justify-center",
+                  ? "flex-1 portrait:h-[40dvh] portrait:max-h-[40dvh] portrait:shrink-0 portrait:grow-0 portrait:basis-auto portrait:items-center portrait:justify-center"
+                  : "flex-1 portrait:max-h-[40dvh] portrait:shrink-0 portrait:grow-0 portrait:basis-auto landscape:items-center landscape:justify-center",
             )}
           >
             <div
               className={cn(
-                "relative flex max-h-full min-h-0 min-w-0 max-w-full items-center justify-center",
+                "relative flex max-h-full min-h-0 max-w-full min-w-0 items-center justify-center",
                 isDesktop
                   ? mainCameraAspect === "tall" || useHeightBased
                     ? "h-full"
                     : "w-full"
                   : mainCameraAspect == "tall"
-                    ? "aspect-tall h-full w-auto max-w-full flex-shrink-0 landscape:h-full"
+                    ? "aspect-tall h-full w-auto max-w-full shrink-0 landscape:h-full"
                     : cn(
-                        "flex-shrink-0 portrait:w-full landscape:h-full",
+                        "shrink-0 portrait:w-full landscape:h-full",
                         mainCameraAspect == "wide"
                           ? "aspect-wide"
                           : "aspect-video",
@@ -1602,7 +1602,7 @@ export default function MotionSearchView({
 
           {isDesktop ? (
             <>
-              <div className="relative w-[100px] flex-shrink-0 overflow-hidden">
+              <div className="relative w-[100px] shrink-0 overflow-hidden">
                 {timelinePanel}
               </div>
 
@@ -1610,11 +1610,11 @@ export default function MotionSearchView({
             </>
           ) : (
             <div className="flex min-h-0 flex-1 flex-col overflow-hidden landscape:flex-row">
-              <div className="relative min-h-0 basis-1/2 overflow-hidden landscape:w-[100px] landscape:flex-shrink-0 landscape:basis-auto">
+              <div className="relative min-h-0 basis-1/2 overflow-hidden landscape:w-[100px] landscape:shrink-0 landscape:basis-auto">
                 {timelinePanel}
               </div>
 
-              <div className="flex min-h-0 basis-1/2 flex-col border-t landscape:flex-1 landscape:border-l landscape:border-t-0">
+              <div className="flex min-h-0 basis-1/2 flex-col border-t landscape:flex-1 landscape:border-t-0 landscape:border-l">
                 {resultsPanel}
               </div>
             </div>
@@ -1655,7 +1655,7 @@ function SearchResultItem({
         {formattedTime}
       </span>
       <span
-        className="shrink-0 text-xs tabular-nums text-muted-foreground"
+        className="shrink-0 text-xs text-muted-foreground tabular-nums"
         title={t("changePercentage", {
           percentage: result.change_percentage.toFixed(1),
         })}

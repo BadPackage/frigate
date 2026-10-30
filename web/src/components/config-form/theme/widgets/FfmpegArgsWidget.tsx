@@ -325,7 +325,7 @@ export function FfmpegArgsWidget(props: WidgetProps) {
         className="gap-3"
       >
         {showUseGlobalSetting ? (
-          <div className="flex items-center space-x-2">
+          <div className="space-x-2 flex items-center">
             <RadioGroupItem
               value="inherit"
               id={`${id}-inherit`}
@@ -343,7 +343,7 @@ export function FfmpegArgsWidget(props: WidgetProps) {
             </label>
           </div>
         ) : allowInherit ? (
-          <div className="flex items-center space-x-2">
+          <div className="space-x-2 flex items-center">
             <RadioGroupItem
               value="inherit"
               id={`${id}-inherit`}
@@ -361,7 +361,7 @@ export function FfmpegArgsWidget(props: WidgetProps) {
             </label>
           </div>
         ) : (
-          <div className="flex items-center space-x-2">
+          <div className="space-x-2 flex items-center">
             <RadioGroupItem
               value="none"
               id={`${id}-none`}
@@ -379,7 +379,7 @@ export function FfmpegArgsWidget(props: WidgetProps) {
             </label>
           </div>
         )}
-        <div className="flex items-center space-x-2">
+        <div className="space-x-2 flex items-center">
           <RadioGroupItem
             value="preset"
             id={`${id}-preset`}
@@ -394,7 +394,7 @@ export function FfmpegArgsWidget(props: WidgetProps) {
             {t("configForm.ffmpegArgs.preset", { ns: "views/settings" })}
           </label>
         </div>
-        <div className="flex items-center space-x-2">
+        <div className="space-x-2 flex items-center">
           <RadioGroupItem
             value="manual"
             id={`${id}-manual`}

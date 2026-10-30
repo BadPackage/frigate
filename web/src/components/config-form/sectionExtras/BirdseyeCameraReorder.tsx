@@ -130,7 +130,7 @@ export default function BirdseyeCameraReorder({
         ns: "views/settings",
       })}
       content={
-        <div className="max-w-md space-y-1.5">
+        <div className="space-y-1.5 max-w-md">
           <Reorder.Group
             as="div"
             axis="y"
@@ -203,7 +203,7 @@ function BirdseyeCameraRow({ camera, onDragEnd }: BirdseyeCameraRowProps) {
       <button
         type="button"
         onPointerDown={(e) => controls.start(e)}
-        className="-ml-1 cursor-grab touch-none rounded p-1 text-muted-foreground hover:text-primary active:cursor-grabbing"
+        className="-ml-1 cursor-grab touch-none rounded-sm p-1 text-muted-foreground hover:text-primary active:cursor-grabbing"
         aria-label={t("birdseye.cameraOrder.reorderHandle")}
       >
         <LuGripVertical className="size-4" />

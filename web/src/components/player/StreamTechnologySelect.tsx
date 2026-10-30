@@ -39,7 +39,7 @@ export default function StreamTechnologySelect({
       <SelectTrigger className="w-full">
         <span>{t(`stream.technology.name.${value}`)}</span>
       </SelectTrigger>
-      <SelectContent className="w-[var(--radix-select-trigger-width)]">
+      <SelectContent className="w-(--radix-select-trigger-width)">
         <SelectItem value="mse">
           <span className="flex flex-col gap-0.5 whitespace-normal">
             <span>{t("stream.technology.name.mse")}</span>
@@ -51,7 +51,7 @@ export default function StreamTechnologySelect({
         <SelectItem
           value="webrtc"
           disabled={!isWebRTCAvailable}
-          className="data-[disabled]:opacity-100"
+          className="data-disabled:opacity-100"
         >
           <span className="flex flex-col gap-0.5 whitespace-normal">
             <span className={cn(!isWebRTCAvailable && "opacity-50")}>

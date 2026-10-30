@@ -62,7 +62,7 @@ export default function CameraReviewStatusToggles({
         <Trans ns="views/settings">cameraReview.title</Trans>
       </Heading>
 
-      <div className="mb-5 mt-2 flex max-w-5xl flex-col gap-2 space-y-3 text-sm text-primary-variant">
+      <div className="space-y-3 mt-2 mb-5 flex max-w-5xl flex-col gap-2 text-sm text-primary-variant">
         <div className="flex flex-row items-center">
           <Switch
             id="alerts-enabled"
@@ -112,7 +112,7 @@ export default function CameraReviewStatusToggles({
             </Trans>
           </Heading>
 
-          <div className="mb-5 mt-2 flex max-w-5xl flex-col gap-2 space-y-3 text-sm text-primary-variant">
+          <div className="space-y-3 mt-2 mb-5 flex max-w-5xl flex-col gap-2 text-sm text-primary-variant">
             <div className="flex flex-row items-center">
               <Switch
                 id="object-descriptions-enabled"
@@ -147,7 +147,7 @@ export default function CameraReviewStatusToggles({
             </Trans>
           </Heading>
 
-          <div className="mb-5 mt-2 flex max-w-5xl flex-col gap-2 space-y-3 text-sm text-primary-variant">
+          <div className="space-y-3 mt-2 mb-5 flex max-w-5xl flex-col gap-2 text-sm text-primary-variant">
             <div className="flex flex-row items-center">
               <Switch
                 id="review-descriptions-enabled"

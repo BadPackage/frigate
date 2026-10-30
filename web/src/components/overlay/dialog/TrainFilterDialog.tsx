@@ -147,7 +147,7 @@ export function ClassFilterContent({
         <div className="text-lg">{t("classes.label")}</div>
         {allClasses && (
           <>
-            <div className="mb-5 mt-2.5 flex items-center justify-between">
+            <div className="mt-2.5 mb-5 flex items-center justify-between">
               <Label
                 className="mx-2 cursor-pointer text-primary"
                 htmlFor="allClasses"

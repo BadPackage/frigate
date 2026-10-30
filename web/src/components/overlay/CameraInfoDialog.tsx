@@ -166,7 +166,7 @@ export default function CameraInfoDialog({
                               </div>
                             ) : (
                               <div className="text-muted-foreground">
-                                <div className="ml-2 mt-1">
+                                <div className="mt-1 ml-2">
                                   {t("cameras.info.audio")}
                                 </div>
                                 <div className="ml-4">

@@ -51,7 +51,7 @@ export function ConfigFieldMessage({
   return (
     <Alert
       variant={severityVariantMap[severity as MessageSeverity] ?? "info"}
-      className="flex items-center [&>svg+div]:translate-y-0 [&>svg]:static [&>svg~*]:pl-2"
+      className="flex items-center [&>svg]:static [&>svg+div]:translate-y-0 [&>svg~*]:pl-2"
     >
       <SeverityIcon severity={severity} />
       <AlertDescription>

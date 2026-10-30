@@ -58,13 +58,13 @@ export default function RegionGridSettingsView({
   return (
     <>
       <div className="flex size-full flex-col md:flex-row">
-        <div className="scrollbar-container order-last mb-2 mt-2 flex h-full w-full flex-col overflow-y-auto px-2 md:order-none">
+        <div className="order-last mt-2 mb-2 scrollbar-container flex h-full w-full flex-col overflow-y-auto px-2 md:order-0">
           <Heading as="h4" className="mb-2 hidden md:block">
             {t("maintenance.regionGrid.title")}
           </Heading>
 
           <div className="max-w-6xl">
-            <div className="mb-5 mt-2 flex max-w-5xl flex-col gap-2 text-sm text-muted-foreground">
+            <div className="mt-2 mb-5 flex max-w-5xl flex-col gap-2 text-sm text-muted-foreground">
               <p>{t("maintenance.regionGrid.desc")}</p>
             </div>
           </div>

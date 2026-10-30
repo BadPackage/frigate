@@ -184,7 +184,7 @@ export function MessageBubble({
           <div
             className={cn(
               !isComplete &&
-                "after:ml-0.5 after:inline-block after:h-4 after:w-2 after:animate-cursor-blink after:rounded-sm after:bg-foreground after:align-middle after:content-[''] [&>p:last-child]:inline",
+                "after:ml-0.5 after:inline-block after:h-4 after:w-2 after:animate-cursor-blink after:rounded-xs after:bg-foreground after:align-middle after:content-[''] [&>p:last-child]:inline",
             )}
           >
             <ReactMarkdown
@@ -195,13 +195,13 @@ export function MessageBubble({
                 ),
                 ul: ({ node: _n, ...props }) => (
                   <ul
-                    className="my-2 list-disc space-y-1 pl-6 first:mt-0 last:mb-0"
+                    className="my-2 space-y-1 list-disc pl-6 first:mt-0 last:mb-0"
                     {...props}
                   />
                 ),
                 ol: ({ node: _n, ...props }) => (
                   <ol
-                    className="my-2 list-decimal space-y-1 pl-6 first:mt-0 last:mb-0"
+                    className="my-2 space-y-1 list-decimal pl-6 first:mt-0 last:mb-0"
                     {...props}
                   />
                 ),
@@ -211,7 +211,7 @@ export function MessageBubble({
                 code: ({ node: _n, className, ...props }) => (
                   <code
                     className={cn(
-                      "rounded bg-foreground/10 px-1 py-0.5 font-mono text-sm",
+                      "rounded-sm bg-foreground/10 px-1 py-0.5 font-mono text-sm",
                       className,
                     )}
                     {...props}

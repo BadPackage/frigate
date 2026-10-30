@@ -396,7 +396,7 @@ export function GeneralFilterContent({
   return (
     <>
       <div className="overflow-x-hidden">
-        <div className="mb-5 mt-2.5 flex items-center justify-between">
+        <div className="mt-2.5 mb-5 flex items-center justify-between">
           <Label
             className="mx-2 cursor-pointer text-primary"
             htmlFor="allLabels"
@@ -591,7 +591,7 @@ export function SortTypeContent({
             onValueChange={(value) =>
               setCurrentSortType(value as SearchSortType)
             }
-            className="w-full space-y-1"
+            className="space-y-1 w-full"
           >
             {availableSortTypes.map((value) => (
               <div key={value} className="flex flex-row gap-2">
@@ -606,7 +606,7 @@ export function SortTypeContent({
                 />
                 <Label
                   htmlFor={`sort-${value}`}
-                  className="flex cursor-pointer items-center space-x-2"
+                  className="space-x-2 flex cursor-pointer items-center"
                 >
                   <span>{sortLabels[value]}</span>
                 </Label>

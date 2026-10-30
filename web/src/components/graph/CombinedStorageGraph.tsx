@@ -262,7 +262,7 @@ export function CombinedStorageGraph({
                     <Popover>
                       <PopoverTrigger asChild>
                         <button
-                          className="focus:outline-none"
+                          className="focus:outline-hidden"
                           aria-label={t(
                             "storage.cameraStorage.subStream.information",
                           )}
@@ -306,7 +306,7 @@ export function CombinedStorageGraph({
                       <Popover>
                         <PopoverTrigger asChild>
                           <button
-                            className="focus:outline-none"
+                            className="focus:outline-hidden"
                             aria-label={t(
                               "storage.cameraStorage.unusedStorageInformation",
                             )}

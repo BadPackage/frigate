@@ -197,7 +197,7 @@ export function AdvancedCollapsible({
           {label}
         </Button>
       </CollapsibleTrigger>
-      <CollapsibleContent className="mt-2 space-y-4 rounded-lg border border-border/60 bg-secondary/40 p-4">
+      <CollapsibleContent className="space-y-4 mt-2 rounded-lg border border-border/60 bg-secondary/40 p-4">
         {children}
       </CollapsibleContent>
     </Collapsible>

@@ -91,7 +91,7 @@ export default function HealthProblemRow({ problem }: HealthProblemRowProps) {
         {hasDetails && (
           <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
             {problem.scope && (
-              <span className="rounded bg-secondary px-1.5 py-0.5 text-xs text-primary-variant">
+              <span className="rounded-sm bg-secondary px-1.5 py-0.5 text-xs text-primary-variant">
                 {problem.scopeIsCamera ? (
                   <CameraNameLabel camera={problem.scope} />
                 ) : (

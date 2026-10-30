@@ -582,24 +582,24 @@ export default function LiveCameraView({
   const growClassName = useMemo(() => {
     if (isMobile) {
       if (isPortrait) {
-        return "absolute left-0.5 right-0.5 top-[50%] -translate-y-[50%]";
+        return "absolute left-0.5 right-0.5 top-[50%] translate-y-[-50%]";
       } else {
         if (cameraAspectRatio > containerAspectRatio) {
-          return "p-2 absolute left-0 top-[50%] -translate-y-[50%]";
+          return "p-2 absolute left-0 top-[50%] translate-y-[-50%]";
         } else {
-          return "p-2 absolute top-0.5 bottom-0.5 left-[50%] -translate-x-[50%]";
+          return "p-2 absolute top-0.5 bottom-0.5 left-[50%] translate-x-[-50%]";
         }
       }
     }
 
     if (fullscreen) {
       if (cameraAspectRatio > containerAspectRatio) {
-        return "absolute inset-x-2 top-[50%] -translate-y-[50%]";
+        return "absolute inset-x-2 top-[50%] translate-y-[-50%]";
       } else {
-        return "absolute inset-y-2 left-[50%] -translate-x-[50%]";
+        return "absolute inset-y-2 left-[50%] translate-x-[-50%]";
       }
     } else {
-      return "absolute top-0.5 bottom-0.5 left-[50%] -translate-x-[50%]";
+      return "absolute top-0.5 bottom-0.5 left-[50%] translate-x-[-50%]";
     }
   }, [fullscreen, isPortrait, cameraAspectRatio, containerAspectRatio]);
 
@@ -678,7 +678,7 @@ export default function LiveCameraView({
         <div
           className={
             fullscreen
-              ? `absolute right-32 top-1 z-40 ${isMobile ? "landscape:bottom-1 landscape:left-2 landscape:right-auto landscape:top-auto" : ""}`
+              ? `absolute top-1 right-32 z-40 ${isMobile ? "landscape:top-auto landscape:right-auto landscape:bottom-1 landscape:left-2" : ""}`
               : `flex h-12 w-full flex-row items-center justify-between ${isMobile ? "landscape:h-full landscape:w-12 landscape:flex-col" : ""}`
           }
         >
@@ -732,7 +732,7 @@ export default function LiveCameraView({
           >
             {fullscreen && (
               <Button
-                className="bg-gray-500 bg-gradient-to-br from-gray-400 to-gray-500 text-primary"
+                className="bg-gray-500 bg-linear-to-br from-gray-400 to-gray-500 text-primary"
                 aria-label={t("label.back", { ns: "common" })}
                 size="sm"
                 onClick={() => navigate(-1)}
@@ -943,7 +943,7 @@ export default function LiveCameraView({
               transcription != null && (
                 <div
                   ref={transcriptionRef}
-                  className="scrollbar-container absolute bottom-4 left-1/2 max-h-[15vh] w-[75%] -translate-x-1/2 overflow-y-auto rounded-lg bg-black/70 p-2 text-white md:w-[50%]"
+                  className="absolute bottom-4 left-1/2 scrollbar-container max-h-[15vh] w-[75%] -translate-x-1/2 overflow-y-auto rounded-lg bg-black/70 p-2 text-white md:w-[50%]"
                 >
                   {transcription}
                 </div>
@@ -968,7 +968,7 @@ export default function LiveCameraView({
       {camera.onvif.host != "" && (
         <div className="flex flex-col items-center justify-center">
           <PtzControlPanel
-            className={debug && isMobile ? "bottom-auto top-[25%]" : ""}
+            className={debug && isMobile ? "top-[25%] bottom-auto" : ""}
             camera={camera.name}
             enabled={cameraEnabled}
             clickOverlay={clickOverlay}
@@ -1089,7 +1089,7 @@ function FrigateCameraFeatures({
         recordingEventIdRef.current = response.data.event_id;
         setIsRecording(true);
         const toastId = toast.success(
-          <div className="flex flex-col space-y-3">
+          <div className="space-y-3 flex flex-col">
             <div className="font-semibold">{t("manualRecording.started")}</div>
             {!camera.record.enabled ||
               (camera.record.alerts.retain.days == 0 && (
@@ -1691,7 +1691,7 @@ function FrigateCameraFeatures({
         />
       </DrawerTrigger>
       <DrawerContent className="max-h-[75dvh] overflow-hidden rounded-2xl">
-        <div className="scrollbar-container mt-2 flex h-auto flex-col gap-2 overflow-y-auto px-2 py-4">
+        <div className="mt-2 scrollbar-container flex h-auto flex-col gap-2 overflow-y-auto px-2 py-4">
           <>
             {isAdmin && (
               <>
@@ -1972,7 +1972,7 @@ function FrigateCameraFeatures({
                   </div>
                 )}
               <div className="flex flex-col gap-1 px-2">
-                <div className="mb-1 text-sm font-medium leading-none">
+                <div className="mb-1 text-sm leading-none font-medium">
                   {t("manualRecording.title")}
                 </div>
                 <div className="flex flex-row items-stretch gap-2">

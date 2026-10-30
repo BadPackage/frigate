@@ -66,7 +66,7 @@ export function ReasoningBubble({
             <Button
               variant="ghost"
               size="sm"
-              className="h-auto w-full min-w-0 justify-start gap-2 whitespace-normal p-0 text-left text-xs hover:bg-transparent"
+              className="h-auto w-full min-w-0 justify-start gap-2 p-0 text-left text-xs whitespace-normal hover:bg-transparent"
             >
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -90,7 +90,7 @@ export function ReasoningBubble({
             </Button>
           </CollapsibleTrigger>
           <CollapsibleContent>
-            <pre className="scrollbar-container mt-2 max-h-64 overflow-auto whitespace-pre-wrap break-words rounded bg-muted/50 p-2 font-sans text-xs leading-relaxed">
+            <pre className="mt-2 scrollbar-container max-h-64 overflow-auto rounded-sm bg-muted/50 p-2 font-sans text-xs leading-relaxed wrap-break-word whitespace-pre-wrap">
               {reasoning}
             </pre>
           </CollapsibleContent>

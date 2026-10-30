@@ -335,7 +335,7 @@ function TimeRangeFilterContent({
           </PopoverTrigger>
           <PopoverContent className="flex flex-row items-center justify-center">
             <input
-              className="mx-4 w-full border border-input bg-background p-1 text-secondary-foreground hover:bg-accent hover:text-accent-foreground dark:[color-scheme:dark]"
+              className="mx-4 w-full border border-input bg-background p-1 text-secondary-foreground hover:bg-accent hover:text-accent-foreground dark:scheme-dark"
               id="startTime"
               type="time"
               value={selectedAfterHour}
@@ -375,7 +375,7 @@ function TimeRangeFilterContent({
           </PopoverTrigger>
           <PopoverContent className="flex flex-col items-center">
             <input
-              className="mx-4 w-full border border-input bg-background p-1 text-secondary-foreground hover:bg-accent hover:text-accent-foreground dark:[color-scheme:dark]"
+              className="mx-4 w-full border border-input bg-background p-1 text-secondary-foreground hover:bg-accent hover:text-accent-foreground dark:scheme-dark"
               id="startTime"
               type="time"
               value={
@@ -413,7 +413,7 @@ export function ZoneFilterContent({
         <div className="text-lg">{t("zones.label")}</div>
         {allZones && (
           <>
-            <div className="mb-5 mt-2.5 flex items-center justify-between">
+            <div className="mt-2.5 mb-5 flex items-center justify-between">
               <Label
                 className="mx-2 cursor-pointer text-primary"
                 htmlFor="allZones"
@@ -486,7 +486,7 @@ export function SubFilterContent({
     <div className="overflow-x-hidden">
       <DropdownMenuSeparator className="mb-3" />
       <div className="text-lg">{t("subLabels.label")}</div>
-      <div className="mb-5 mt-2.5 flex items-center justify-between">
+      <div className="mt-2.5 mb-5 flex items-center justify-between">
         <Label className="mx-2 cursor-pointer text-primary" htmlFor="allLabels">
           {t("subLabels.all")}
         </Label>
@@ -683,7 +683,7 @@ export function SnapshotClipFilterContent({
 
       <div className="my-2.5 space-y-1">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
+          <div className="space-x-2 flex items-center">
             <Checkbox
               id="snapshot-filter"
               className="size-5 text-white accent-white data-[state=checked]:bg-selected data-[state=checked]:text-white"
@@ -699,7 +699,7 @@ export function SnapshotClipFilterContent({
             />
             <Label
               htmlFor="snapshot-filter"
-              className="cursor-pointer text-sm font-medium leading-none"
+              className="cursor-pointer text-sm leading-none font-medium"
             >
               {t("features.hasSnapshot")}
             </Label>
@@ -733,7 +733,7 @@ export function SnapshotClipFilterContent({
         </div>
 
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
+          <div className="space-x-2 flex items-center">
             <Checkbox
               className="size-5 text-white accent-white data-[state=checked]:bg-selected data-[state=checked]:text-white"
               id="clip-filter"
@@ -749,7 +749,7 @@ export function SnapshotClipFilterContent({
             />
             <Label
               htmlFor="clip-filter"
-              className="cursor-pointer text-sm font-medium leading-none"
+              className="cursor-pointer text-sm leading-none font-medium"
             >
               {t("features.hasVideoClip")}
             </Label>
@@ -900,7 +900,7 @@ export function RecognizedLicensePlatesFilterContent({
       <div className="mb-3 text-lg">{t("recognizedLicensePlates.title")}</div>
       {allRecognizedLicensePlates == undefined ? (
         <div className="flex flex-col items-center justify-center text-sm text-muted-foreground">
-          <ActivityIndicator className="mb-3 mr-2 size-5" />
+          <ActivityIndicator className="mr-2 mb-3 size-5" />
           <p>{t("recognizedLicensePlates.loading")}</p>
         </div>
       ) : allRecognizedLicensePlates.length == 0 ? null : (
@@ -945,7 +945,7 @@ export function RecognizedLicensePlatesFilterContent({
               {selectedRecognizedLicensePlates.map((id) => (
                 <span
                   key={id}
-                  className="inline-flex items-center rounded bg-selected px-2 py-1 text-sm text-white"
+                  className="inline-flex items-center rounded-sm bg-selected px-2 py-1 text-sm text-white"
                 >
                   {id}
                   <button
@@ -1013,7 +1013,7 @@ export function AttributeFilterContent({
     <div className="overflow-x-hidden">
       <DropdownMenuSeparator className="mb-3" />
       <div className="text-lg">{t("attributes.label")}</div>
-      <div className="mb-5 mt-2.5 flex items-center justify-between">
+      <div className="mt-2.5 mb-5 flex items-center justify-between">
         <Label
           className="mx-2 cursor-pointer text-primary"
           htmlFor="allAttributes"

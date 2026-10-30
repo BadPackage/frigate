@@ -23,13 +23,13 @@ export default function FilterSwitch({
     <div className="flex items-center justify-between gap-1">
       {type === "camera" ? (
         <CameraNameLabel
-          className={`mx-2 w-full cursor-pointer text-sm font-medium leading-none text-primary smart-capitalize peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${disabled ? "text-secondary-foreground" : ""}`}
+          className={`mx-2 w-full cursor-pointer text-sm leading-none font-medium text-primary smart-capitalize peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${disabled ? "text-secondary-foreground" : ""}`}
           htmlFor={label}
           camera={label}
         />
       ) : type === "zone" ? (
         <ZoneNameLabel
-          className={`mx-2 w-full cursor-pointer text-sm font-medium leading-none text-primary smart-capitalize peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${disabled ? "text-secondary-foreground" : ""}`}
+          className={`mx-2 w-full cursor-pointer text-sm leading-none font-medium text-primary smart-capitalize peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${disabled ? "text-secondary-foreground" : ""}`}
           htmlFor={label}
           camera={extraValue}
           zone={label}

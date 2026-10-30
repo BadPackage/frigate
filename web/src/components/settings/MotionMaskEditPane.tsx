@@ -402,7 +402,7 @@ export default function MotionMaskEditPane({
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="flex flex-1 flex-col space-y-6"
+            className="space-y-6 flex flex-1 flex-col"
           >
             <NameAndIdFields
               type="motion_mask"

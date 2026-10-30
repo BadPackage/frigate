@@ -160,7 +160,7 @@ export function ErrorListTemplate(props: ErrorListProps) {
       <LuCircleAlert className="h-4 w-4" />
       <AlertTitle>{t("validation_errors", { ns: "common" })}</AlertTitle>
       <AlertDescription>
-        <ul className="mt-2 list-inside list-disc space-y-1">
+        <ul className="space-y-1 mt-2 list-inside list-disc">
           {errors.map((error: RJSFValidationError, index: number) => {
             const fieldLabel = resolveErrorFieldLabel({
               error,

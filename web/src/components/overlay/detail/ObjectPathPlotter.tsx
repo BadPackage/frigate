@@ -145,7 +145,7 @@ export default function ObjectPathPlotter() {
       <CardContent>
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-2xl font-bold">Tracked Object Paths</h2>
-          <div className="flex space-x-2">
+          <div className="space-x-2 flex">
             <Select value={selectedCamera} onValueChange={setSelectedCamera}>
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Select camera" />
@@ -218,13 +218,13 @@ export default function ObjectPathPlotter() {
             {paginatedEvents?.map((event) => (
               <div
                 key={event.id}
-                className={`flex cursor-pointer items-center rounded p-1 ${
+                className={`flex cursor-pointer items-center rounded-sm p-1 ${
                   selectedEvent?.id === event.id ? "bg-secondary" : ""
                 }`}
                 onClick={() => handleEventClick(event)}
               >
                 <div
-                  className="mr-2 h-4 w-4 flex-shrink-0"
+                  className="mr-2 h-4 w-4 shrink-0"
                   style={{
                     backgroundColor: `rgb(${eventColors[event.id].join(",")})`,
                   }}

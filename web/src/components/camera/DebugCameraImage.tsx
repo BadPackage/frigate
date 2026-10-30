@@ -98,7 +98,7 @@ function DebugSettings({ handleSetOption, options }: DebugSettingsProps) {
   const { t } = useTranslation(["components/camera"]);
   return (
     <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-      <div className="flex items-center space-x-2">
+      <div className="space-x-2 flex items-center">
         <Switch
           id="bbox"
           checked={options["bbox"]}
@@ -108,7 +108,7 @@ function DebugSettings({ handleSetOption, options }: DebugSettingsProps) {
         />
         <Label htmlFor="bbox">{t("debug.boundingBox")}</Label>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="space-x-2 flex items-center">
         <Switch
           id="timestamp"
           checked={options["timestamp"]}
@@ -118,7 +118,7 @@ function DebugSettings({ handleSetOption, options }: DebugSettingsProps) {
         />
         <Label htmlFor="timestamp">{t("debug.timestamp")}</Label>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="space-x-2 flex items-center">
         <Switch
           id="zones"
           checked={options["zones"]}
@@ -128,7 +128,7 @@ function DebugSettings({ handleSetOption, options }: DebugSettingsProps) {
         />
         <Label htmlFor="zones">{t("debug.zones")}</Label>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="space-x-2 flex items-center">
         <Switch
           id="mask"
           checked={options["mask"]}
@@ -138,7 +138,7 @@ function DebugSettings({ handleSetOption, options }: DebugSettingsProps) {
         />
         <Label htmlFor="mask">{t("debug.mask")}</Label>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="space-x-2 flex items-center">
         <Switch
           id="motion"
           checked={options["motion"]}
@@ -148,7 +148,7 @@ function DebugSettings({ handleSetOption, options }: DebugSettingsProps) {
         />
         <Label htmlFor="motion">{t("debug.motion")}</Label>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="space-x-2 flex items-center">
         <Switch
           id="regions"
           checked={options["regions"]}
@@ -158,7 +158,7 @@ function DebugSettings({ handleSetOption, options }: DebugSettingsProps) {
         />
         <Label htmlFor="regions">{t("debug.regions")}</Label>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="space-x-2 flex items-center">
         <Switch
           id="paths"
           checked={options["paths"]}

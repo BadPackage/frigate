@@ -188,16 +188,16 @@ function Row({ icon, children }: RowProps) {
   return (
     <div className="flex items-start gap-2">
       {icon === "ok" && (
-        <FaCircleCheck className="mt-0.5 size-4 flex-shrink-0 text-success" />
+        <FaCircleCheck className="mt-0.5 size-4 shrink-0 text-success" />
       )}
       {icon === "warning" && (
-        <FaTriangleExclamation className="mt-0.5 size-4 flex-shrink-0 text-yellow-500" />
+        <FaTriangleExclamation className="mt-0.5 size-4 shrink-0 text-yellow-500" />
       )}
       {icon === "error" && (
-        <LuX className="mt-0.5 size-4 flex-shrink-0 text-danger" />
+        <LuX className="mt-0.5 size-4 shrink-0 text-danger" />
       )}
       {icon === "unknown" && (
-        <FaTriangleExclamation className="mt-0.5 size-4 flex-shrink-0 text-muted-foreground" />
+        <FaTriangleExclamation className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
       )}
       <span className="text-primary">{children}</span>
     </div>

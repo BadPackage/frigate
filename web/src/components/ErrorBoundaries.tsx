@@ -121,7 +121,7 @@ function PagePanel({ failure }: PanelProps) {
       </p>
       <code
         data-testid="error-panel-message"
-        className="my-4 max-w-full overflow-x-auto whitespace-pre-wrap break-words rounded-md bg-secondary px-3 py-2 text-left text-xs text-primary"
+        className="my-4 max-w-full overflow-x-auto rounded-md bg-secondary px-3 py-2 text-left text-xs wrap-break-word whitespace-pre-wrap text-primary"
       >
         {messageOf(failure.error)}
       </code>

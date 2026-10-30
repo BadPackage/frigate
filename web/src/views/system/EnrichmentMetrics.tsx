@@ -208,7 +208,7 @@ export default function EnrichmentMetrics({
 
   return (
     <>
-      <div className="scrollbar-container mt-4 flex size-full flex-col overflow-y-auto">
+      <div className="mt-4 scrollbar-container flex size-full flex-col overflow-y-auto">
         <div className="text-sm font-medium text-muted-foreground">
           {t("enrichments.title")}
         </div>

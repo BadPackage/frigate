@@ -167,7 +167,7 @@ export default function ClassificationSelectionDialog({
             className={cn(
               "flex flex-col",
               isMobile &&
-                "max-h-[40dvh] gap-2 overflow-y-auto overflow-x-hidden pb-4",
+                "max-h-[40dvh] gap-2 overflow-x-hidden overflow-y-auto pb-4",
             )}
           >
             {filteredClasses

@@ -90,24 +90,24 @@ export default function LiveBirdseyeView({
   const growClassName = useMemo(() => {
     if (isMobile) {
       if (isPortrait) {
-        return "absolute left-2 right-2 top-[50%] -translate-y-[50%]";
+        return "absolute left-2 right-2 top-[50%] translate-y-[-50%]";
       } else {
         if (cameraAspectRatio > containerAspectRatio) {
-          return "absolute left-0 top-[50%] -translate-y-[50%]";
+          return "absolute left-0 top-[50%] translate-y-[-50%]";
         } else {
-          return "absolute top-2 bottom-2 left-[50%] -translate-x-[50%]";
+          return "absolute top-2 bottom-2 left-[50%] translate-x-[-50%]";
         }
       }
     }
 
     if (fullscreen) {
       if (cameraAspectRatio > containerAspectRatio) {
-        return "absolute inset-x-2 top-[50%] -translate-y-[50%]";
+        return "absolute inset-x-2 top-[50%] translate-y-[-50%]";
       } else {
-        return "absolute inset-y-2 left-[50%] -translate-x-[50%]";
+        return "absolute inset-y-2 left-[50%] translate-x-[-50%]";
       }
     } else {
-      return "absolute top-0 bottom-0 left-[50%] -translate-x-[50%]";
+      return "absolute top-0 bottom-0 left-[50%] translate-x-[-50%]";
     }
   }, [cameraAspectRatio, containerAspectRatio, fullscreen, isPortrait]);
 
@@ -209,7 +209,7 @@ export default function LiveBirdseyeView({
         <div
           className={
             fullscreen
-              ? `absolute right-32 top-1 z-40 ${isMobile ? "landscape:bottom-1 landscape:left-2 landscape:right-auto landscape:top-auto" : ""}`
+              ? `absolute top-1 right-32 z-40 ${isMobile ? "landscape:top-auto landscape:right-auto landscape:bottom-1 landscape:left-2" : ""}`
               : `flex h-12 w-full flex-row items-center justify-between ${isMobile ? "landscape:h-full landscape:w-min landscape:flex-col" : ""}`
           }
         >

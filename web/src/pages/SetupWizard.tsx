@@ -257,7 +257,7 @@ export default function SetupWizard() {
         type="button"
         variant="ghost"
         size="icon"
-        className="fixed right-4 top-4 text-muted-foreground hover:text-primary"
+        className="fixed top-4 right-4 text-muted-foreground hover:text-primary"
         aria-label={t(isDark ? "menu.darkMode.light" : "menu.darkMode.dark", {
           ns: "common",
         })}

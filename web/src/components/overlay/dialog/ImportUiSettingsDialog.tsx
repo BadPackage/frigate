@@ -133,7 +133,7 @@ export default function ImportUiSettingsDialog({
           <div className="flex items-start gap-3 rounded-lg bg-secondary p-3">
             <LuFileJson className="mt-0.5 size-5 shrink-0 text-secondary-foreground" />
             <div className="min-w-0">
-              <p className="break-all text-base font-medium text-primary-variant">
+              <p className="text-base font-medium break-all text-primary-variant">
                 {fileName}
               </p>
               <p className="text-xs text-muted-foreground">

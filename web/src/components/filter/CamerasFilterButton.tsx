@@ -177,7 +177,7 @@ export function CamerasFilterContent({
           <DropdownMenuSeparator />
         </>
       )}
-      <div className="scrollbar-container flex h-auto max-h-[80dvh] flex-col gap-2 overflow-y-auto overflow-x-hidden p-4">
+      <div className="scrollbar-container flex h-auto max-h-[80dvh] flex-col gap-2 overflow-x-hidden overflow-y-auto p-4">
         <FilterSwitch
           isChecked={currentCameras == undefined}
           label={t("cameras.all.title")}

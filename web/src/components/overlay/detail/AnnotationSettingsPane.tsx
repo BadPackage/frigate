@@ -198,7 +198,7 @@ export function AnnotationSettingsPane({
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="font-mono text-sm tabular-nums text-primary-variant">
+          <span className="font-mono text-sm text-primary-variant tabular-nums">
             {annotationOffset > 0 ? "+" : ""}
             {annotationOffset}ms
           </span>

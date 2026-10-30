@@ -279,7 +279,7 @@ export default function Step4Validation({
                 <CardContent className="space-y-4 p-4">
                   <div className="mb-2 flex items-center justify-between">
                     <div className="flex items-end gap-2">
-                      <div className="flex flex-col space-y-1">
+                      <div className="space-y-1 flex flex-col">
                         <div className="flex flex-row items-center">
                           <h4 className="mr-2 font-medium">
                             {t("cameraWizard.step4.streamTitle", {
@@ -390,7 +390,7 @@ export default function Step4Validation({
                   )}
 
                   <div className="mb-2 flex flex-col justify-between gap-1 md:flex-row md:items-center">
-                    <span className="break-all text-sm text-muted-foreground">
+                    <span className="text-sm break-all text-muted-foreground">
                       {maskUri(stream.url)}
                     </span>
                     <Button
@@ -523,13 +523,13 @@ function StreamIssues({
         {issues.map((issue, index) => (
           <div key={index} className="flex items-center gap-2 text-sm">
             {issue.type === "good" && (
-              <FaCircleCheck className="size-4 flex-shrink-0 text-success" />
+              <FaCircleCheck className="size-4 shrink-0 text-success" />
             )}
             {issue.type === "warning" && (
-              <FaTriangleExclamation className="size-4 flex-shrink-0 text-yellow-500" />
+              <FaTriangleExclamation className="size-4 shrink-0 text-yellow-500" />
             )}
             {issue.type === "error" && (
-              <LuX className="size-4 flex-shrink-0 text-danger" />
+              <LuX className="size-4 shrink-0 text-danger" />
             )}
             <span
               className={

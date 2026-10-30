@@ -110,7 +110,7 @@ export default function AccountSettings({ className }: AccountSettingsProps) {
           isDesktop ? "mr-5 w-72" : "max-h-[75dvh] overflow-hidden p-4",
         )}
       >
-        <div className="scrollbar-container w-full flex-col overflow-y-auto overflow-x-hidden">
+        <div className="scrollbar-container w-full flex-col overflow-x-hidden overflow-y-auto">
           <DropdownMenuLabel className="flex flex-col gap-1.5">
             <div>
               {t("menu.user.current", {

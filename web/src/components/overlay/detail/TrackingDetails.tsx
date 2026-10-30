@@ -671,7 +671,7 @@ export function TrackingDetails({
           isDesktop && "overflow-hidden",
           cameraAspect === "tall" ? "max-h-[50dvh] lg:max-h-[70dvh]" : "w-full",
           cameraAspect === "tall" && isMobileOnly && "w-full",
-          cameraAspect !== "tall" && isDesktop && "flex-[3]",
+          cameraAspect !== "tall" && isDesktop && "flex-3",
         )}
         style={{ aspectRatio: aspectRatio }}
         ref={containerRef}
@@ -703,7 +703,7 @@ export function TrackingDetails({
                 currentTimeOverride={currentTime}
               />
               {isVideoLoading && (
-                <ActivityIndicator className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+                <ActivityIndicator className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
               )}
             </>
           )}
@@ -740,7 +740,7 @@ export function TrackingDetails({
                   key={event.id}
                   ref={imgRef}
                   className={cn(
-                    "max-h-[50dvh] max-w-full select-none rounded-lg object-contain",
+                    "max-h-[50dvh] max-w-full rounded-lg object-contain select-none",
                   )}
                   loading={isSafari ? "eager" : "lazy"}
                   style={
@@ -856,7 +856,7 @@ export function TrackingDetails({
                   />
                   {isWithinEventRange && (
                     <div
-                      className="absolute left-6 z-[5] w-0.5 -translate-x-1/2 bg-selected transition-all duration-300"
+                      className="absolute left-6 z-5 w-0.5 -translate-x-1/2 bg-selected transition-all duration-300"
                       style={{
                         top: `${lineTopOffsetPx}px`,
                         height: `${blueLineHeightPx}px`,
@@ -1062,7 +1062,7 @@ function LifecycleIconRow({
 
         <div className="ml-2 flex w-full min-w-0 flex-1">
           <div className="flex flex-col">
-            <div className="flex items-start break-words text-left">
+            <div className="flex items-start text-left wrap-break-word">
               {getLifecycleItemDescription(item)}
             </div>
             {/* Only show Score/Ratio/Area for object events, not for audio (heard) or manual API (external) events */}
@@ -1195,7 +1195,7 @@ function LifecycleIconRow({
             )}
           </div>
         </div>
-        <div className="ml-3 flex-shrink-0 px-1 text-right text-xs text-primary-variant">
+        <div className="ml-3 shrink-0 px-1 text-right text-xs text-primary-variant">
           <div className="flex flex-row items-center gap-3">
             <div className="whitespace-nowrap">{formattedEventTimestamp}</div>
             {isAdmin && item.data.box && (
@@ -1205,7 +1205,7 @@ function LifecycleIconRow({
                 onOpenChange={setIsOpen}
               >
                 <DropdownMenuTrigger>
-                  <div className="rounded p-1 pr-2" role="button">
+                  <div className="rounded-sm p-1 pr-2" role="button">
                     <HiDotsHorizontal className="size-4 text-muted-foreground" />
                   </div>
                 </DropdownMenuTrigger>

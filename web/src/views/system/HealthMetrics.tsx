@@ -8,7 +8,7 @@ type HealthMetricsProps = {
 
 export default function HealthMetrics({ noticeFilter }: HealthMetricsProps) {
   return (
-    <div className="scrollbar-container mt-4 flex size-full flex-col gap-4 overflow-y-auto">
+    <div className="mt-4 scrollbar-container flex size-full flex-col gap-4 overflow-y-auto">
       <NoticesPane filter={noticeFilter} />
       <HardwarePane />
     </div>

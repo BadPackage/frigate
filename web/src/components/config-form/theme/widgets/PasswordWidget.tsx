@@ -60,7 +60,7 @@ export function PasswordWidget(props: WidgetProps) {
         type="button"
         variant="ghost"
         size="sm"
-        className="absolute right-0 top-0 h-full px-3 hover:bg-transparent"
+        className="absolute top-0 right-0 h-full px-3 hover:bg-transparent"
         onClick={() => setShowPassword(!showPassword)}
         disabled={disabled || isRedacted}
       >

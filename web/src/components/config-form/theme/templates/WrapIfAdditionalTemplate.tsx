@@ -147,7 +147,7 @@ export function WrapIfAdditionalTemplate<
           {keyLocked ? (
             <div
               id={keyId}
-              className="flex items-center break-all text-sm text-primary-variant"
+              className="flex items-center text-sm break-all text-primary-variant"
             >
               {label}
             </div>

@@ -54,7 +54,7 @@ export default function SemanticSearchReindex() {
 
   return (
     <>
-      <div className="flex flex-col space-y-1">
+      <div className="space-y-1 flex flex-col">
         <div className="flex">
           <Button
             variant="default"

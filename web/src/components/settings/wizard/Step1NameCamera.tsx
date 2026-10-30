@@ -252,7 +252,7 @@ export default function Step1NameCamera({
                         type="button"
                         variant="ghost"
                         size="sm"
-                        className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                        className="absolute top-0 right-0 h-full px-3 py-2 hover:bg-transparent"
                         onClick={() => setShowPassword(!showPassword)}
                       >
                         {showPassword ? (
@@ -279,7 +279,7 @@ export default function Step1NameCamera({
                 setProbeMode(value === "probe");
               }}
             >
-              <div className="flex items-center space-x-2">
+              <div className="space-x-2 flex items-center">
                 <RadioGroupItem
                   value="probe"
                   id="probe-mode"
@@ -293,7 +293,7 @@ export default function Step1NameCamera({
                   {t("cameraWizard.step1.probeMode")}
                 </label>
               </div>
-              <div className="flex items-center space-x-2">
+              <div className="space-x-2 flex items-center">
                 <RadioGroupItem
                   value="manual"
                   id="manual-mode"
@@ -346,7 +346,7 @@ export default function Step1NameCamera({
               control={form.control}
               name="useDigestAuth"
               render={({ field }) => (
-                <FormItem className="flex items-start space-x-2">
+                <FormItem className="space-x-2 flex items-start">
                   <FormControl>
                     <Checkbox
                       className="size-5 text-white accent-white data-[state=checked]:bg-selected data-[state=checked]:text-white"
@@ -354,7 +354,7 @@ export default function Step1NameCamera({
                       onCheckedChange={(val) => field.onChange(!!val)}
                     />
                   </FormControl>
-                  <div className="flex flex-1 flex-col space-y-1">
+                  <div className="space-y-1 flex flex-1 flex-col">
                     <FormLabel className="mb-0 text-primary-variant">
                       {t("cameraWizard.step1.useDigestAuth")}
                     </FormLabel>
@@ -400,7 +400,7 @@ export default function Step1NameCamera({
                                   <h4 className="font-medium">
                                     {selectedBrand.label}
                                   </h4>
-                                  <p className="break-all text-sm text-muted-foreground">
+                                  <p className="text-sm break-all text-muted-foreground">
                                     {t("cameraWizard.step1.brandUrlFormat", {
                                       exampleUrl: selectedBrand.exampleUrl,
                                     })}

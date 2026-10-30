@@ -291,7 +291,7 @@ export default function DetailStream({
         )}
         <div
           ref={scrollRef}
-          className="scrollbar-container flex-1 overflow-y-auto overflow-x-hidden pb-14"
+          className="scrollbar-container flex-1 overflow-x-hidden overflow-y-auto pb-14"
         >
           <div className="space-y-4 py-2">
             {reviewItems?.length === 0 ? (
@@ -322,7 +322,7 @@ export default function DetailStream({
 
         <div
           className={cn(
-            "absolute bottom-0 left-0 right-0 z-30 rounded-t-md border border-secondary-highlight bg-background_alt shadow-md",
+            "absolute right-0 bottom-0 left-0 z-30 rounded-t-md border border-secondary-highlight bg-background_alt shadow-md",
             isDesktop && "border-b-0",
           )}
         >
@@ -341,7 +341,7 @@ export default function DetailStream({
             )}
           </button>
           {controlsExpanded && (
-            <div className="space-y-4 px-3 pb-5 pt-2">
+            <div className="space-y-4 px-3 pt-2 pb-5">
               <AnnotationOffsetSlider onApplyOffset={handleApplyOffset} />
               <Separator />
               <div className="flex flex-col gap-1">
@@ -468,7 +468,7 @@ function ReviewGroup({
   return (
     <div
       data-review-id={id}
-      className={`mx-1 cursor-pointer rounded-lg bg-secondary px-0 py-3 outline outline-[2px] -outline-offset-[1.8px] ${
+      className={`mx-1 cursor-pointer rounded-lg bg-secondary px-0 py-3 outline outline-2 outline-offset-[-1.8px] ${
         isActive
           ? "shadow-selected outline-selected"
           : "outline-transparent duration-500"
@@ -484,7 +484,7 @@ function ReviewGroup({
           onSeek(startRecord);
         }}
       >
-        <div className="ml-4 mr-2 mt-1.5 flex flex-row items-start">
+        <div className="mt-1.5 mr-2 ml-4 flex flex-row items-start">
           <LuCircle
             className={cn(
               "size-3 duration-500",
@@ -553,7 +553,7 @@ function ReviewGroup({
               e.stopPropagation();
               setOpen((v) => !v);
             }}
-            className="inline-flex items-center justify-center self-center rounded p-1 hover:bg-secondary/10"
+            className="inline-flex items-center justify-center self-center rounded-sm p-1 hover:bg-secondary/10"
           >
             {open ? (
               <LuChevronDown className="size-4 text-primary-variant" />
@@ -592,7 +592,7 @@ function ReviewGroup({
               {review.data.audio.map((audioLabel) => (
                 <div
                   key={audioLabel}
-                  className="rounded-md bg-secondary p-2 outline outline-[3px] -outline-offset-[2.8px] outline-transparent duration-500"
+                  className="rounded-md bg-secondary p-2 outline-[3px] outline-offset-[-2.8px] outline-transparent duration-500 outline-solid"
                 >
                   <div className="ml-1.5 flex items-center gap-2 text-sm font-medium">
                     <div className="rounded-full bg-muted-foreground p-1">
@@ -893,7 +893,7 @@ function LifecycleItem({
       <div className="ml-0.5 flex min-w-0 flex-1">
         <Tooltip>
           <TooltipTrigger>
-            <div className="flex items-start break-words text-left">
+            <div className="flex items-start text-left wrap-break-word">
               {getLifecycleItemDescription(item)}
             </div>
           </TooltipTrigger>
@@ -972,7 +972,7 @@ function LifecycleItem({
         </Tooltip>
       </div>
 
-      <div className="ml-3 flex-shrink-0 px-1 text-right text-xs text-primary-variant">
+      <div className="ml-3 shrink-0 px-1 text-right text-xs text-primary-variant">
         <div className="whitespace-nowrap">{formattedEventTimestamp}</div>
       </div>
     </div>
@@ -1103,7 +1103,7 @@ function ObjectTimeline({
       {isWithinEventRange && (
         <div
           className={cn(
-            "absolute left-2 top-2 z-[5] max-h-[calc(100%-1rem)] w-0.5 -translate-x-1/2 bg-selected transition-all duration-300",
+            "absolute top-2 left-2 z-5 max-h-[calc(100%-1rem)] w-0.5 -translate-x-1/2 bg-selected transition-all duration-300",
           )}
           style={{ height: `${activeLineHeight}%` }}
         />

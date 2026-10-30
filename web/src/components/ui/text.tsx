@@ -15,9 +15,7 @@ const Text = ({
   switch (as) {
     case "p":
       return (
-        <p className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}>
-          {children}
-        </p>
+        <p className={cn("leading-7 not-first:mt-6", className)}>{children}</p>
       );
     case "blockquote":
       return (
@@ -29,7 +27,7 @@ const Text = ({
       return (
         <code
           className={cn(
-            "relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold",
+            "relative rounded-sm bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold",
             className,
           )}
         >
@@ -48,7 +46,7 @@ const Text = ({
       );
     case "small":
       return (
-        <small className={cn("text-sm font-medium leading-none", className)}>
+        <small className={cn("text-sm leading-none font-medium", className)}>
           {children}
         </small>
       );
@@ -60,9 +58,7 @@ const Text = ({
       );
     default:
       return (
-        <p className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}>
-          {children}
-        </p>
+        <p className={cn("leading-7 not-first:mt-6", className)}>{children}</p>
       );
   }
 };

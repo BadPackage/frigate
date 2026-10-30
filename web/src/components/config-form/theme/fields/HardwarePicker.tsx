@@ -200,7 +200,7 @@ export function HardwarePicker({
             return (
               <div
                 key={unit.device}
-                className="mb-3 flex flex-row items-center space-x-3 space-y-0 last:mb-0"
+                className="space-x-3 space-y-0 mb-3 flex flex-row items-center last:mb-0"
               >
                 <Checkbox
                   id={`${idPrefix}-${unit.device}`}

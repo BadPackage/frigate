@@ -139,7 +139,7 @@ export default function SetupDetector({
 
       <RadioGroup value={selected.key} onValueChange={setSelectedKey}>
         {options.map((entry) => (
-          <div key={entry.key} className="flex items-center space-x-2">
+          <div key={entry.key} className="space-x-2 flex items-center">
             <RadioGroupItem
               value={entry.key}
               id={`detector-${entry.key}`}

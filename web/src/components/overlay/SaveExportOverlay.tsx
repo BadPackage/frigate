@@ -30,7 +30,7 @@ export default function SaveExportOverlay({
       <div
         className={cn(
           "pointer-events-auto flex items-center justify-center gap-2 rounded-lg px-2",
-          show ? "duration-500 animate-in slide-in-from-top" : "invisible",
+          show ? "animate-in duration-500 slide-in-from-top" : "invisible",
           "mx-auto mt-5 text-center",
         )}
       >

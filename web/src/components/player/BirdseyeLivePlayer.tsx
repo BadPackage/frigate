@@ -53,7 +53,7 @@ export default function BirdseyeLivePlayer({
       />
     );
   } else {
-    player = <ActivityIndicator className="w-full [.bg-black_&]:text-white" />;
+    player = <ActivityIndicator className="w-full in-[.bg-black]:text-white" />;
   }
 
   return (
@@ -66,7 +66,7 @@ export default function BirdseyeLivePlayer({
       onClick={onClick}
     >
       <div
-        className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center [container-type:size]"
+        className="@container-size pointer-events-none absolute inset-0 z-10 flex items-center justify-center"
         style={
           {
             "--pic-ar":
@@ -74,7 +74,7 @@ export default function BirdseyeLivePlayer({
           } as React.CSSProperties
         }
       >
-        <div className="relative aspect-[var(--pic-ar)] h-auto w-[min(100%,calc(100cqh*var(--pic-ar)))]">
+        <div className="relative aspect-(--pic-ar) h-auto w-[min(100%,calc(100cqh*var(--pic-ar)))]">
           <ImageShadowOverlay />
         </div>
       </div>

@@ -75,7 +75,7 @@ function Go2rtcStreamCombobox({
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
+      <PopoverContent className="w-(--radix-popover-trigger-width) p-0">
         <Command>
           <CommandInput
             placeholder={t(
@@ -154,7 +154,7 @@ export function StreamSourceSelector({
         className="flex flex-col gap-2 sm:flex-row sm:gap-6"
         disabled={isDisabled}
       >
-        <div className="flex items-center space-x-2">
+        <div className="space-x-2 flex items-center">
           <RadioGroupItem
             value="restream"
             id={restreamId}
@@ -168,7 +168,7 @@ export function StreamSourceSelector({
             {t("configForm.cameraInputs.sourceMode.restream")}
           </label>
         </div>
-        <div className="flex items-center space-x-2">
+        <div className="space-x-2 flex items-center">
           <RadioGroupItem
             value="manual"
             id={manualId}

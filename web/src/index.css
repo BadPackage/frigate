@@ -1,13 +1,380 @@
-@import "/themes/tailwind-base.css";
-@import "/themes/theme-default.css";
-@import "/themes/theme-blue.css";
-@import "/themes/theme-green.css";
-@import "/themes/theme-high-contrast.css";
-@import "/themes/theme-nord.css";
-@import "/themes/theme-red.css";
+@import "tailwindcss" source("../src");
+@import "tw-animate-css";
+@import "../themes/tailwind-base.css" layer(base);
+@import "../themes/theme-default.css";
+@import "../themes/theme-blue.css";
+@import "../themes/theme-green.css";
+@import "../themes/theme-high-contrast.css";
+@import "../themes/theme-nord.css";
+@import "../themes/theme-red.css";
 
-@import "tailwindcss";
-@config "../tailwind.config.cjs";
+@plugin "tailwind-scrollbar" {
+  nocompatible: true;
+}
+
+/* Severity colors are built dynamically, so make sure their outline and
+   shadow utilities are always generated. */
+@source inline(
+  "{outline,shadow}-severity_{alert,detection,significant_motion}"
+);
+
+@custom-variant dark (&:is(.dark *));
+
+/* v4 only applies hover styles on devices that support hover. Keep the v3
+   behavior so touch devices can still reveal hover-only controls on tap. */
+@custom-variant hover (&:hover);
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  @media (width >= --theme(--breakpoint-xs)) {
+    max-width: none;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+@theme {
+  --font-*: initial;
+  --font-sans: "Inter", sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-collapsible-down: collapsible-down 0.2s ease-out;
+  --animate-collapsible-up: collapsible-up 0.2s ease-out;
+  --animate-move: move 3s ease-in-out infinite;
+  --animate-scale1: scale1 3s ease-in-out infinite;
+  --animate-scale2: scale2 3s ease-in-out infinite;
+  --animate-scale3: scale3 3s ease-in-out infinite;
+  --animate-scale4: scale4 3s ease-in-out infinite;
+  --animate-timeline-zoom-in: timeline-zoom-in 0.3s ease-out;
+  --animate-timeline-zoom-out: timeline-zoom-out 0.3s ease-out;
+  --animate-cursor-blink: cursor-blink 1s step-end infinite;
+
+  --aspect-wide: 32 / 9;
+  --aspect-tall: 8 / 9;
+
+  --background-image-slashes:
+    repeating-linear-gradient(
+      135deg,
+      hsl(var(--primary-variant) / 0.3),
+      hsl(var(--primary-variant) / 0.3) 2px,
+      transparent 2px,
+      transparent 8px
+    ),
+    linear-gradient(to right, hsl(var(--background)), hsl(var(--background)));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-danger: #ef4444;
+  --color-success: #22c55e;
+  --color-unsaved: #f59e0b;
+  --color-background: hsl(var(--background));
+  --color-background_alt: hsl(var(--background-alt));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-selected: hsl(var(--selected));
+  --color-selected-foreground: hsl(var(--selected-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-variant: hsl(var(--primary-variant));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-secondary-highlight: hsl(var(--secondary-highlight));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-warning: hsl(var(--warning));
+  --color-warning-foreground: hsl(var(--warning-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-severity_alert: hsl(var(--severity_alert));
+  --color-severity_alert-dimmed: hsl(var(--severity_alert_dimmed));
+
+  --color-severity_detection: hsl(var(--severity_detection));
+  --color-severity_detection-dimmed: hsl(var(--severity_detection_dimmed));
+
+  --color-severity_significant_motion: hsl(var(--severity_significant_motion));
+  --color-severity_significant_motion-dimmed: hsl(
+    var(--severity_significant_motion_dimmed)
+  );
+
+  --color-motion_review: hsl(var(--motion_review));
+  --color-motion_review-dimmed: hsl(var(--motion_review_dimmed));
+
+  --color-audio_review: hsl(var(--audio_review));
+
+  --color-neutral: hsl(var(--neutral));
+
+  --color-neutral_variant: hsl(var(--neutral_variant));
+
+  --color-sidebar: hsl(var(--background));
+  --color-sidebar-foreground: hsl(var(--secondary-foreground));
+  --color-sidebar-primary: hsl(var(--primary));
+  --color-sidebar-primary-foreground: hsl(var(--primary-foreground));
+  --color-sidebar-accent: hsl(var(--background-alt));
+  --color-sidebar-accent-foreground: hsl(var(--primary));
+  --color-sidebar-border: hsl(var(--border));
+  --color-sidebar-ring: hsl(var(--ring));
+
+  /* Breakpoints must share one unit so Tailwind can order them; keep the
+     v3 pixel values for the defaults alongside the custom ones. */
+  --breakpoint-*: initial;
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1440px;
+  --breakpoint-3xl: 1920px;
+  --breakpoint-2k: 2560px;
+  --breakpoint-4k: 3180px;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+  @keyframes collapsible-down {
+    from {
+      height: 0px;
+    }
+    to {
+      height: var(--radix-collapsible-content-height);
+    }
+  }
+  @keyframes collapsible-up {
+    from {
+      height: var(--radix-collapsible-content-height);
+    }
+    to {
+      height: 0px;
+    }
+  }
+  @keyframes move {
+    50% {
+      left: calc(100% - 7px);
+    }
+  }
+  @keyframes scale1 {
+    0%,
+    100% {
+      transform: scale(1.3);
+    }
+    10%,
+    90% {
+      transform: scale(1.4);
+    }
+    20%,
+    80% {
+      transform: scale(1);
+    }
+  }
+  @keyframes scale2 {
+    20%,
+    80% {
+      transform: scale(1.4);
+    }
+    10%,
+    30%,
+    70%,
+    90% {
+      transform: scale(1);
+    }
+  }
+  @keyframes scale3 {
+    30%,
+    70% {
+      transform: scale(1.4);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+      transform: scale(1);
+    }
+  }
+  @keyframes scale4 {
+    50% {
+      transform: scale(1.3);
+    }
+    40%,
+    60% {
+      transform: scale(1.4);
+    }
+    30%,
+    70% {
+      transform: scale(1);
+    }
+  }
+  @keyframes timeline-zoom-in {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(0%);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes timeline-zoom-out {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(0%);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes cursor-blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+/*
+  Tailwind CSS v4 switched buttons to the default cursor and changed the
+  default placeholder color. Keep the v3 defaults so controls look the same
+  as before.
+*/
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  /* v4 placeholders default to the current text color at 50% opacity */
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-gray-400);
+  }
+}
+
+/*
+  Tailwind CSS v4 changed the space-x/space-y selectors to put the margin on
+  every child except the last one. Many layouts here rely on the v3 behavior
+  (margin on every visible child after the first, which also works when the
+  first child is inline, such as a label), so restore it. The low specificity
+  reset cancels the v4 margin on the first child without overriding margin
+  utilities set on the children themselves.
+*/
+@utility space-y-* {
+  & > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(
+      var(--spacing) * --value(number) * calc(1 - var(--tw-space-y-reverse))
+    );
+    margin-top: calc(--value([length]) * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(
+      var(--spacing) * --value(number) * var(--tw-space-y-reverse)
+    );
+    margin-bottom: calc(--value([length]) * var(--tw-space-y-reverse));
+  }
+
+  :where(& > *):not(tw-v3-space) {
+    margin-block-end: 0;
+  }
+}
+
+@utility space-x-* {
+  & > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(
+      var(--spacing) * --value(number) * var(--tw-space-x-reverse)
+    );
+    margin-right: calc(--value([length]) * var(--tw-space-x-reverse));
+    margin-left: calc(
+      var(--spacing) * --value(number) * calc(1 - var(--tw-space-x-reverse))
+    );
+    margin-left: calc(--value([length]) * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  :where(& > *):not(tw-v3-space) {
+    margin-inline-end: 0;
+  }
+}
+
+@utility scrollbar-container {
+  @apply scrollbar-thin scrollbar-thumb-border scrollbar-track-background_alt scrollbar-thumb-rounded-full scrollbar-track-rounded-full;
+}
+
+/* Keep capitalization off for languages where it does not apply. */
+@utility smart-capitalize {
+  text-transform: capitalize;
+
+  :root[lang="ru"] &,
+  :root[lang="ar"] &,
+  :root[lang="he"] &,
+  :root[lang="zh"] &,
+  :root[lang="ja"] &,
+  :root[lang="ko"] &,
+  :root[lang="hi"] &,
+  :root[lang="th"] & {
+    text-transform: none;
+  }
+}
 
 /* Duplicated var names with color space modifiers for swatches in vscode. See https://github.com/tailwindlabs/tailwindcss/discussions/10619 */
 
@@ -17,12 +384,6 @@
   }
   body {
     @apply bg-background text-foreground;
-  }
-}
-
-@layer utilities {
-  .scrollbar-container {
-    @apply scrollbar-thin scrollbar-track-background_alt scrollbar-thumb-border scrollbar-track-rounded-full scrollbar-thumb-rounded-full;
   }
 }
 

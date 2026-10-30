@@ -162,7 +162,7 @@ export default function ReviewCard({
         className={cn(
           "size-full rounded-lg",
           activeReviewItem?.id == event.id &&
-            "outline outline-[3px] -outline-offset-[2.8px] outline-selected duration-200",
+            "outline-[3px] outline-offset-[-2.8px] outline-selected duration-200 outline-solid",
           imgLoaded ? "visible" : "invisible",
         )}
         src={`${baseUrl}${event.thumb_path.replace("/media/frigate/", "")}`}
@@ -238,7 +238,7 @@ export default function ReviewCard({
       </div>
       {event.data.metadata?.title && (
         <GenAISummaryDialog review={event}>
-          <div className="flex items-center gap-1.5 rounded bg-secondary/50 hover:underline">
+          <div className="flex items-center gap-1.5 rounded-sm bg-secondary/50 hover:underline">
             <MdAutoAwesome className="size-3 shrink-0 text-primary" />
             <span className="truncate text-xs text-primary">
               {event.data.metadata.title}

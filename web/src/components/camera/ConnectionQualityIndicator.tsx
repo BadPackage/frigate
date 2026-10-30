@@ -55,7 +55,7 @@ export function ConnectionQualityIndicator({
           </div>
           <div className="text-sm">
             <div className="capitalize">{qualityLabel}</div>
-            <div className="mt-2 space-y-1 text-xs">
+            <div className="space-y-1 mt-2 text-xs">
               <div>
                 {t("cameras.connectionQuality.expectedFps")}:{" "}
                 {expectedFps.toFixed(1)} {t("cameras.connectionQuality.fps")}

@@ -344,7 +344,7 @@ function ModelCard({ config, onClick, onUpdate, onDelete }: ModelCardProps) {
         {!config.enabled && (
           <Badge
             variant="secondary"
-            className="absolute right-2 top-2 z-40 text-primary-variant"
+            className="absolute top-2 right-2 z-40 text-primary-variant"
           >
             {t("disabled")}
           </Badge>
@@ -352,7 +352,7 @@ function ModelCard({ config, onClick, onUpdate, onDelete }: ModelCardProps) {
         <div className="absolute bottom-2 left-3 text-lg text-white smart-capitalize">
           {config.name}
         </div>
-        <div className="absolute bottom-2 right-2 z-40">
+        <div className="absolute right-2 bottom-2 z-40">
           <DropdownMenu>
             <DropdownMenuTrigger asChild onClick={(e) => e.stopPropagation()}>
               <BlurredIconButton>

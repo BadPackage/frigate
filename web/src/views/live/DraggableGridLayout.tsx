@@ -69,8 +69,7 @@ const TILE_ASPECT_TALL = 8 / 9;
 // Cells quantize to whole rows/columns, so the card takes the camera's exact
 // ratio and fits itself inside its cell. --ar and container-type live on the
 // cell; min() picks whichever axis binds first.
-const CARD_FIT =
-  "h-auto w-[min(100%,calc(100cqh*var(--ar)))] aspect-[var(--ar)]";
+const CARD_FIT = "h-auto w-[min(100%,calc(100cqh*var(--ar)))] aspect-(--ar)";
 
 // Stored coordinates are grid units, so bump this whenever GRID_COLS or
 // VERTICAL_RESOLUTION changes in a released version.
@@ -685,7 +684,7 @@ export default function DraggableGridLayout({
         </div>
       ) : (
         <div
-          className="no-scrollbar my-2 select-none overflow-x-hidden pb-8"
+          className="no-scrollbar my-2 overflow-x-hidden pb-8 select-none"
           ref={attachGridContainer}
         >
           <EditGroupDialog
@@ -735,7 +734,7 @@ export default function DraggableGridLayout({
                 className={cn(
                   isEditMode &&
                     showCircles &&
-                    "outline outline-2 outline-muted-foreground hover:cursor-grab hover:outline-4 active:cursor-grabbing",
+                    "outline-2 outline-muted-foreground outline-solid hover:cursor-grab hover:outline-4 active:cursor-grabbing",
                 )}
                 birdseyeConfig={birdseyeConfig}
                 aspectRatio={layoutAspects["birdseye"] ?? DEFAULT_ASPECT}
@@ -963,7 +962,7 @@ const BirdseyeLivePlayerGridItem = React.forwardRef<
   ) => {
     return (
       <div
-        className="flex items-center justify-center p-1 [container-type:size]"
+        className="@container-size flex items-center justify-center p-1"
         style={{ ...style, "--ar": cellAspect } as React.CSSProperties}
         ref={ref}
         onMouseDown={onMouseDown}
@@ -1047,7 +1046,7 @@ const GridLiveContextMenu = React.forwardRef<
   ) => {
     return (
       <div
-        className="flex items-center justify-center p-1 [container-type:size]"
+        className="@container-size flex items-center justify-center p-1"
         style={{ ...style, "--ar": cameraAspect } as React.CSSProperties}
         ref={ref}
         onMouseDown={onMouseDown}

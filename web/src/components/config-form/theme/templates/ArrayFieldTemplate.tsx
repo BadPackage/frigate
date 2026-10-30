@@ -22,7 +22,7 @@ export function ArrayFieldTemplate(props: ArrayFieldTemplateProps) {
   return (
     <div className="space-y-3">
       {items.length === 0 && !canAdd && (
-        <p className="text-sm italic text-muted-foreground">
+        <p className="text-sm text-muted-foreground italic">
           {t("no_items", { ns: "common", defaultValue: "No items" })}
         </p>
       )}

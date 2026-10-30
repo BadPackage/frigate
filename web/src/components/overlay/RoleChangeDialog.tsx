@@ -60,7 +60,7 @@ export default function RoleChangeDialog({
         <div className="py-3">
           <div className="mb-4 text-sm text-muted-foreground">
             <p>{t("users.dialog.changeRole.roleInfo.intro")}</p>
-            <ul className="mt-2 list-disc space-y-1 pl-5">
+            <ul className="space-y-1 mt-2 list-disc pl-5">
               <li>
                 <span className="font-medium">
                   {t("users.dialog.changeRole.roleInfo.admin")}

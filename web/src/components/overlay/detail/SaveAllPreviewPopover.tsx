@@ -93,7 +93,7 @@ export default function SaveAllPreviewPopover({
             {t("saveAllPreview.empty", { ns: "views/settings" })}
           </div>
         ) : (
-          <div className="scrollbar-container mt-3 flex max-h-72 flex-col gap-2 overflow-y-auto pr-1">
+          <div className="mt-3 scrollbar-container flex max-h-72 flex-col gap-2 overflow-y-auto pr-1">
             {items.map((item) => {
               const scopeLabel =
                 item.scope === "global"
@@ -135,7 +135,7 @@ export default function SaveAllPreviewPopover({
                         ns: "views/settings",
                       })}
                     </span>
-                    <span className="min-w-0 break-all font-mono">
+                    <span className="min-w-0 font-mono break-all">
                       {item.fieldPath}
                     </span>
                     <span className="text-muted-foreground">
@@ -143,7 +143,7 @@ export default function SaveAllPreviewPopover({
                         ns: "views/settings",
                       })}
                     </span>
-                    <span className="min-w-0 whitespace-pre-wrap break-all font-mono">
+                    <span className="min-w-0 font-mono break-all whitespace-pre-wrap">
                       {formatValue(item.value)}
                     </span>
                   </div>

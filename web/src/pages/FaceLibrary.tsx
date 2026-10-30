@@ -530,7 +530,7 @@ export default function FaceLibrary() {
         )}
       </div>
       {pageToggle && faceImages?.length === 0 && pageToggle !== "train" ? (
-        <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center">
+        <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center">
           <LuFolderCheck className="size-16" />
           {t("nofaces")}
         </div>
@@ -702,7 +702,7 @@ function LibrarySelector({
               className="group flex items-center justify-between p-0"
             >
               <div
-                className="flex-grow cursor-pointer px-2 py-1.5"
+                className="grow cursor-pointer px-2 py-1.5"
                 onClick={() => setPageToggle(face)}
               >
                 {face}
@@ -839,14 +839,14 @@ function TrainingGrid({
   if (attemptImages.length == 0) {
     if (isLoading) {
       return (
-        <ActivityIndicator className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center text-center" />
+        <ActivityIndicator className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 items-center text-center" />
       );
     }
 
     if (faceNames.length == 0) {
       return (
         <EmptyCard
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center text-center"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 items-center text-center"
           icon={<AddFaceIcon className="size-16" />}
           title={t("train.emptyNoLibrary.title")}
           description={t("train.emptyNoLibrary.description")}
@@ -857,7 +857,7 @@ function TrainingGrid({
     }
 
     return (
-      <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center">
+      <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center">
         <LuFolderCheck className="size-16" />
         {t("train.empty")}
       </div>
@@ -1133,7 +1133,7 @@ function FaceGrid({
 
   if (sortedFaces.length === 0) {
     return (
-      <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center">
+      <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center">
         <LuFolderCheck className="size-16" />
         {t("nofaces")}
       </div>

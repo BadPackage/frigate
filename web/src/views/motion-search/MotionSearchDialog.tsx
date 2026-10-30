@@ -202,7 +202,7 @@ export default function MotionSearchDialog({
         <div
           className={cn(
             !isDesktop &&
-              "scrollbar-container flex min-h-0 w-full flex-col gap-4 overflow-y-auto overflow-x-hidden px-4",
+              "scrollbar-container flex min-h-0 w-full flex-col gap-4 overflow-x-hidden overflow-y-auto px-4",
           )}
         >
           <DialogHeader>
@@ -405,15 +405,15 @@ export default function MotionSearchDialog({
 
             <div
               className={cn(
-                "flex w-full flex-col gap-4 space-y-4 lg:w-[340px]",
-                isMobile && "landscape:w-[40%] landscape:flex-shrink-0",
+                "space-y-4 flex w-full flex-col gap-4 lg:w-[340px]",
+                isMobile && "landscape:w-[40%] landscape:shrink-0",
               )}
             >
               <div className="grid gap-3">
-                <h4 className="mb-4 font-medium leading-none">
+                <h4 className="mb-4 leading-none font-medium">
                   {t("settings.title")}
                 </h4>
-                <div className="grid gap-4 space-y-2">
+                <div className="space-y-2 grid gap-4">
                   <div className="grid gap-2">
                     <Label htmlFor="threshold">{t("settings.threshold")}</Label>
                     <div className="flex items-center gap-2">
@@ -642,7 +642,7 @@ function SearchRangeSelector({
               />
               <SelectSeparator className="bg-secondary" />
               <input
-                className="mx-4 w-full border border-input bg-background p-1 text-secondary-foreground hover:bg-accent hover:text-accent-foreground dark:[color-scheme:dark]"
+                className="mx-4 w-full border border-input bg-background p-1 text-secondary-foreground hover:bg-accent hover:text-accent-foreground dark:scheme-dark"
                 id="startTime"
                 type="time"
                 value={startClock}
@@ -709,7 +709,7 @@ function SearchRangeSelector({
               />
               <SelectSeparator className="bg-secondary" />
               <input
-                className="mx-4 w-full border border-input bg-background p-1 text-secondary-foreground hover:bg-accent hover:text-accent-foreground dark:[color-scheme:dark]"
+                className="mx-4 w-full border border-input bg-background p-1 text-secondary-foreground hover:bg-accent hover:text-accent-foreground dark:scheme-dark"
                 id="endTime"
                 type="time"
                 value={endClock}

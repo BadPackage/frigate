@@ -408,7 +408,7 @@ export default function Replay() {
                 ) : (
                   <div className="pointer-events-none absolute inset-0 z-10 size-full rounded-lg bg-background">
                     <Skeleton className="size-full rounded-lg" />
-                    <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-2">
+                    <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-2">
                       <ActivityIndicator className="size-8" />
                       <div className="text-secondary-foreground">
                         {t("page.initializingReplay")}
@@ -422,8 +422,8 @@ export default function Replay() {
         </div>
 
         {/* Side panel */}
-        <div className="order-last mb-2 mt-2 flex h-full w-full flex-col overflow-hidden rounded-lg border-[1px] border-secondary-foreground bg-background_alt p-2 md:order-none md:mb-0 md:mr-2 md:mt-0 md:w-4/12">
-          <div className="mb-5 flex flex-col space-y-2">
+        <div className="order-last mt-2 mb-2 flex h-full w-full flex-col overflow-hidden rounded-lg border border-secondary-foreground bg-background_alt p-2 md:order-0 md:mt-0 md:mr-2 md:mb-0 md:w-4/12">
+          <div className="space-y-2 mb-5 flex flex-col">
             <Heading as="h3" className="mb-0">
               {t("title")}
             </Heading>
@@ -436,7 +436,7 @@ export default function Replay() {
                 </>
               )}
             </div>
-            <div className="mb-5 space-y-3 text-sm text-muted-foreground">
+            <div className="space-y-3 mb-5 text-sm text-muted-foreground">
               <p>{t("description")}</p>
             </div>
           </div>
@@ -455,9 +455,9 @@ export default function Replay() {
             </TabsList>
             <TabsContent
               value="debug"
-              className="scrollbar-container mt-2 overflow-y-auto"
+              className="mt-2 scrollbar-container overflow-y-auto"
             >
-              <div className="mt-2 space-y-6">
+              <div className="space-y-6 mt-2">
                 <div className="my-2.5 flex flex-col gap-2.5">
                   {DEBUG_OPTION_KEYS.map((key) => {
                     const i18nKey = DEBUG_OPTION_I18N_KEY[key];
@@ -502,7 +502,7 @@ export default function Replay() {
                                           )}
                                         </strong>
                                       </p>
-                                      <ul className="list-disc space-y-1 pl-5">
+                                      <ul className="space-y-1 list-disc pl-5">
                                         <Trans ns="views/settings">
                                           debug.boundingBoxes.colors.info
                                         </Trans>
@@ -603,7 +603,7 @@ export default function Replay() {
             </TabsContent>
             <TabsContent
               value="objects"
-              className="scrollbar-container mt-2 overflow-y-auto"
+              className="mt-2 scrollbar-container overflow-y-auto"
             >
               <ObjectList
                 cameraConfig={replayCameraConfig}
@@ -664,7 +664,7 @@ function ObjectList({ cameraConfig, objects, config }: ObjectListProps) {
   }
 
   return (
-    <div className="scrollbar-container relative flex w-full flex-col overflow-y-auto">
+    <div className="relative scrollbar-container flex w-full flex-col overflow-y-auto">
       {objects.map((obj: ObjectType) => {
         return (
           <Card className="mb-1 p-2 text-sm" key={obj.id}>

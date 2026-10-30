@@ -234,7 +234,7 @@ export default function Step2StateArea({
       >
         <div
           className={cn(
-            "flex flex-shrink-0 flex-col gap-2 overflow-y-auto rounded-lg bg-secondary p-4",
+            "flex shrink-0 flex-col gap-2 overflow-y-auto rounded-lg bg-secondary p-4",
             isMobile ? "w-full" : "w-64",
           )}
         >
@@ -270,7 +270,7 @@ export default function Step2StateArea({
                           type="button"
                           variant="ghost"
                           size="sm"
-                          className="h-auto justify-start p-2 capitalize text-primary"
+                          className="h-auto justify-start p-2 text-primary capitalize"
                           onClick={() => {
                             handleAddCamera(cam.name);
                           }}

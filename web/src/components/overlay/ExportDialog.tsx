@@ -284,7 +284,7 @@ export default function ExportDialog({
         setShowPreview={setShowPreview}
       />
       <SaveExportOverlay
-        className="pointer-events-none absolute left-1/2 top-8 z-50 -translate-x-1/2"
+        className="pointer-events-none absolute top-8 left-1/2 z-50 -translate-x-1/2"
         show={mode == "timeline" || mode == "timeline_multi"}
         hidePreview={mode == "timeline_multi"}
         isSaving={isStartingExport}
@@ -982,7 +982,7 @@ export function ExportContent({
         <TabsContent
           value="export"
           className={cn(
-            "mt-4 space-y-4",
+            "space-y-4 mt-4",
             !isDesktop && "min-h-0 flex-1 overflow-y-auto pr-1",
           )}
         >
@@ -1091,7 +1091,7 @@ export function ExportContent({
         <TabsContent
           value="multi"
           className={cn(
-            "mt-4 space-y-4",
+            "space-y-4 mt-4",
             !isDesktop && "min-h-0 flex-1 overflow-y-auto pr-1",
           )}
         >
@@ -1100,7 +1100,7 @@ export function ExportContent({
               {t("export.multiCamera.timeRange")}
             </Label>
             <div className="flex items-center gap-2">
-              <div className="min-w-0 flex-1 [&>div]:!mx-0 [&>div]:!mt-0">
+              <div className="min-w-0 flex-1 [&>div]:mx-0! [&>div]:mt-0!">
                 <CustomTimeSelector
                   latestTime={latestTime}
                   range={range}
@@ -1244,7 +1244,7 @@ export function ExportContent({
             )}
             <div
               className={cn(
-                "scrollbar-container space-y-2",
+                "space-y-2 scrollbar-container",
                 isDesktop && "max-h-64 overflow-y-auto p-0.5 pr-1",
               )}
             >

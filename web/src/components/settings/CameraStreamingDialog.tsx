@@ -235,7 +235,7 @@ export function CameraStreamingDialog({
           <Trans ns="components/camera">group.camera.setting.desc</Trans>
         </DialogDescription>
       </DialogHeader>
-      <div className="flex flex-col space-y-8">
+      <div className="space-y-8 flex flex-col">
         {!isRestreamed && (
           <div className="flex flex-col gap-2">
             <Label></Label>
@@ -452,7 +452,7 @@ export function CameraStreamingDialog({
             />
             <Label
               htmlFor="compatibility"
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              className="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
             >
               {t("group.camera.setting.compatibilityMode.label")}
             </Label>

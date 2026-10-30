@@ -16,7 +16,7 @@ export default function StatusBarNotices() {
       <span className="text-sm text-muted-foreground">•</span>
       <Link
         to="/system#health"
-        className="whitespace-nowrap text-sm hover:underline"
+        className="text-sm whitespace-nowrap hover:underline"
       >
         {t("stats.systemNotices", { count: problems.length })}
       </Link>

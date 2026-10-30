@@ -688,7 +688,7 @@ function MotionPreviewClip({
         </div>
       )}
 
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-30 p-2">
+      <div className="pointer-events-none absolute right-0 bottom-0 left-0 z-30 p-2">
         <div className="flex flex-col items-start text-xs text-white/90 drop-shadow-lg">
           {range.end_time ? (
             <TimeAgo time={range.start_time * 1000} dense />
@@ -1065,7 +1065,7 @@ export default function MotionPreviewsPane({
 
   if (isLoadingPane) {
     return (
-      <ActivityIndicator className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+      <ActivityIndicator className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
     );
   }
 

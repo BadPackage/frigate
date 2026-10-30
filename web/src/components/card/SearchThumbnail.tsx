@@ -103,7 +103,7 @@ export default function SearchThumbnail({
           ref={imgRef}
           onClick={handleOnClick}
           className={cn(
-            "size-full select-none object-cover object-center opacity-100 transition-opacity",
+            "size-full object-cover object-center opacity-100 transition-opacity select-none",
           )}
           style={
             isIOS
@@ -121,13 +121,13 @@ export default function SearchThumbnail({
           }}
         />
 
-        <div className="absolute left-0 top-2 z-40">
+        <div className="absolute top-2 left-0 z-40">
           <Tooltip>
             <div className="flex">
               <TooltipTrigger asChild>
                 <div className="mx-3 pb-1 text-sm text-white">
                   <Chip
-                    className={`z-0 flex items-center justify-between gap-1 space-x-1 bg-gray-500 bg-gradient-to-br from-gray-400 to-gray-500 text-xs capitalize`}
+                    className={`z-0 space-x-1 flex items-center justify-between gap-1 bg-gray-500 bg-linear-to-br from-gray-400 to-gray-500 text-xs capitalize`}
                     onClick={() => onClick(searchResult, false, true)}
                   >
                     {getIconForLabel(
@@ -161,8 +161,8 @@ export default function SearchThumbnail({
             </TooltipPortal>
           </Tooltip>
         </div>
-        <div className="rounded-t-l pointer-events-none absolute inset-x-0 top-0 z-10 h-[30%] w-full bg-gradient-to-b from-black/60 to-transparent"></div>
-        <div className="rounded-b-l pointer-events-none absolute inset-x-0 bottom-0 z-10 flex h-[20%] items-end bg-gradient-to-t from-black/60 to-transparent"></div>
+        <div className="rounded-t-l pointer-events-none absolute inset-x-0 top-0 z-10 h-[30%] w-full bg-linear-to-b from-black/60 to-transparent"></div>
+        <div className="rounded-b-l pointer-events-none absolute inset-x-0 bottom-0 z-10 flex h-[20%] items-end bg-linear-to-t from-black/60 to-transparent"></div>
       </div>
     </div>
   );

@@ -74,10 +74,10 @@ export function CaseCard({
         />
       )}
       {!firstExport && (
-        <div className="absolute inset-0 bg-gradient-to-br from-secondary via-secondary/80 to-muted" />
+        <div className="absolute inset-0 bg-linear-to-br from-secondary via-secondary/80 to-muted" />
       )}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-16 bg-gradient-to-t from-black/60 to-transparent" />
-      <div className="absolute right-1 top-1 z-40 flex items-center gap-2 rounded-lg bg-black/50 px-2 py-1 text-xs text-white">
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-16 bg-linear-to-t from-black/60 to-transparent" />
+      <div className="absolute top-1 right-1 z-40 flex items-center gap-2 rounded-lg bg-black/50 px-2 py-1 text-xs text-white">
         <div className="flex items-center gap-1">
           <HiSquare2Stack className="size-3" />
           <div>{exports.length}</div>
@@ -319,7 +319,7 @@ export function ExportCard({
           </>
         )}
         {!exportedRecording.in_progress && !selectionMode && (
-          <div className="absolute bottom-2 right-3 z-40">
+          <div className="absolute right-3 bottom-2 z-40">
             <DropdownMenu>
               <DropdownMenuTrigger>
                 <BlurredIconButton
@@ -434,13 +434,13 @@ export function ExportCard({
         <ImageShadowOverlay />
         <div
           className={cn(
-            "pointer-events-none absolute inset-0 z-10 size-full rounded-lg outline outline-[3px] -outline-offset-[2.8px] md:rounded-2xl",
+            "pointer-events-none absolute inset-0 z-10 size-full rounded-lg outline-[3px] outline-offset-[-2.8px] outline-solid md:rounded-2xl",
             isSelected
               ? "shadow-selected outline-selected"
               : "outline-transparent duration-500",
           )}
         />
-        <div className="absolute bottom-2 left-3 right-12 z-30 text-white">
+        <div className="absolute right-12 bottom-2 left-3 z-30 text-white">
           <div className="truncate smart-capitalize">
             {exportedRecording.name.replaceAll("_", " ")}
           </div>
@@ -512,7 +512,7 @@ export function ActiveExportJobCard({
         className,
       )}
     >
-      <div className="flex w-full max-w-xs flex-col items-center gap-2 space-y-2 px-6 text-center">
+      <div className="space-y-2 flex w-full max-w-xs flex-col items-center gap-2 px-6 text-center">
         <div className="text-xs text-muted-foreground">
           {stepLabel}
           {hasDeterminateProgress && ` · ${percent}%`}

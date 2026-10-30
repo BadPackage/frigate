@@ -46,15 +46,15 @@ function Calendar({
           "h-9 w-9 p-0 font-normal text-muted-foreground focus-within:relative focus-within:z-20",
         ),
         range_start:
-          "day-range-start !bg-accent rounded-l-md [&>button]:bg-selected [&>button]:text-white [&>button]:hover:bg-selected [&>button]:hover:text-white",
+          "day-range-start bg-accent! rounded-l-md [&>button]:bg-selected [&>button]:text-white hover:[&>button]:bg-selected hover:[&>button]:text-white",
         range_end:
-          "day-range-end !bg-accent rounded-r-md [&>button]:bg-selected [&>button]:text-white [&>button]:hover:bg-selected [&>button]:hover:text-white",
+          "day-range-end bg-accent! rounded-r-md [&>button]:bg-selected [&>button]:text-white hover:[&>button]:bg-selected hover:[&>button]:text-white",
         selected: cn(
           props.mode === "range"
-            ? " [&>button]:hover:bg-selected [&>button]:hover:text-white focus:bg-selected focus:text-white  [&>button]:aria-selected:text-primary"
-            : " [&>button]:bg-selected [&>button]:text-white  [&>button]:hover:bg-selected  [&>button]:hover:text-white focus:bg-selected focus:text-white rounded-md",
+            ? " hover:[&>button]:bg-selected hover:[&>button]:text-white focus:bg-selected focus:text-white  aria-selected:[&>button]:text-primary"
+            : " [&>button]:bg-selected [&>button]:text-white  hover:[&>button]:bg-selected  hover:[&>button]:text-white focus:bg-selected focus:text-white rounded-md",
         ),
-        today: "bg-muted text-muted-foreground !rounded-md",
+        today: "bg-muted text-muted-foreground rounded-md!",
         outside:
           "day-outside text-muted-foreground opacity-50 !aria-selected:bg-accent/50 !aria-selected:text-muted-foreground !aria-selected:opacity-30",
         disabled: "text-muted-foreground opacity-50",

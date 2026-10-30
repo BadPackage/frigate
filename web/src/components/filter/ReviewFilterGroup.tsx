@@ -473,7 +473,7 @@ export function GeneralFilterContent({
     <>
       <div
         className={cn(
-          "scrollbar-container h-auto max-h-[80dvh] overflow-y-auto overflow-x-hidden",
+          "scrollbar-container h-auto max-h-[80dvh] overflow-x-hidden overflow-y-auto",
           contentClassName,
         )}
       >
@@ -502,7 +502,7 @@ export function GeneralFilterContent({
             <DropdownMenuSeparator />
           </div>
         )}
-        <div className="mb-5 mt-2.5 flex items-center justify-between">
+        <div className="mt-2.5 mb-5 flex items-center justify-between">
           <Label
             className="mx-2 cursor-pointer text-primary"
             htmlFor="allLabels"
@@ -551,7 +551,7 @@ export function GeneralFilterContent({
         {allZones && (
           <>
             <DropdownMenuSeparator />
-            <div className="mb-5 mt-2.5 flex items-center justify-between">
+            <div className="mt-2.5 mb-5 flex items-center justify-between">
               <Label
                 className="mx-2 cursor-pointer text-primary"
                 htmlFor="allZones"
@@ -641,7 +641,7 @@ function ShowMotionOnlyButton({
 
   return (
     <>
-      <div className="mx-1 hidden h-9 cursor-pointer items-center justify-center whitespace-nowrap rounded-md bg-secondary px-3 text-sm text-primary hover:bg-secondary/80 md:inline-flex">
+      <div className="mx-1 hidden h-9 cursor-pointer items-center justify-center rounded-md bg-secondary px-3 text-sm whitespace-nowrap text-primary hover:bg-secondary/80 md:inline-flex">
         <Switch
           className="ml-1"
           id="collapse-motion"

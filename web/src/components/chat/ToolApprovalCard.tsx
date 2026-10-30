@@ -47,7 +47,7 @@ export function ToolApprovalCard({
         </div>
       </div>
       {hasArguments && (
-        <pre className="scrollbar-container max-h-40 overflow-auto whitespace-pre-wrap break-words rounded bg-background/50 p-2 text-[10px]">
+        <pre className="scrollbar-container max-h-40 overflow-auto rounded-sm bg-background/50 p-2 text-[10px] wrap-break-word whitespace-pre-wrap">
           {JSON.stringify(toolCall.arguments, null, 2)}
         </pre>
       )}

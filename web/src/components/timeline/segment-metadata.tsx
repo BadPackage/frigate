@@ -58,7 +58,7 @@ export function MinimapBounds({
     <>
       {isFirstSegmentInMinimap && (
         <div
-          className="pointer-events-none absolute inset-0 -bottom-7 z-20 flex w-full select-none scroll-mt-8 items-center justify-center text-center text-[10px] font-medium text-primary"
+          className="pointer-events-none absolute inset-0 -bottom-7 z-20 flex w-full scroll-mt-8 items-center justify-center text-center text-[10px] font-medium text-primary select-none"
           ref={firstMinimapSegmentRef}
         >
           {formattedStartTime}
@@ -66,7 +66,7 @@ export function MinimapBounds({
       )}
 
       {isLastSegmentInMinimap && (
-        <div className="pointer-events-none absolute inset-0 -top-3 z-20 flex w-full select-none items-center justify-center text-center text-[10px] font-medium text-primary">
+        <div className="pointer-events-none absolute inset-0 -top-3 z-20 flex w-full items-center justify-center text-center text-[10px] font-medium text-primary select-none">
           {formattedEndTime}
         </div>
       )}
@@ -125,7 +125,7 @@ export function Timestamp({
       {!isFirstSegmentInMinimap && !isLastSegmentInMinimap && shouldDisplay && (
         <div
           key={`${segmentKey}_timestamp`}
-          className="pointer-events-none select-none text-[8px] text-neutral_variant dark:text-neutral"
+          className="pointer-events-none text-[8px] text-neutral_variant select-none dark:text-neutral"
         >
           {formattedTimestamp}
         </div>

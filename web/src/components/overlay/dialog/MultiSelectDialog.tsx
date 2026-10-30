@@ -65,7 +65,7 @@ export default function MultiSelectDialog({
           <DialogTitle>{title}</DialogTitle>
           {description && <DialogDescription>{description}</DialogDescription>}
         </DialogHeader>
-        <div className="max-h-[80dvh] space-y-3 overflow-y-auto py-4">
+        <div className="space-y-3 max-h-[80dvh] overflow-y-auto py-4">
           {availableItems.map((item) => (
             <FilterSwitch
               key={item}

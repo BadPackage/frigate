@@ -632,7 +632,7 @@ export default function CloneCameraDialog({
                           className="space-y-3"
                         >
                           <div className="space-y-2">
-                            <div className="flex items-center space-x-3 space-y-0">
+                            <div className="space-x-3 space-y-0 flex items-center">
                               <RadioGroupItem
                                 value="new"
                                 id="clone-target-new"
@@ -683,7 +683,7 @@ export default function CloneCameraDialog({
                             )}
                           </div>
                           <div className="space-y-2">
-                            <div className="flex items-center space-x-3 space-y-0">
+                            <div className="space-x-3 space-y-0 flex items-center">
                               <RadioGroupItem
                                 value="existing"
                                 id="clone-target-existing"
@@ -772,9 +772,9 @@ export default function CloneCameraDialog({
                                           <PopoverContent
                                             align="start"
                                             disablePortal
-                                            className="w-[--radix-popover-trigger-width] p-0"
+                                            className="w-(--radix-popover-trigger-width) p-0"
                                           >
-                                            <div className="scrollbar-container max-h-60 space-y-4 overflow-y-auto p-4">
+                                            <div className="space-y-4 scrollbar-container max-h-60 overflow-y-auto p-4">
                                               <FilterSwitch
                                                 label={t(
                                                   "cameraManagement.clone.target.allCameras",
@@ -830,7 +830,7 @@ export default function CloneCameraDialog({
                 />
               </div>
 
-              <div className="pointer-events-none absolute left-1/2 top-0 hidden -translate-x-1/2 flex-col space-y-3 md:flex">
+              <div className="pointer-events-none absolute top-0 left-1/2 space-y-3 hidden -translate-x-1/2 flex-col md:flex">
                 <Label className="invisible text-base" aria-hidden="true">
                   {" "}
                 </Label>
@@ -875,7 +875,7 @@ export default function CloneCameraDialog({
                   {groupedCategories.general.map((cat) => (
                     <label
                       key={cat.key}
-                      className="flex flex-row items-center space-x-3 space-y-0 text-sm font-normal"
+                      className="space-x-3 space-y-0 flex flex-row items-center text-sm font-normal"
                     >
                       <Checkbox
                         className="size-5 text-white accent-white data-[state=checked]:bg-selected data-[state=checked]:text-white"
@@ -930,7 +930,7 @@ export default function CloneCameraDialog({
                     {groupedCategories.spatial.map((cat) => (
                       <label
                         key={cat.key}
-                        className="flex flex-row items-center space-x-3 space-y-0 text-sm font-normal"
+                        className="space-x-3 space-y-0 flex flex-row items-center text-sm font-normal"
                       >
                         <Checkbox
                           className="size-5 text-white accent-white data-[state=checked]:bg-selected data-[state=checked]:text-white"
@@ -958,7 +958,7 @@ export default function CloneCameraDialog({
                     {groupedCategories.streams.map((cat) => (
                       <label
                         key={cat.key}
-                        className="flex flex-row items-center space-x-3 space-y-0 text-sm font-normal text-muted-foreground"
+                        className="space-x-3 space-y-0 flex flex-row items-center text-sm font-normal text-muted-foreground"
                       >
                         <Checkbox
                           className="size-5 text-white accent-white data-[state=checked]:bg-selected data-[state=checked]:text-white"

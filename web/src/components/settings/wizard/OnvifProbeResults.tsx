@@ -199,7 +199,7 @@ export default function OnvifProbeResults({
       </div>
       <div className="space-y-2">
         {rtspCandidates.length > 0 && (
-          <div className="mt-5 space-y-2">
+          <div className="space-y-2 mt-5">
             <div className="text-sm">
               {t("cameraWizard.step2.rtspCandidates")}
             </div>
@@ -263,11 +263,11 @@ function CandidateItem({
     <Card
       className={cn(
         isSelected &&
-          "outline outline-[3px] -outline-offset-[2.8px] outline-selected duration-200",
+          "outline-[3px] outline-offset-[-2.8px] outline-selected duration-200 outline-solid",
       )}
     >
       <CardContent className="p-4">
-        <div className="flex flex-col space-y-4">
+        <div className="space-y-4 flex flex-col">
           <div className="flex items-center justify-between">
             <div>
               <h4 className="font-medium">
@@ -293,7 +293,7 @@ function CandidateItem({
               )}
             </div>
 
-            <div className="flex flex-shrink-0 items-center gap-2">
+            <div className="flex shrink-0 items-center gap-2">
               {candidateTest?.success && (
                 <div className="flex items-center gap-2 text-sm">
                   <FaCircleCheck className="size-4 text-success" />
@@ -316,7 +316,7 @@ function CandidateItem({
 
           <div className="mt-1 flex items-start gap-2">
             <p
-              className="flex-1 cursor-pointer break-all text-sm text-primary-variant hover:underline"
+              className="flex-1 cursor-pointer text-sm break-all text-primary-variant hover:underline"
               onClick={() => setShowFull((s) => !s)}
               title={t("cameraWizard.step2.toggleUriView")}
             >

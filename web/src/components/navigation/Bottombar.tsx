@@ -118,7 +118,7 @@ function StatusAlertNav({ className, large }: StatusAlertNavProps) {
       >
         <StatusMessageList
           messages={messages}
-          className="scrollbar-container w-full overflow-y-auto overflow-x-hidden px-4 py-4"
+          className="scrollbar-container w-full overflow-x-hidden overflow-y-auto px-4 py-4"
         />
       </DrawerContent>
     </Drawer>

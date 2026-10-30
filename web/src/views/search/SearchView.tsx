@@ -529,17 +529,17 @@ export default function SearchView({
 
       <div
         className={cn(
-          "flex flex-col items-start space-y-2 pl-2 pr-2 md:mb-2 md:pl-3 lg:relative lg:h-10 lg:flex-row lg:items-center lg:space-y-0",
+          "space-y-2 flex flex-col items-start pr-2 pl-2 md:mb-2 md:pl-3 lg:relative lg:space-y-0 lg:h-10 lg:flex-row lg:items-center",
           config?.semantic_search?.enabled
             ? "justify-between"
             : "justify-center",
-          isMobileOnly && "mb-2 h-auto flex-wrap gap-2 space-y-0",
+          isMobileOnly && "space-y-0 mb-2 h-auto flex-wrap gap-2",
         )}
       >
         {(canGoBack || config?.semantic_search?.enabled) && (
           <div
             className={cn(
-              "z-[41] flex w-full flex-row items-start gap-2 lg:absolute lg:top-0 lg:w-1/3",
+              "z-41 flex w-full flex-row items-start gap-2 lg:absolute lg:top-0 lg:w-1/3",
             )}
           >
             {canGoBack && (
@@ -620,7 +620,7 @@ export default function SearchView({
         className="no-scrollbar flex flex-1 flex-wrap content-start gap-2 overflow-y-auto"
       >
         {uniqueResults?.length == 0 && !isLoading && (
-          <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center">
+          <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center">
             <LuSearchX className="size-16" />
             {t("noTrackedObjects")}
           </div>
@@ -630,7 +630,7 @@ export default function SearchView({
           (isValidating && !isLoading)) && // or revalidation
           (searchTerm || // or change of filter/search term
             (searchFilter && Object.keys(searchFilter).length !== 0)) && (
-            <ActivityIndicator className="absolute left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-background/80 p-3 dark:bg-background/50" />
+            <ActivityIndicator className="absolute top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-background/80 p-3 dark:bg-background/50" />
           )}
 
         {uniqueResults && (
@@ -672,11 +672,11 @@ export default function SearchView({
                       />
                       {(searchTerm ||
                         searchFilter?.search_type?.includes("similarity")) && (
-                        <div className={cn("absolute right-2 top-2 z-40")}>
+                        <div className={cn("absolute top-2 right-2 z-40")}>
                           <Tooltip>
                             <TooltipTrigger>
                               <Chip
-                                className={`flex select-none items-center justify-between space-x-1 bg-gray-500 bg-gradient-to-br from-gray-400 to-gray-500 text-xs text-white smart-capitalize`}
+                                className={`space-x-1 flex items-center justify-between bg-gray-500 bg-linear-to-br from-gray-400 to-gray-500 text-xs text-white smart-capitalize select-none`}
                               >
                                 {value.search_source == "thumbnail" ? (
                                   <LuImage className="size-3" />
@@ -707,7 +707,7 @@ export default function SearchView({
                           </Tooltip>
                         </div>
                       )}
-                      <div className="absolute bottom-0 left-0 right-0 z-30 bg-gradient-to-t from-black/70 to-transparent p-2">
+                      <div className="absolute right-0 bottom-0 left-0 z-30 bg-linear-to-t from-black/70 to-transparent p-2">
                         <SearchThumbnailFooter
                           searchResult={value}
                           columns={columns}
@@ -734,7 +734,7 @@ export default function SearchView({
                       </div>
                     </div>
                     <div
-                      className={`review-item-ring pointer-events-none absolute inset-0 z-30 size-full rounded-lg outline outline-[3px] -outline-offset-[2.8px] ${selected ? `shadow-selected outline-selected` : "outline-transparent duration-500"}`}
+                      className={`review-item-ring pointer-events-none absolute inset-0 z-30 size-full rounded-lg outline-[3px] outline-offset-[-2.8px] outline-solid ${selected ? `shadow-selected outline-selected` : "outline-transparent duration-500"}`}
                     />
                   </div>
                 );

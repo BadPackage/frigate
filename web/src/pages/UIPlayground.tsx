@@ -231,7 +231,7 @@ function UIPlayground() {
     <>
       <div className="h-full w-full">
         <div className="flex h-full">
-          <div className="no-scrollbar mr-5 mt-4 flex-1 content-start gap-2 overflow-y-auto">
+          <div className="no-scrollbar mt-4 mr-5 flex-1 content-start gap-2 overflow-y-auto">
             <Heading as="h2">UI Playground</Heading>
 
             <ObjectPathPlotter />

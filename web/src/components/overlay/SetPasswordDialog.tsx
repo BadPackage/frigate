@@ -257,7 +257,7 @@ export default function SetPasswordDialog({
                                   ns: "views/settings",
                                 })
                           }
-                          className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                          className="absolute top-0 right-0 h-full px-3 py-2 hover:bg-transparent"
                           onClick={() => setShowOldPassword(!showOldPassword)}
                         >
                           {showOldPassword ? (
@@ -313,7 +313,7 @@ export default function SetPasswordDialog({
                                 ns: "views/settings",
                               })
                         }
-                        className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                        className="absolute top-0 right-0 h-full px-3 py-2 hover:bg-transparent"
                         onClick={() =>
                           setShowPasswordVisible(!showPasswordVisible)
                         }
@@ -328,7 +328,7 @@ export default function SetPasswordDialog({
                   </FormControl>
 
                   {password && (
-                    <div className="mt-2 space-y-2">
+                    <div className="space-y-2 mt-2">
                       <div className="space-y-1 rounded-md bg-muted/50 p-2">
                         <p className="text-xs font-medium text-muted-foreground">
                           {t("users.dialog.form.password.requirements.title")}
@@ -392,7 +392,7 @@ export default function SetPasswordDialog({
                                 ns: "views/settings",
                               })
                         }
-                        className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                        className="absolute top-0 right-0 h-full px-3 py-2 hover:bg-transparent"
                         onClick={() =>
                           setShowConfirmPassword(!showConfirmPassword)
                         }

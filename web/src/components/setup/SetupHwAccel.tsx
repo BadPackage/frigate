@@ -184,7 +184,7 @@ export default function SetupHwAccel({
 
       <RadioGroup value={selected} onValueChange={setSelected}>
         <div className="flex flex-col gap-0.5">
-          <div className="flex items-center space-x-2">
+          <div className="space-x-2 flex items-center">
             <RadioGroupItem
               value={AUTO}
               id="hwaccel-auto"
@@ -206,7 +206,7 @@ export default function SetupHwAccel({
         </div>
 
         {families.map((family) => (
-          <div key={family.key} className="flex items-center space-x-2">
+          <div key={family.key} className="space-x-2 flex items-center">
             <RadioGroupItem
               value={family.key}
               id={`hwaccel-${family.key}`}
@@ -221,7 +221,7 @@ export default function SetupHwAccel({
           </div>
         ))}
 
-        <div className="flex items-center space-x-2">
+        <div className="space-x-2 flex items-center">
           <RadioGroupItem
             value={NONE}
             id="hwaccel-none"

@@ -143,7 +143,7 @@ export default function AnnotationOffsetSlider({
     >
       <div className="flex items-center gap-2 text-sm">
         <span>{t("trackingDetails.annotationSettings.offset.label")}:</span>
-        <span className="font-mono tabular-nums text-primary-variant">
+        <span className="font-mono text-primary-variant tabular-nums">
           {annotationOffset > 0 ? "+" : ""}
           {annotationOffset}ms
         </span>
@@ -195,7 +195,7 @@ export default function AnnotationOffsetSlider({
         <Popover>
           <PopoverTrigger asChild>
             <button
-              className="mt-px shrink-0 focus:outline-none"
+              className="mt-px shrink-0 focus:outline-hidden"
               aria-label={t("trackingDetails.annotationSettings.offset.tips")}
             >
               <LuInfo className="size-3.5" />

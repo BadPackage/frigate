@@ -820,7 +820,7 @@ function LibrarySelector({
                 className="group flex items-center justify-between p-0"
               >
                 <div
-                  className="flex-grow cursor-pointer px-2 py-1.5 capitalize"
+                  className="grow cursor-pointer px-2 py-1.5 capitalize"
                   onClick={() => setPageToggle(id)}
                 >
                   {id === "none" ? t("details.none") : id.replaceAll("_", " ")}

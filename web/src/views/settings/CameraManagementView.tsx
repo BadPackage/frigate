@@ -238,7 +238,7 @@ export default function CameraManagementView({
 
   return (
     <>
-      <div className="flex size-full space-y-6">
+      <div className="space-y-6 flex size-full">
         <div className="scrollbar-container flex-1 overflow-y-auto pb-2">
           <Heading as="h4" className="mb-2">
             {t("cameraManagement.title")}
@@ -247,7 +247,7 @@ export default function CameraManagementView({
             {t("cameraManagement.description")}
           </p>
 
-          <div className="w-full max-w-5xl space-y-6">
+          <div className="space-y-6 w-full max-w-5xl">
             <div className="flex gap-2">
               <Button
                 variant="select"
@@ -270,7 +270,7 @@ export default function CameraManagementView({
             </div>
 
             {enabledCameras.length + disabledCameras.length > 0 && (
-              <div className="mb-5 space-y-3">
+              <div className="space-y-3 mb-5">
                 <div className="space-y-0.5">
                   <div className="font-medium">
                     {t("cameraManagement.clone.sectionTitle")}
@@ -307,7 +307,7 @@ export default function CameraManagementView({
                       </Trans>
                     </p>
                   </div>
-                  <div className="max-w-md space-y-1.5">
+                  <div className="space-y-1.5 max-w-md">
                     <div className="space-y-3 rounded-lg bg-secondary p-4">
                       {orderedCameras.length > 0 && (
                         <Reorder.Group
@@ -334,7 +334,7 @@ export default function CameraManagementView({
                         )}
                       {disabledCameras.length > 0 && (
                         <div className="space-y-2">
-                          <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                          <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
                             {t("cameraManagement.streams.disabledSubheading")}
                           </p>
                           {disabledCameras.map((camera) => (
@@ -468,7 +468,7 @@ function ActiveCameraRow({
         <button
           type="button"
           onPointerDown={(e) => controls.start(e)}
-          className="-ml-1 cursor-grab touch-none rounded p-1 text-muted-foreground hover:text-primary active:cursor-grabbing"
+          className="-ml-1 cursor-grab touch-none rounded-sm p-1 text-muted-foreground hover:text-primary active:cursor-grabbing"
           aria-label={t("cameraManagement.streams.reorderHandle")}
         >
           <LuGripVertical className="size-4" />
@@ -1163,7 +1163,7 @@ function CameraTypeSection({
           </div>
         </div>
         <div className={`${CONTROL_COLUMN_CLASS_NAME} space-y-1.5`}>
-          <div className="max-w-md space-y-2 rounded-lg bg-secondary p-4">
+          <div className="space-y-2 max-w-md rounded-lg bg-secondary p-4">
             {cameras.map((camera) => {
               const currentType = getCameraType(camera);
               const isSaving = savingCamera === camera;
@@ -1365,7 +1365,7 @@ function ProfileCameraEnableSection({
             </SelectContent>
           </Select>
 
-          <div className="max-w-md space-y-2 rounded-lg bg-secondary p-4">
+          <div className="space-y-2 max-w-md rounded-lg bg-secondary p-4">
             {cameras.map((camera) => {
               const state = getEnabledState(camera);
               const isSaving = savingCamera === camera;

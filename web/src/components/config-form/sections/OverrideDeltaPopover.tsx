@@ -65,7 +65,7 @@ export function OverrideDeltaPopover({
             {count > 0 ? heading : noDeltasMessage}
           </div>
           {count > 0 && (
-            <ul className="scrollbar-container ml-5 flex max-h-[40dvh] list-disc flex-col gap-1 overflow-y-auto pr-4 text-xs">
+            <ul className="ml-5 scrollbar-container flex max-h-[40dvh] list-disc flex-col gap-1 overflow-y-auto pr-4 text-xs">
               {deltas.map((delta) => (
                 <li key={delta.fieldPath}>{fieldLabel(delta.fieldPath)}</li>
               ))}

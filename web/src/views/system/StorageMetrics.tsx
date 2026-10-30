@@ -129,7 +129,7 @@ export default function StorageMetrics({
   }
 
   return (
-    <div className="scrollbar-container mt-4 flex size-full flex-col overflow-y-auto">
+    <div className="mt-4 scrollbar-container flex size-full flex-col overflow-y-auto">
       <div className="text-sm font-medium text-muted-foreground">
         {t("storage.overview")}
       </div>
@@ -140,7 +140,7 @@ export default function StorageMetrics({
             <Popover>
               <PopoverTrigger asChild>
                 <button
-                  className="focus:outline-none"
+                  className="focus:outline-hidden"
                   aria-label={t(
                     "storage.cameraStorage.unusedStorageInformation",
                   )}
@@ -188,7 +188,7 @@ export default function StorageMetrics({
                 <Popover>
                   <PopoverTrigger asChild>
                     <button
-                      className="focus:outline-none"
+                      className="focus:outline-hidden"
                       aria-label={t("storage.shm.frameLifetime.title")}
                     >
                       <CiCircleAlert
@@ -212,7 +212,7 @@ export default function StorageMetrics({
                 <Popover>
                   <PopoverTrigger asChild>
                     <button
-                      className="focus:outline-none"
+                      className="focus:outline-hidden"
                       aria-label={t("storage.shm.title")}
                     >
                       <FaExclamationTriangle

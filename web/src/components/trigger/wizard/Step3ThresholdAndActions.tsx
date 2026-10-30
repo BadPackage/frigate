@@ -144,7 +144,7 @@ export default function Step3ThresholdAndActions({
                 {availableActions.map((action) => (
                   <label
                     key={action}
-                    className="flex cursor-pointer items-center space-x-2"
+                    className="space-x-2 flex cursor-pointer items-center"
                   >
                     <FormControl>
                       <Checkbox

@@ -352,7 +352,7 @@ export function DateRangePicker({
           <div className="flex flex-col">
             <div className="flex flex-col items-center justify-end gap-2 px-3 pb-4 lg:flex-row lg:items-start lg:pb-0">
               {showCompare && (
-                <div className="flex items-center space-x-2 py-1 pr-4">
+                <div className="space-x-2 flex items-center py-1 pr-4">
                   <Switch
                     defaultChecked={Boolean(rangeCompare)}
                     onCheckedChange={(checked: boolean) => {
@@ -437,8 +437,8 @@ export function DateRangePicker({
           </div>
         </div>
         {!isSmallScreen && (
-          <div className="flex flex-col items-end gap-1 pb-6 pl-6 pr-2">
-            <div className="flex w-full flex-col items-end gap-1 pb-6 pl-6 pr-2">
+          <div className="flex flex-col items-end gap-1 pr-2 pb-6 pl-6">
+            <div className="flex w-full flex-col items-end gap-1 pr-2 pb-6 pl-6">
               {PRESETS.map((preset) => (
                 <PresetButton
                   key={preset.name}

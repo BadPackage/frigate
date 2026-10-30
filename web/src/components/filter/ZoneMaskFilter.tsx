@@ -81,7 +81,7 @@ export function GeneralFilterContent({
     <>
       <div
         className={cn(
-          "h-auto overflow-y-auto overflow-x-hidden",
+          "h-auto overflow-x-hidden overflow-y-auto",
           contentClassName,
         )}
       >

@@ -407,7 +407,7 @@ export default function LiveDashboardView({
 
   return (
     <div
-      className="scrollbar-container size-full select-none overflow-y-auto px-1 pt-2 [scrollbar-gutter:stable] md:p-2"
+      className="scrollbar-container size-full scrollbar-gutter-stable overflow-y-auto px-1 pt-2 select-none md:p-2"
       ref={containerRef}
     >
       {isMobile && (
@@ -421,7 +421,7 @@ export default function LiveDashboardView({
               <Button
                 className={
                   mobileLayout == "grid"
-                    ? "bg-blue-900 bg-opacity-60 focus:bg-blue-900 focus:bg-opacity-60"
+                    ? "bg-blue-900/60 focus:bg-blue-900/60"
                     : "bg-secondary"
                 }
                 aria-label="Use mobile grid layout"
@@ -435,7 +435,7 @@ export default function LiveDashboardView({
               <Button
                 className={
                   mobileLayout == "list"
-                    ? "bg-blue-900 bg-opacity-60 focus:bg-blue-900 focus:bg-opacity-60"
+                    ? "bg-blue-900/60 focus:bg-blue-900/60"
                     : "bg-secondary"
                 }
                 aria-label="Use mobile list layout"

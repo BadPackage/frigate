@@ -103,7 +103,7 @@ export default function SetupRecording({
             <RadioGroup value={mode} onValueChange={setMode}>
               {MODES.map((option) => (
                 <div key={option} className="flex flex-col gap-0.5">
-                  <div className="flex items-center space-x-2">
+                  <div className="space-x-2 flex items-center">
                     <RadioGroupItem
                       value={option}
                       id={`recording-mode-${option}`}

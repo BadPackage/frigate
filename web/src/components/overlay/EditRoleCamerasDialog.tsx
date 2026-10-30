@@ -118,7 +118,7 @@ export default function EditRoleCamerasDialog({
                   {t("roles.dialog.form.cameras.desc")}
                 </FormDescription>
               </div>
-              <div className="scrollbar-container max-h-[40dvh] space-y-2 overflow-y-auto">
+              <div className="space-y-2 scrollbar-container max-h-[40dvh] overflow-y-auto">
                 {cameras.map((camera) => (
                   <FormField
                     key={camera}
@@ -128,7 +128,7 @@ export default function EditRoleCamerasDialog({
                       return (
                         <FormItem
                           key={camera}
-                          className="flex flex-row items-center justify-between space-x-3 space-y-0"
+                          className="space-x-3 space-y-0 flex flex-row items-center justify-between"
                         >
                           <div className="space-y-0.5">
                             <FormLabel className="font-normal">

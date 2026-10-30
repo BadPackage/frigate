@@ -524,7 +524,7 @@ export default function Step2ProbeOrSnapshot({
                       alt="Camera snapshot"
                       className="max-h-[50dvh] max-w-full rounded-lg object-contain"
                     />
-                    <div className="absolute bottom-2 right-2 rounded-md bg-black/70 p-3 text-sm backdrop-blur-sm">
+                    <div className="absolute right-2 bottom-2 rounded-md bg-black/70 p-3 text-sm backdrop-blur-xs">
                       <div className="space-y-1">
                         <StreamDetails testResult={testResult} />
                       </div>

@@ -93,21 +93,21 @@ export default function ExploreSettings({
       {!isMobileOnly && (
         <>
           <DropdownMenuSeparator />
-          <div className="flex w-full flex-col space-y-4">
+          <div className="space-y-4 flex w-full flex-col">
             <div className="space-y-0.5">
               <div>{t("explore.settings.gridColumns.title")}</div>
               <div className="space-y-1 text-xs text-muted-foreground">
                 {t("explore.settings.gridColumns.desc")}
               </div>
             </div>
-            <div className="flex items-center space-x-4">
+            <div className="space-x-4 flex items-center">
               <Slider
                 value={[columns]}
                 onValueChange={([value]) => setColumns(value)}
                 max={8}
                 min={2}
                 step={1}
-                className="flex-grow"
+                className="grow"
               />
               <span className="w-9 text-center text-sm font-medium">
                 {columns}

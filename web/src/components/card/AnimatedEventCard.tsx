@@ -152,7 +152,7 @@ export function AnimatedEventCard({
     <Tooltip>
       <TooltipTrigger asChild>
         <div
-          className="group relative h-24 flex-shrink-0 overflow-hidden rounded md:rounded-lg 4k:h-32"
+          className="group relative h-24 shrink-0 overflow-hidden rounded-sm md:rounded-lg 4k:h-32"
           style={{
             aspectRatio: alertVideos ? aspectRatio : undefined,
           }}
@@ -161,7 +161,7 @@ export function AnimatedEventCard({
             <TooltipTrigger asChild>
               <Button
                 className={cn(
-                  "absolute left-2 top-1 z-40 bg-gray-500 bg-gradient-to-br from-gray-400 to-gray-500 transition-opacity",
+                  "absolute top-1 left-2 z-40 bg-gray-500 bg-linear-to-br from-gray-400 to-gray-500 transition-opacity",
                   threatLevel === ThreatLevel.SECURITY_CONCERN &&
                     "pointer-events-auto opacity-100",
                   threatLevel === ThreatLevel.NEEDS_REVIEW &&
@@ -202,7 +202,7 @@ export function AnimatedEventCard({
               {!alertVideos ? (
                 <img
                   className={cn(
-                    "h-full w-auto min-w-10 select-none object-contain",
+                    "h-full w-auto min-w-10 object-contain select-none",
                     isSafari && !isLoaded ? "hidden" : "visible",
                   )}
                   src={`${apiHost}${event.thumb_path.replace("/media/frigate/", "")}`}
@@ -254,7 +254,7 @@ export function AnimatedEventCard({
             </div>
           )}
           {isLoaded && (
-            <div className="absolute inset-x-0 bottom-0 h-6 rounded bg-gradient-to-t from-slate-900/50 to-transparent">
+            <div className="absolute inset-x-0 bottom-0 h-6 rounded-sm bg-linear-to-t from-slate-900/50 to-transparent">
               <div className="absolute bottom-0 left-1 w-full text-xs text-white">
                 <TimeAgo time={event.start_time * 1000} dense />
               </div>

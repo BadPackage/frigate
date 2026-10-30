@@ -83,13 +83,13 @@ export default function ExploreView({
 
   if (isLoading) {
     return (
-      <ActivityIndicator className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+      <ActivityIndicator className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
     );
   }
 
   if (eventsByLabel && Object.keys(eventsByLabel).length == 0 && !isLoading) {
     return (
-      <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center">
+      <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center">
         <LuSearchX className="size-16" />
         {t("noTrackedObjects")}
       </div>
@@ -160,11 +160,11 @@ function ThumbnailRow({
         )}
         {isValidating && <ActivityIndicator className="ml-2 size-4" />}
       </div>
-      <div className="flex flex-row items-center space-x-2 py-2">
+      <div className="space-x-2 flex flex-row items-center py-2">
         {searchResults?.map((event) => (
           <div
             key={event.id}
-            className="relative aspect-square h-auto max-w-[20%] flex-grow md:max-w-[10%]"
+            className="relative aspect-square h-auto max-w-[20%] grow md:max-w-[10%]"
           >
             <ExploreThumbnailImage
               event={event}
@@ -271,7 +271,7 @@ function ExploreThumbnailImage({
           alt={`${event.label} thumbnail`}
         />
         {isDesktop && (
-          <div className="absolute bottom-1 right-1 z-10 rounded-lg bg-black/50 px-2 py-1 text-xs text-white">
+          <div className="absolute right-1 bottom-1 z-10 rounded-lg bg-black/50 px-2 py-1 text-xs text-white">
             {event.end_time ? (
               <TimeAgo time={event.start_time * 1000} dense />
             ) : (

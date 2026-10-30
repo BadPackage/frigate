@@ -134,7 +134,7 @@ function PlateCombobox({
       </PopoverTrigger>
       <PopoverContent
         align="start"
-        className="w-[--radix-popover-trigger-width] p-0"
+        className="w-(--radix-popover-trigger-width) p-0"
       >
         <Command>
           <CommandInput
@@ -441,7 +441,7 @@ export function KnownPlatesField(props: FieldProps) {
                     </Button>
                   </div>
 
-                  <div className="ml-1 space-y-2 border-l-2 border-muted-foreground/20 pl-3">
+                  <div className="space-y-2 ml-1 border-l-2 border-muted-foreground/20 pl-3">
                     {plates.map((plate, plateIndex) => (
                       <div key={plateIndex} className="flex items-center gap-2">
                         <PlateCombobox

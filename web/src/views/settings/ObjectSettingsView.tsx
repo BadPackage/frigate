@@ -65,7 +65,7 @@ export default function ObjectSettingsView({
           <p className="mb-2">
             <strong>{t("debug.boundingBoxes.colors.label")}</strong>
           </p>
-          <ul className="list-disc space-y-1 pl-5">
+          <ul className="space-y-1 list-disc pl-5">
             <Trans ns="views/settings">debug.boundingBoxes.colors.info</Trans>
           </ul>
         </>
@@ -166,11 +166,11 @@ export default function ObjectSettingsView({
   return (
     <div className="mt-1 flex size-full flex-col pb-2 md:flex-row">
       <Toaster position="top-center" closeButton={true} />
-      <div className="scrollbar-container order-last mb-2 mt-2 flex h-full w-full flex-col overflow-y-auto rounded-lg border-[1px] border-secondary-foreground bg-background_alt p-2 md:order-none md:mb-0 md:mr-2 md:mt-0 md:w-3/12">
+      <div className="order-last mt-2 mb-2 scrollbar-container flex h-full w-full flex-col overflow-y-auto rounded-lg border border-secondary-foreground bg-background_alt p-2 md:order-0 md:mt-0 md:mr-2 md:mb-0 md:w-3/12">
         <Heading as="h4" className="mb-2">
           {t("debug.title")}
         </Heading>
-        <div className="mb-5 space-y-3 text-sm text-muted-foreground">
+        <div className="space-y-3 mb-5 text-sm text-muted-foreground">
           <p>
             {t("debug.detectorDesc", {
               detectors: (config?.models ?? [])
@@ -217,8 +217,8 @@ export default function ObjectSettingsView({
             )}
           </TabsList>
           <TabsContent value="debug">
-            <div className="flex w-full flex-col space-y-6">
-              <div className="mt-2 space-y-6">
+            <div className="space-y-6 flex w-full flex-col">
+              <div className="space-y-6 mt-2">
                 <div className="my-2.5 flex flex-col gap-2.5">
                   {DEBUG_OPTIONS.map(({ param, title, description, info }) => (
                     <div
@@ -393,7 +393,7 @@ function ObjectList({ cameraConfig, objects }: ObjectListProps) {
   );
 
   return (
-    <div className="scrollbar-container relative flex w-full flex-col overflow-y-auto">
+    <div className="relative scrollbar-container flex w-full flex-col overflow-y-auto">
       {objects && objects.length > 0 ? (
         objects.map((obj: ObjectType) => {
           return (

@@ -109,14 +109,14 @@ export default function MediaSyncSettingsView() {
   return (
     <>
       <div className="flex size-full flex-col md:flex-row">
-        <div className="scrollbar-container order-last mb-2 mt-2 flex h-full w-full flex-col overflow-y-auto px-2 md:order-none">
+        <div className="order-last mt-2 mb-2 scrollbar-container flex h-full w-full flex-col overflow-y-auto px-2 md:order-0">
           <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2">
             <div className="col-span-1">
               <Heading as="h4" className="mb-2 hidden md:block">
                 {t("maintenance.sync.title")}
               </Heading>
               <div className="max-w-6xl">
-                <div className="mb-5 mt-2 flex max-w-5xl flex-col gap-2 text-sm text-muted-foreground">
+                <div className="mt-2 mb-5 flex max-w-5xl flex-col gap-2 text-sm text-muted-foreground">
                   <p>{t("maintenance.sync.desc")}</p>
 
                   <div className="flex items-center text-primary-variant">
@@ -140,7 +140,7 @@ export default function MediaSyncSettingsView() {
                   <Label className="mb-2 flex flex-row items-center text-base">
                     {t("maintenance.sync.mediaTypes")}
                   </Label>
-                  <div className="max-w-md space-y-2 rounded-lg bg-secondary p-4">
+                  <div className="space-y-2 max-w-md rounded-lg bg-secondary p-4">
                     <div className="flex items-center justify-between">
                       <Label
                         htmlFor="all-media"
@@ -157,7 +157,7 @@ export default function MediaSyncSettingsView() {
                         disabled={isJobRunning}
                       />
                     </div>
-                    <div className="ml-4 space-y-2">
+                    <div className="space-y-2 ml-4">
                       {MEDIA_TYPES.map((type) => (
                         <div
                           key={type.id}
@@ -186,7 +186,7 @@ export default function MediaSyncSettingsView() {
                 </div>
 
                 {/* Options */}
-                <div className="max-w-md space-y-4">
+                <div className="space-y-4 max-w-md">
                   <div className="flex flex-col">
                     <div className="flex flex-row items-center justify-between gap-4">
                       <div className="space-y-0.5">
@@ -267,7 +267,7 @@ export default function MediaSyncSettingsView() {
             </div>
 
             <div className="col-span-1">
-              <div className="mt-4 gap-2 space-y-3 md:mt-8">
+              <div className="space-y-3 mt-4 gap-2 md:mt-8">
                 <Separator className="my-2 flex bg-secondary md:hidden" />
                 <div className="flex flex-row items-center justify-between rounded-lg bg-card p-3 md:mr-2">
                   <Heading as="h4" className="my-2">
@@ -321,7 +321,7 @@ export default function MediaSyncSettingsView() {
                     </div>
                   )}
                   {mediaSyncResults && (
-                    <div className="mt-2 space-y-2 md:mr-2">
+                    <div className="space-y-2 mt-2 md:mr-2">
                       <p className="text-sm font-medium text-muted-foreground">
                         {t("maintenance.sync.results")}
                       </p>
@@ -337,7 +337,7 @@ export default function MediaSyncSettingsView() {
                                   <p className="mb-1 font-medium capitalize">
                                     {t(`maintenance.sync.${mediaType}`)}
                                   </p>
-                                  <div className="ml-2 space-y-0.5">
+                                  <div className="space-y-0.5 ml-2">
                                     <div className="flex justify-between">
                                       <span className="text-muted-foreground">
                                         {t(
@@ -426,7 +426,7 @@ export default function MediaSyncSettingsView() {
                             <p className="mb-1 font-medium">
                               {t("maintenance.sync.resultsFields.totals")}
                             </p>
-                            <div className="ml-2 space-y-0.5">
+                            <div className="space-y-0.5 ml-2">
                               <div className="flex justify-between">
                                 <span className="text-muted-foreground">
                                   {t(

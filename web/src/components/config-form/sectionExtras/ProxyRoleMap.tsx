@@ -117,7 +117,7 @@ export default function ProxyRoleMap({ formContext }: SectionRendererProps) {
       </div>
 
       {Object.keys(roleMap).length === 0 && (
-        <p className="text-sm italic text-muted-foreground">
+        <p className="text-sm text-muted-foreground italic">
           {t("configForm.roleMap.empty", { ns: "views/settings" })}
         </p>
       )}

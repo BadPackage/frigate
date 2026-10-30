@@ -87,7 +87,7 @@ function DefaultAppView() {
   if (isRedirectingToLogin()) {
     return (
       <div className="size-full overflow-hidden">
-        <ActivityIndicator className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+        <ActivityIndicator className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
       </div>
     );
   }
@@ -98,7 +98,7 @@ function DefaultAppView() {
       <div className="size-full overflow-hidden">
         <LazyPage
           fallback={
-            <ActivityIndicator className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+            <ActivityIndicator className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
           }
         >
           <SetupWizard />
@@ -116,17 +116,17 @@ function DefaultAppView() {
       <div
         id="pageRoot"
         className={cn(
-          "absolute right-0 top-0 overflow-hidden",
+          "absolute top-0 right-0 overflow-hidden",
           isMobile
             ? isPWA
-              ? "bottom-[calc(3rem+env(safe-area-inset-bottom))] left-0 pt-[env(safe-area-inset-top)] md:bottom-[calc(4rem+env(safe-area-inset-bottom))] landscape:pl-[env(safe-area-inset-left)] landscape:pr-[env(safe-area-inset-right)]"
+              ? "bottom-[calc(3rem+env(safe-area-inset-bottom))] left-0 pt-[env(safe-area-inset-top)] md:bottom-[calc(4rem+env(safe-area-inset-bottom))] landscape:pr-[env(safe-area-inset-right)] landscape:pl-[env(safe-area-inset-left)]"
               : "bottom-12 left-0 md:bottom-16"
             : "bottom-8 left-[52px]",
         )}
       >
         <LazyPage
           fallback={
-            <ActivityIndicator className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+            <ActivityIndicator className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
           }
         >
           <Routes>
@@ -161,7 +161,7 @@ function SafeAppView() {
     <div className="size-full overflow-hidden">
       <div
         id="pageRoot"
-        className={cn("absolute bottom-0 left-0 right-0 top-0 overflow-hidden")}
+        className={cn("absolute top-0 right-0 bottom-0 left-0 overflow-hidden")}
       >
         <LazyPage>
           <ConfigEditor />

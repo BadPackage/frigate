@@ -169,7 +169,7 @@ export default function ImagePicker({
                           : `${apiHost}clips/triggers/${camera}/${selectedImageId}.webp`
                       }
                       alt={selectedImage?.label || "Selected image"}
-                      className="size-16 rounded object-cover"
+                      className="size-16 rounded-sm object-cover"
                       onLoad={() => handleImageLoad(selectedImageId || "")}
                       onError={(e) => {
                         // If trigger thumbnail fails to load, fall back to event thumbnail

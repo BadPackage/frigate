@@ -265,7 +265,7 @@ function ConfigEditor() {
   }
 
   return (
-    <div className="absolute bottom-2 left-0 right-0 top-2 md:left-2">
+    <div className="absolute top-2 right-0 bottom-2 left-0 md:left-2">
       <div className="relative flex h-full flex-col overflow-hidden">
         <div className="mr-1 flex items-center justify-between">
           <div>
@@ -295,7 +295,7 @@ function ConfigEditor() {
               onClick={handleSaveAndRestart}
             >
               <div className="relative size-5">
-                <LuSave className="absolute left-0 top-0 size-3 text-secondary-foreground" />
+                <LuSave className="absolute top-0 left-0 size-3 text-secondary-foreground" />
                 <MdOutlineRestartAlt className="absolute size-4 translate-x-1 translate-y-1/2 text-secondary-foreground" />
               </div>
               <span className="hidden md:block">{t("saveAndRestart")}</span>
@@ -314,7 +314,7 @@ function ConfigEditor() {
 
         <div className="mt-2 flex flex-1 flex-col overflow-hidden">
           {error && (
-            <div className="mt-2 max-h-[30%] min-h-[2.5rem] overflow-auto whitespace-pre-wrap border-2 border-muted bg-background_alt p-4 text-sm text-danger md:max-h-[40%]">
+            <div className="mt-2 max-h-[30%] min-h-10 overflow-auto border-2 border-muted bg-background_alt p-4 text-sm whitespace-pre-wrap text-danger md:max-h-[40%]">
               {error}
             </div>
           )}

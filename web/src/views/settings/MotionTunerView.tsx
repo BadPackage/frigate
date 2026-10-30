@@ -183,7 +183,7 @@ export default function MotionTunerView({
 
   return (
     <div className="flex size-full flex-col md:flex-row">
-      <div className="scrollbar-container order-last mb-2 mt-2 flex h-full w-full flex-col overflow-y-auto rounded-lg border-[1px] border-secondary-foreground bg-background_alt p-2 md:order-none md:mr-3 md:mt-0 md:w-3/12">
+      <div className="order-last mt-2 mb-2 scrollbar-container flex h-full w-full flex-col overflow-y-auto rounded-lg border border-secondary-foreground bg-background_alt p-2 md:order-0 md:mt-0 md:mr-3 md:w-3/12">
         <Heading as="h4" className="mb-2">
           {t("motionDetectionTuner.title")}
         </Heading>
@@ -203,8 +203,8 @@ export default function MotionTunerView({
           </div>
         </div>
         <Separator className="my-2 flex bg-secondary" />
-        <div className="flex w-full flex-col space-y-6">
-          <div className="mt-2 space-y-6">
+        <div className="space-y-6 flex w-full flex-col">
+          <div className="space-y-6 mt-2">
             <div className="space-y-0.5">
               <Label htmlFor="motion-threshold">
                 {t("motionDetectionTuner.Threshold.title")}
@@ -228,12 +228,12 @@ export default function MotionTunerView({
                   handleMotionConfigChange({ threshold: value[0] });
                 }}
               />
-              <div className="align-center ml-6 mr-2 flex text-lg">
+              <div className="align-center mr-2 ml-6 flex text-lg">
                 {motionSettings.threshold}
               </div>
             </div>
           </div>
-          <div className="mt-2 space-y-6">
+          <div className="space-y-6 mt-2">
             <div className="space-y-0.5">
               <Label htmlFor="motion-threshold">
                 {t("motionDetectionTuner.contourArea.title")}
@@ -259,7 +259,7 @@ export default function MotionTunerView({
                   handleMotionConfigChange({ contour_area: value[0] });
                 }}
               />
-              <div className="align-center ml-6 mr-2 flex text-lg">
+              <div className="align-center mr-2 ml-6 flex text-lg">
                 {motionSettings.contour_area}
               </div>
             </div>

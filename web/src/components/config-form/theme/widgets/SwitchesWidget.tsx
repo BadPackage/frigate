@@ -207,7 +207,7 @@ export function SwitchesWidget(props: WidgetProps) {
           </Button>
         </CollapsibleTrigger>
 
-        <CollapsibleContent className="rounded-lg border border-input bg-secondary pb-1 pr-0 pt-2 md:max-w-md">
+        <CollapsibleContent className="rounded-lg border border-input bg-secondary pt-2 pr-0 pb-1 md:max-w-md">
           {allEntities.length === 0 && !allowCustomEntries ? (
             <div className="text-sm text-muted-foreground">{emptyMessage}</div>
           ) : (

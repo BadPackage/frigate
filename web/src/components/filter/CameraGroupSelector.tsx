@@ -153,7 +153,7 @@ export function CameraGroupSelector({ className }: CameraGroupSelectorProps) {
         className={cn(
           "shrink-0",
           group == "default"
-            ? "bg-blue-900 bg-opacity-60 text-selected focus:bg-blue-900 focus:bg-opacity-60"
+            ? "bg-blue-900/60 text-selected focus:bg-blue-900/60"
             : "bg-secondary text-secondary-foreground",
         )}
         aria-label={t("menu.live.allCameras", { ns: "common" })}
@@ -172,7 +172,7 @@ export function CameraGroupSelector({ className }: CameraGroupSelectorProps) {
           className={cn(
             "shrink-0",
             group == name
-              ? "bg-blue-900 bg-opacity-60 text-selected focus:bg-blue-900 focus:bg-opacity-60"
+              ? "bg-blue-900/60 text-selected focus:bg-blue-900/60"
               : "bg-secondary text-secondary-foreground",
           )}
           aria-label={t("group.label")}
@@ -235,7 +235,7 @@ export function CameraGroupSelector({ className }: CameraGroupSelectorProps) {
               <Button
                 className={
                   group == "default"
-                    ? "bg-blue-900 bg-opacity-60 text-selected focus:bg-blue-900 focus:bg-opacity-60"
+                    ? "bg-blue-900/60 text-selected focus:bg-blue-900/60"
                     : "bg-secondary text-secondary-foreground focus:bg-secondary focus:text-secondary-foreground"
                 }
                 aria-label={t("menu.live.allCameras", { ns: "common" })}
@@ -260,7 +260,7 @@ export function CameraGroupSelector({ className }: CameraGroupSelectorProps) {
                   <Button
                     className={
                       group == name
-                        ? "bg-blue-900 bg-opacity-60 text-selected focus:bg-blue-900 focus:bg-opacity-60"
+                        ? "bg-blue-900/60 text-selected focus:bg-blue-900/60"
                         : "bg-secondary text-secondary-foreground"
                     }
                     aria-label={t("group.label")}
@@ -445,7 +445,7 @@ function NewGroupDialog({
   return (
     <>
       <Toaster
-        className="toaster group z-[100]"
+        className="toaster group z-100"
         position="top-center"
         closeButton={true}
       />
@@ -469,8 +469,8 @@ function NewGroupDialog({
                   <div
                     className={cn(
                       "absolute",
-                      isDesktop && "right-6 top-10",
-                      isMobile && "absolute right-0 top-4",
+                      isDesktop && "top-10 right-6",
+                      isMobile && "absolute top-4 right-0",
                     )}
                   >
                     <Button
@@ -568,7 +568,7 @@ export function EditGroupDialog({
   return (
     <>
       <Toaster
-        className="toaster group z-[100]"
+        className="toaster group z-100"
         position="top-center"
         closeButton={true}
       />
@@ -910,7 +910,7 @@ export function CameraGroupEdit({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="mt-2 space-y-6 overflow-y-hidden"
+        className="space-y-6 mt-2 overflow-y-hidden"
       >
         <FormField
           control={form.control}
@@ -920,7 +920,7 @@ export function CameraGroupEdit({
               <FormLabel>{t("group.name.label")}</FormLabel>
               <FormControl>
                 <Input
-                  className="w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground dark:[color-scheme:dark]"
+                  className="w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground dark:scheme-dark"
                   placeholder={t("group.name.placeholder")}
                   {...field}
                 />
@@ -1024,7 +1024,7 @@ export function CameraGroupEdit({
           control={form.control}
           name="icon"
           render={({ field }) => (
-            <FormItem className="flex flex-col space-y-2">
+            <FormItem className="space-y-2 flex flex-col">
               <FormLabel>{t("group.icon")}</FormLabel>
               <FormControl>
                 <IconPicker

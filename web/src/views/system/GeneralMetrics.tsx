@@ -658,7 +658,7 @@ export default function GeneralMetrics({
         setShowGpuInfo={setShowVainfo}
       />
 
-      <div className="scrollbar-container mt-4 flex size-full flex-col overflow-y-auto">
+      <div className="mt-4 scrollbar-container flex size-full flex-col overflow-y-auto">
         <div className="text-sm font-medium text-muted-foreground">
           {t("general.detector.title")}
         </div>
@@ -717,7 +717,7 @@ export default function GeneralMetrics({
                 <Popover>
                   <PopoverTrigger asChild>
                     <button
-                      className="focus:outline-none"
+                      className="focus:outline-hidden"
                       aria-label={t("general.detector.cpuUsage")}
                     >
                       <CiCircleAlert

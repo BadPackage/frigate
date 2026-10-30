@@ -971,7 +971,7 @@ export function RecordingView({
               "flex flex-1 flex-wrap overflow-hidden",
               isDesktop
                 ? "min-w-0 px-4"
-                : "portrait:max-h-[50dvh] portrait:flex-shrink-0 portrait:flex-grow-0 portrait:basis-auto",
+                : "portrait:max-h-[50dvh] portrait:shrink-0 portrait:grow-0 portrait:basis-auto",
             )}
           >
             <div
@@ -985,7 +985,7 @@ export function RecordingView({
               <div
                 key={mainCamera}
                 className={cn(
-                  "relative flex max-h-full min-h-0 min-w-0 max-w-full items-center justify-center",
+                  "relative flex max-h-full min-h-0 max-w-full min-w-0 items-center justify-center",
                   isDesktop
                     ? // Desktop: dynamically switch between w-full and h-full based on
                       // container vs camera aspect ratio to ensure proper fitting
@@ -993,7 +993,7 @@ export function RecordingView({
                       ? "h-full"
                       : "w-full"
                     : cn(
-                        "flex-shrink-0 portrait:w-full landscape:h-full",
+                        "shrink-0 portrait:w-full landscape:h-full",
                         mainCameraAspect == "wide"
                           ? "aspect-wide"
                           : mainCameraAspect == "tall"
@@ -1055,7 +1055,7 @@ export function RecordingView({
                 <div
                   ref={previewRowRef}
                   className={cn(
-                    "scrollbar-container flex flex-shrink-0 gap-2 overflow-auto",
+                    "scrollbar-container flex shrink-0 gap-2 overflow-auto",
                     mainCameraAspect == "tall"
                       ? "ml-2 h-full w-72 min-w-72 flex-col"
                       : "h-28 min-h-28 w-full",
@@ -1317,17 +1317,17 @@ function Timeline({
         isDesktop
           ? cn(
               timelineType == "timeline"
-                ? "w-[100px] flex-shrink-0"
+                ? "w-[100px] shrink-0"
                 : timelineType == "detail"
-                  ? "min-w-[20rem] max-w-[30%] flex-shrink-0 flex-grow-0 basis-[30rem] md:min-w-[20rem] md:max-w-[25%] lg:min-w-[30rem] lg:max-w-[33%]"
-                  : "w-80 flex-shrink-0",
+                  ? "max-w-[30%] min-w-[20rem] shrink-0 grow-0 basis-120 md:max-w-[25%] md:min-w-[20rem] lg:max-w-[33%] lg:min-w-120"
+                  : "w-80 shrink-0",
             )
           : cn(
               timelineType == "timeline"
-                ? "portrait:flex-grow landscape:w-[100px] landscape:flex-shrink-0"
+                ? "portrait:grow landscape:w-[100px] landscape:shrink-0"
                 : timelineType == "detail"
-                  ? "portrait:flex-grow landscape:w-[19rem] landscape:flex-shrink-0"
-                  : "portrait:flex-grow landscape:w-[19rem] landscape:flex-shrink-0",
+                  ? "portrait:grow landscape:w-76 landscape:shrink-0"
+                  : "portrait:grow landscape:w-76 landscape:shrink-0",
             ),
       )}
     >
@@ -1339,8 +1339,8 @@ function Timeline({
 
       {timelineType != "detail" && (
         <>
-          <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-[30px] w-full bg-gradient-to-b from-secondary to-transparent"></div>
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[30px] w-full bg-gradient-to-t from-secondary to-transparent"></div>
+          <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-[30px] w-full bg-linear-to-b from-secondary to-transparent"></div>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[30px] w-full bg-linear-to-t from-secondary to-transparent"></div>
         </>
       )}
       {timelineType == "timeline" ? (

@@ -57,7 +57,7 @@ function ToolCallRow({ name, calls }: ToolCallRowProps) {
         <LuChevronsUpDown className="size-4 shrink-0 text-muted-foreground" />
       </CollapsibleTrigger>
       <CollapsibleContent>
-        <div className="mt-1 space-y-3 rounded-xl bg-muted/40 px-4 py-3">
+        <div className="space-y-3 mt-1 rounded-xl bg-muted/40 px-4 py-3">
           {calls.map((tc, idx) => (
             <div
               key={idx}
@@ -72,7 +72,7 @@ function ToolCallRow({ name, calls }: ToolCallRowProps) {
                   <div className="font-medium text-muted-foreground">
                     {t("arguments")}
                   </div>
-                  <pre className="scrollbar-container mt-1 max-h-32 overflow-auto whitespace-pre-wrap break-words rounded bg-background/50 p-2 text-[10px]">
+                  <pre className="mt-1 scrollbar-container max-h-32 overflow-auto rounded-sm bg-background/50 p-2 text-[10px] wrap-break-word whitespace-pre-wrap">
                     {JSON.stringify(tc.arguments, null, 2)}
                   </pre>
                 </div>
@@ -82,7 +82,7 @@ function ToolCallRow({ name, calls }: ToolCallRowProps) {
                   <div className="font-medium text-muted-foreground">
                     {t("response")}
                   </div>
-                  <pre className="scrollbar-container mt-1 max-h-32 overflow-auto whitespace-pre-wrap break-words rounded bg-background/50 p-2 text-[10px]">
+                  <pre className="mt-1 scrollbar-container max-h-32 overflow-auto rounded-sm bg-background/50 p-2 text-[10px] wrap-break-word whitespace-pre-wrap">
                     {tc.response}
                   </pre>
                 </div>

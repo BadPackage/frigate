@@ -168,7 +168,7 @@ export default function QualitySelector({
       <div className="relative">
         <MdHighQuality className="size-5 text-secondary-foreground" />
         {autoLow && (
-          <FaTriangleExclamation className="absolute -bottom-0.5 -right-1 size-3 text-danger" />
+          <FaTriangleExclamation className="absolute -right-1 -bottom-0.5 size-3 text-danger" />
         )}
       </div>
       {isDesktop && <div className="text-primary">{t("quality.label")}</div>}

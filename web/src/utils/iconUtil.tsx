@@ -203,7 +203,7 @@ function getVerifiedIcon(
   return (
     <div key={key} className="relative flex items-center">
       {getIconForLabel(simpleLabel, type, className)}
-      <FaCheckCircle className="absolute -bottom-0.5 -right-0.5 size-2" />
+      <FaCheckCircle className="absolute -right-0.5 -bottom-0.5 size-2" />
     </div>
   );
 }
@@ -219,7 +219,7 @@ function getRecognizedPlateIcon(
   return (
     <div key={key} className="relative inline-flex items-center">
       {getIconForLabel(simpleLabel, type, className)}
-      <LuScanBarcode className="absolute -bottom-0.5 -right-0.5 size-2" />
+      <LuScanBarcode className="absolute -right-0.5 -bottom-0.5 size-2" />
     </div>
   );
 }

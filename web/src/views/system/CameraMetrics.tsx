@@ -293,7 +293,7 @@ export default function CameraMetrics({
   }
 
   return (
-    <div className="scrollbar-container mt-4 flex size-full flex-col gap-3 overflow-y-auto">
+    <div className="mt-4 scrollbar-container flex size-full flex-col gap-3 overflow-y-auto">
       <div className="text-sm font-medium text-muted-foreground">
         {t("cameras.overview")}
       </div>

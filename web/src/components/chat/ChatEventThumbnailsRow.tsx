@@ -59,7 +59,7 @@ export function ChatEventThumbnailsRow({
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="absolute right-1 top-1 flex size-6 items-center justify-center rounded bg-black/60 text-white hover:bg-black/80"
+            className="absolute top-1 right-1 flex size-6 items-center justify-center rounded-sm bg-black/60 text-white hover:bg-black/80"
             aria-label={t("open_in_explore")}
           >
             <LuExternalLink className="size-3" />
@@ -71,9 +71,9 @@ export function ChatEventThumbnailsRow({
         <>
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 rounded-lg ring-2 ring-inset ring-primary"
+            className="pointer-events-none absolute inset-0 rounded-lg ring-2 ring-primary ring-inset"
           />
-          <span className="pointer-events-none absolute left-1 top-1 rounded bg-primary px-1 text-[10px] text-primary-foreground">
+          <span className="pointer-events-none absolute top-1 left-1 rounded-sm bg-primary px-1 text-[10px] text-primary-foreground">
             {t("anchor")}
           </span>
         </>
@@ -82,7 +82,7 @@ export function ChatEventThumbnailsRow({
   );
 
   return (
-    <div className="flex min-w-0 max-w-full flex-col gap-2 self-start">
+    <div className="flex max-w-full min-w-0 flex-col gap-2 self-start">
       {anchor && (
         <div className="scrollbar-container min-w-0 overflow-x-auto">
           <div className="flex w-max gap-2">{renderThumb(anchor, true)}</div>

@@ -46,7 +46,7 @@ export function ToolCallBubble({
             variant="ghost"
             size="sm"
             className={cn(
-              "h-auto w-full min-w-0 justify-start gap-2 whitespace-normal p-0 text-left text-xs hover:bg-transparent",
+              "h-auto w-full min-w-0 justify-start gap-2 p-0 text-left text-xs whitespace-normal hover:bg-transparent",
               !isLeft && "hover:text-primary-foreground",
             )}
           >
@@ -55,19 +55,19 @@ export function ToolCallBubble({
             ) : (
               <LuChevronRight className="size-3 shrink-0" />
             )}
-            <span className="break-words font-medium">
+            <span className="font-medium wrap-break-word">
               {isLeft ? t("call") : t("result")} {normalizedName}
             </span>
           </Button>
         </CollapsibleTrigger>
         <CollapsibleContent>
-          <div className="mt-2 space-y-2">
+          <div className="space-y-2 mt-2">
             {isLeft && args && Object.keys(args).length > 0 && (
               <div className="text-xs">
                 <div className="font-medium text-muted-foreground">
                   {t("arguments")}
                 </div>
-                <pre className="scrollbar-container mt-1 max-h-32 overflow-auto whitespace-pre-wrap break-words rounded bg-muted/50 p-2 text-[10px]">
+                <pre className="mt-1 scrollbar-container max-h-32 overflow-auto rounded-sm bg-muted/50 p-2 text-[10px] wrap-break-word whitespace-pre-wrap">
                   {JSON.stringify(args, null, 2)}
                 </pre>
               </div>
@@ -75,7 +75,7 @@ export function ToolCallBubble({
             {!isLeft && response && response !== "" && (
               <div className="text-xs">
                 <div className="font-medium opacity-80">{t("response")}</div>
-                <pre className="scrollbar-container mt-1 max-h-32 overflow-auto whitespace-pre-wrap break-words rounded bg-primary/20 p-2 text-[10px]">
+                <pre className="mt-1 scrollbar-container max-h-32 overflow-auto rounded-sm bg-primary/20 p-2 text-[10px] wrap-break-word whitespace-pre-wrap">
                   {response}
                 </pre>
               </div>

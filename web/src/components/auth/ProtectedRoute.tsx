@@ -33,20 +33,20 @@ export default function ProtectedRoute({
   // lazy components, which would cause error #426 (suspension during synchronous navigation)
   if (isRedirectingToLogin()) {
     return (
-      <ActivityIndicator className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+      <ActivityIndicator className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
     );
   }
 
   // Wait for config to provide required roles
   if (!requiredRoles) {
     return (
-      <ActivityIndicator className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+      <ActivityIndicator className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
     );
   }
 
   if (auth.isLoading) {
     return (
-      <ActivityIndicator className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+      <ActivityIndicator className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
     );
   }
 
@@ -58,7 +58,7 @@ export default function ProtectedRoute({
   // Authenticated mode (external port): require login
   if (!auth.user) {
     return (
-      <ActivityIndicator className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+      <ActivityIndicator className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
     );
   }
 

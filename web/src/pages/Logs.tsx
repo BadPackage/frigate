@@ -572,7 +572,7 @@ function Logs() {
           <WsMessageFeed maxSize={2000} />
         </div>
       ) : (
-        <div className="relative my-2 flex size-full flex-col overflow-hidden whitespace-pre-wrap rounded-md border border-secondary bg-background_alt font-mono text-xs sm:p-1">
+        <div className="relative my-2 flex size-full flex-col overflow-hidden rounded-md border border-secondary bg-background_alt font-mono text-xs whitespace-pre-wrap sm:p-1">
           <div className="grid grid-cols-5 *:px-0 *:py-3 *:text-sm *:text-primary/40 md:grid-cols-12">
             <div className="col-span-3 lg:col-span-2">
               <div className="flex w-full flex-row items-center">
@@ -610,11 +610,11 @@ function Logs() {
             }}
           >
             {isLoading ? (
-              <ActivityIndicator className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+              <ActivityIndicator className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
             ) : (
               <>
                 {follow && !logSettings.disableStreaming && (
-                  <div className="absolute right-1 top-3">
+                  <div className="absolute top-3 right-1">
                     <Tooltip>
                       <TooltipTrigger>
                         <MdCircle className="mr-2 size-2 animate-pulse cursor-default text-selected shadow-selected drop-shadow-md" />

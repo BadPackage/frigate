@@ -417,7 +417,7 @@ export default function MobileReviewSettingsDrawer({
             <div className="relative">
               <MdHighQuality className="size-5 rounded-md bg-secondary-foreground fill-secondary p-1" />
               {qualityAutoLow && (
-                <FaTriangleExclamation className="absolute -bottom-1 -right-1 size-2.5 text-danger" />
+                <FaTriangleExclamation className="absolute -right-1 -bottom-1 size-2.5 text-danger" />
               )}
             </div>
             {t("quality.label", { ns: "components/player" })}
@@ -581,7 +581,7 @@ export default function MobileReviewSettingsDrawer({
     );
   } else if (drawerMode == "filter") {
     content = (
-      <div className="scrollbar-container flex h-auto w-full flex-col overflow-y-auto overflow-x-hidden">
+      <div className="scrollbar-container flex h-auto w-full flex-col overflow-x-hidden overflow-y-auto">
         <div className="relative mb-4 h-8 w-full">
           <div
             className="absolute left-4 text-selected"
@@ -709,7 +709,7 @@ export default function MobileReviewSettingsDrawer({
   return (
     <>
       <SaveExportOverlay
-        className="pointer-events-none absolute left-1/2 top-8 z-50 -translate-x-1/2"
+        className="pointer-events-none absolute top-8 left-1/2 z-50 -translate-x-1/2"
         show={mode == "timeline" || mode == "timeline_multi"}
         hidePreview={mode == "timeline_multi"}
         isSaving={isStartingExport}
@@ -744,7 +744,7 @@ export default function MobileReviewSettingsDrawer({
         onPreview={() => setShowExportPreview(true)}
       />
       <SaveDebugReplayOverlay
-        className="pointer-events-none absolute left-1/2 top-8 z-50 -translate-x-1/2"
+        className="pointer-events-none absolute top-8 left-1/2 z-50 -translate-x-1/2"
         show={debugReplayRange != undefined && debugReplayMode == "timeline"}
         isStarting={isDebugReplayStarting}
         onSave={onStartDebugReplay}

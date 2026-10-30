@@ -690,7 +690,7 @@ export default function InputWithTags({
             className="h-9 pr-32"
             placeholder={t("placeholder.search")}
           />
-          <div className="absolute right-3 top-0 flex h-full flex-row items-center justify-center gap-5">
+          <div className="absolute top-0 right-3 flex h-full flex-row items-center justify-center gap-5">
             {(search || Object.keys(filters).length > 0) && (
               <Tooltip>
                 <TooltipTrigger>
@@ -738,7 +738,7 @@ export default function InputWithTags({
             <Popover>
               <PopoverTrigger asChild>
                 <button
-                  className="focus:outline-none"
+                  className="focus:outline-hidden"
                   aria-label={t("button.filterInformation")}
                 >
                   <LuFilter
@@ -807,7 +807,7 @@ export default function InputWithTags({
 
         <CommandList
           className={cn(
-            "scrollbar-container border-t duration-200 animate-in fade-in",
+            "scrollbar-container animate-in border-t duration-200 fade-in",
             inputFocused && inputRef.current?.matches(":focus")
               ? "visible"
               : "hidden",
@@ -829,11 +829,11 @@ export default function InputWithTags({
             <CommandGroup heading={t("filter.header.activeFilters")}>
               <div className="my-2 flex flex-wrap gap-2 px-2">
                 {isSimilaritySearch && (
-                  <span className="inline-flex items-center whitespace-nowrap rounded-full bg-blue-100 px-2 py-0.5 text-sm text-blue-800">
+                  <span className="inline-flex items-center rounded-full bg-blue-100 px-2 py-0.5 text-sm whitespace-nowrap text-blue-800">
                     {t("similaritySearch.title")}
                     <button
                       onClick={handleClearSimilarity}
-                      className="ml-1 focus:outline-none"
+                      className="ml-1 focus:outline-hidden"
                       aria-label={t("similaritySearch.clear")}
                     >
                       <LuX className="h-3 w-3" />
@@ -848,7 +848,7 @@ export default function InputWithTags({
                         .map((value, index) => (
                           <span
                             key={`${filterType}-${index}`}
-                            className="inline-flex items-center whitespace-nowrap rounded-full bg-green-100 px-2 py-0.5 text-sm text-green-800 smart-capitalize"
+                            className="inline-flex items-center rounded-full bg-green-100 px-2 py-0.5 text-sm whitespace-nowrap text-green-800 smart-capitalize"
                           >
                             {t("filter.label." + filterType)}:{" "}
                             {filterType === "labels" ? (
@@ -864,7 +864,7 @@ export default function InputWithTags({
                               onClick={() =>
                                 removeFilter(filterType as FilterType, value)
                               }
-                              className="ml-1 focus:outline-none"
+                              className="ml-1 focus:outline-hidden"
                               aria-label={`Remove ${filterType}:${value.replaceAll("_", " ")} filter`}
                             >
                               <LuX className="h-3 w-3" />
@@ -874,7 +874,7 @@ export default function InputWithTags({
                     : !(filterType == "event_id" && isSimilaritySearch) && (
                         <span
                           key={filterType}
-                          className="inline-flex items-center whitespace-nowrap rounded-full bg-green-100 px-2 py-0.5 text-sm text-green-800 smart-capitalize"
+                          className="inline-flex items-center rounded-full bg-green-100 px-2 py-0.5 text-sm whitespace-nowrap text-green-800 smart-capitalize"
                         >
                           {filterType === "event_id"
                             ? t("trackedObjectId")
@@ -887,7 +887,7 @@ export default function InputWithTags({
                                 filterValues as string | number,
                               )
                             }
-                            className="ml-1 focus:outline-none"
+                            className="ml-1 focus:outline-hidden"
                             aria-label={`Remove ${filterType}:${filterValues} filter`}
                           >
                             <LuX className="h-3 w-3" />
@@ -918,7 +918,7 @@ export default function InputWithTags({
                             e.stopPropagation();
                             handleDeleteSearch(suggestion.name);
                           }}
-                          className="focus:outline-none"
+                          className="focus:outline-hidden"
                         >
                           <LuTrash2 className="h-4 w-4 text-secondary-foreground" />
                         </button>

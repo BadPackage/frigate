@@ -582,7 +582,7 @@ export default function Step3ChooseExamples({
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute right-0 top-0 size-8"
+                className="absolute top-0 right-0 size-8"
                 onClick={handleRefresh}
                 disabled={isGenerating || isProcessing}
               >

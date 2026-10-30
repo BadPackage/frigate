@@ -451,7 +451,7 @@ function MobileMenuItem({
   return (
     <div
       className={cn(
-        "inline-flex h-10 w-full cursor-pointer items-center whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium text-primary-variant disabled:pointer-events-none disabled:opacity-50",
+        "inline-flex h-10 w-full cursor-pointer items-center rounded-md px-4 py-2 text-sm font-medium whitespace-nowrap text-primary-variant disabled:pointer-events-none disabled:opacity-50",
         className,
       )}
       onClick={() => {
@@ -1442,7 +1442,7 @@ export default function Settings() {
 
       return (
         <div className="flex w-full min-w-0 items-center justify-between pr-4 md:pr-0">
-          <div className="min-w-0 flex-1 whitespace-normal break-words">
+          <div className="min-w-0 flex-1 wrap-break-word whitespace-normal">
             {t("menu." + key)}
           </div>
           {(showOverrideDot || showUnsavedDot) && (
@@ -1554,13 +1554,13 @@ export default function Settings() {
                         open={renderedExpanded}
                         onOpenChange={() => toggleGroupCollapsed(group.label)}
                       >
-                        <CollapsibleTrigger className="flex min-h-10 w-full items-center justify-between rounded-md py-2 pl-2 pr-2 text-sm font-medium text-secondary-foreground">
+                        <CollapsibleTrigger className="flex min-h-10 w-full items-center justify-between rounded-md py-2 pr-2 pl-2 text-sm font-medium text-secondary-foreground">
                           <div className="flex flex-col justify-start gap-0.5 text-left">
                             {t("menu." + group.label)}
                             {group.label === "cameras" &&
                               renderedExpanded &&
                               selectedCamera && (
-                                <div className="max-w-full break-words text-xs text-secondary-foreground/80 smart-capitalize">
+                                <div className="max-w-full text-xs wrap-break-word text-secondary-foreground/80 smart-capitalize">
                                   <CameraNameLabel camera={selectedCamera} />
                                 </div>
                               )}
@@ -1840,8 +1840,8 @@ export default function Settings() {
         </div>
       </div>
       <SidebarProvider className="relative h-full min-h-0 flex-1">
-        <Sidebar variant="inset" className="absolute h-full pl-0 pt-0">
-          <SidebarContent className="scrollbar-container overflow-y-auto border-r-[1px] border-secondary bg-background py-2">
+        <Sidebar variant="inset" className="absolute h-full pt-0 pl-0">
+          <SidebarContent className="scrollbar-container overflow-y-auto border-r border-secondary bg-background py-2">
             <SidebarMenu>
               {settingsGroups.map((group) => {
                 const filteredItems = group.items.filter((item) =>
@@ -1916,7 +1916,7 @@ export default function Settings() {
                                     selectedCamera && (
                                       <div
                                         className={cn(
-                                          "max-w-full break-words text-xs smart-capitalize",
+                                          "max-w-full text-xs wrap-break-word smart-capitalize",
                                           hasActiveItem
                                             ? "text-primary/60"
                                             : "text-sidebar-foreground/80",
@@ -1981,7 +1981,7 @@ export default function Settings() {
         <SidebarInset>
           <div
             className={cn(
-              "scrollbar-container flex-1 overflow-y-auto pl-2 pr-0 pt-2",
+              "scrollbar-container flex-1 overflow-y-auto pt-2 pr-0 pl-2",
             )}
           >
             {(() => {
@@ -2071,7 +2071,7 @@ function CameraSelectButton({
       size="sm"
     >
       <FaVideo className="text-background dark:text-primary" />
-      <div className="hidden text-background dark:text-primary md:block">
+      <div className="hidden text-background md:block dark:text-primary">
         {selectedCamera == undefined ? (
           t("cameraSetting.noCamera")
         ) : (
@@ -2090,7 +2090,7 @@ function CameraSelectButton({
           <DropdownMenuSeparator />
         </>
       )}
-      <div className="scrollbar-container mb-5 h-auto max-h-[80dvh] overflow-y-auto overflow-x-hidden p-4 md:mb-1">
+      <div className="mb-5 scrollbar-container h-auto max-h-[80dvh] overflow-x-hidden overflow-y-auto p-4 md:mb-1">
         <div className="flex flex-col gap-2.5">
           {allCameras.map((item) => {
             const isEnabled = cameraEnabledStates[item.name];

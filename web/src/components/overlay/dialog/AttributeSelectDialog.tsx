@@ -77,7 +77,7 @@ export default function AttributeSelectDialog({
           <DialogDescription>{description}</DialogDescription>
         </DialogHeader>
         <div className="scrollbar-container overflow-y-auto">
-          <div className="max-h-[80dvh] space-y-6 py-2">
+          <div className="space-y-6 max-h-[80dvh] py-2">
             {Object.entries(modelAttributes).map(([modelName, attributes]) => (
               <div key={modelName} className="space-y-3">
                 <div className="text-sm font-semibold text-primary-variant">

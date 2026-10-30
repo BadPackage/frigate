@@ -244,7 +244,7 @@ export default function EnrichmentsSettingsView({
   return (
     <div className="flex size-full flex-col md:flex-row">
       <Toaster position="top-center" closeButton={true} />
-      <div className="scrollbar-container order-last mb-2 mt-2 flex h-full w-full flex-col overflow-y-auto pb-2 md:order-none">
+      <div className="order-last mt-2 mb-2 scrollbar-container flex h-full w-full flex-col overflow-y-auto pb-2 md:order-0">
         <Heading as="h4" className="mb-2">
           {t("enrichments.title")}
         </Heading>
@@ -253,7 +253,7 @@ export default function EnrichmentsSettingsView({
           {t("enrichments.semanticSearch.title")}
         </Heading>
         <div className="max-w-6xl">
-          <div className="mb-5 mt-2 flex max-w-5xl flex-col gap-2 text-sm text-primary-variant">
+          <div className="mt-2 mb-5 flex max-w-5xl flex-col gap-2 text-sm text-primary-variant">
             <p>{t("enrichments.semanticSearch.desc")}</p>
 
             <div className="flex items-center text-primary">
@@ -270,7 +270,7 @@ export default function EnrichmentsSettingsView({
           </div>
         </div>
 
-        <div className="flex w-full max-w-lg flex-col space-y-6">
+        <div className="space-y-6 flex w-full max-w-lg flex-col">
           <div className="flex flex-row items-center">
             <Switch
               id="enabled"
@@ -304,7 +304,7 @@ export default function EnrichmentsSettingsView({
               </Trans>
             </div>
           </div>
-          <div className="mt-2 flex flex-col space-y-6">
+          <div className="space-y-6 mt-2 flex flex-col">
             <div className="space-y-0.5">
               <div>{t("enrichments.semanticSearch.modelSize.label")}</div>
               <div className="space-y-1 text-sm text-muted-foreground">
@@ -397,7 +397,7 @@ export default function EnrichmentsSettingsView({
             {t("enrichments.faceRecognition.title")}
           </Heading>
           <div className="max-w-6xl">
-            <div className="mb-5 mt-2 flex max-w-5xl flex-col gap-2 text-sm text-primary-variant">
+            <div className="mt-2 mb-5 flex max-w-5xl flex-col gap-2 text-sm text-primary-variant">
               <p>{t("enrichments.faceRecognition.desc")}</p>
 
               <div className="flex items-center text-primary">
@@ -414,7 +414,7 @@ export default function EnrichmentsSettingsView({
             </div>
           </div>
 
-          <div className="flex w-full max-w-lg flex-col space-y-6">
+          <div className="space-y-6 flex w-full max-w-lg flex-col">
             <div className="flex flex-row items-center">
               <Switch
                 id="enabled"
@@ -496,7 +496,7 @@ export default function EnrichmentsSettingsView({
             {t("enrichments.licensePlateRecognition.title")}
           </Heading>
           <div className="max-w-6xl">
-            <div className="mb-5 mt-2 flex max-w-5xl flex-col gap-2 text-sm text-primary-variant">
+            <div className="mt-2 mb-5 flex max-w-5xl flex-col gap-2 text-sm text-primary-variant">
               <p>{t("enrichments.licensePlateRecognition.desc")}</p>
 
               <div className="flex items-center text-primary">
@@ -515,7 +515,7 @@ export default function EnrichmentsSettingsView({
             </div>
           </div>
 
-          <div className="flex w-full max-w-lg flex-col space-y-6">
+          <div className="space-y-6 flex w-full max-w-lg flex-col">
             <div className="flex flex-row items-center">
               <Switch
                 id="enabled"
@@ -542,7 +542,7 @@ export default function EnrichmentsSettingsView({
             {t("enrichments.birdClassification.title")}
           </Heading>
           <div className="max-w-6xl">
-            <div className="mb-5 mt-2 flex max-w-5xl flex-col gap-2 text-sm text-primary-variant">
+            <div className="mt-2 mb-5 flex max-w-5xl flex-col gap-2 text-sm text-primary-variant">
               <p>{t("enrichments.birdClassification.desc")}</p>
 
               <div className="flex items-center text-primary">
@@ -559,7 +559,7 @@ export default function EnrichmentsSettingsView({
             </div>
           </div>
 
-          <div className="flex w-full max-w-lg flex-col space-y-6">
+          <div className="space-y-6 flex w-full max-w-lg flex-col">
             <div className="flex flex-row items-center">
               <Switch
                 id="enabled"

@@ -155,7 +155,7 @@ export default function DeleteCameraDialog({
                 </Trans>
               </DialogDescription>
             </DialogHeader>
-            <div className="flex items-center space-x-2">
+            <div className="space-x-2 flex items-center">
               <Switch
                 id="delete-exports"
                 checked={deleteExports}

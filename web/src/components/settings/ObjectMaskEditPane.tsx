@@ -372,7 +372,7 @@ export default function ObjectMaskEditPane({
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="flex flex-1 flex-col space-y-6"
+            className="space-y-6 flex flex-1 flex-col"
           >
             <div className="space-y-4">
               <NameAndIdFields

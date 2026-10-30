@@ -113,7 +113,7 @@ export default function OverflowStrip({
       {/* invisible row used only to measure natural item widths so we can
           render exactly the items that fully fit */}
       <div
-        className="pointer-events-none absolute left-0 top-0 h-0 w-0 overflow-hidden"
+        className="pointer-events-none absolute top-0 left-0 h-0 w-0 overflow-hidden"
         aria-hidden
         inert
       >

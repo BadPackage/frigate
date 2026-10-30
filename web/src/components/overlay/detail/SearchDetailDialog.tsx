@@ -356,7 +356,7 @@ function DialogContentComponent({
       )}
     >
       <img
-        className="w-full select-none rounded-lg object-contain transition-opacity"
+        className="w-full rounded-lg object-contain transition-opacity select-none"
         style={
           isIOS
             ? {
@@ -374,7 +374,7 @@ function DialogContentComponent({
   if (isDesktop) {
     return (
       <div className="grid h-full w-full grid-cols-[60%_40%] gap-4">
-        <div className="scrollbar-container min-w-0 overflow-y-auto overflow-x-hidden">
+        <div className="scrollbar-container min-w-0 overflow-x-hidden overflow-y-auto">
           {snapshotElement}
         </div>
         <div className="flex min-w-0 flex-col gap-4 pr-2">
@@ -390,7 +390,7 @@ function DialogContentComponent({
             setIsPopoverOpen={setIsPopoverOpen}
             dialogContainer={dialogContainer}
           />
-          <div className="scrollbar-container min-w-0 flex-1 overflow-y-auto overflow-x-hidden px-4">
+          <div className="scrollbar-container min-w-0 flex-1 overflow-x-hidden overflow-y-auto px-4">
             <ObjectDetailsTab
               search={search}
               config={config}
@@ -551,7 +551,7 @@ export default function SearchDetailDialog({
       >
         {isDesktop && onPrevious && onNext && showNavigationButtons && (
           <DialogPortal>
-            <div className="pointer-events-none fixed inset-0 z-[51] flex items-center justify-center">
+            <div className="pointer-events-none fixed inset-0 z-51 flex items-center justify-center">
               <div
                 className={cn(
                   "relative flex items-center justify-between",
@@ -567,7 +567,7 @@ export default function SearchDetailDialog({
                         e.stopPropagation();
                         onPrevious?.();
                       }}
-                      className="nav-button pointer-events-auto absolute -left-16 rounded-lg border bg-secondary/60 p-2 text-primary-variant shadow-lg backdrop-blur-sm hover:bg-secondary/80 hover:text-primary"
+                      className="nav-button pointer-events-auto absolute -left-16 rounded-lg border bg-secondary/60 p-2 text-primary-variant shadow-lg backdrop-blur-xs hover:bg-secondary/80 hover:text-primary"
                       aria-label={t("searchResult.previousTrackedObject")}
                     >
                       <FaChevronLeft className="size-4" />
@@ -585,7 +585,7 @@ export default function SearchDetailDialog({
                         e.stopPropagation();
                         onNext?.();
                       }}
-                      className="nav-button pointer-events-auto absolute -right-16 rounded-lg border bg-secondary/60 p-2 text-primary-variant shadow-lg backdrop-blur-sm hover:bg-secondary/80 hover:text-primary"
+                      className="nav-button pointer-events-auto absolute -right-16 rounded-lg border bg-secondary/60 p-2 text-primary-variant shadow-lg backdrop-blur-xs hover:bg-secondary/80 hover:text-primary"
                       aria-label={t("searchResult.nextTrackedObject")}
                     >
                       <FaChevronRight className="size-4" />
@@ -626,7 +626,7 @@ export default function SearchDetailDialog({
             }
           }}
         >
-          <Header className={cn(!isDesktop && "top-0 z-[60] mb-0")}>
+          <Header className={cn(!isDesktop && "top-0 z-60 mb-0")}>
             <Title>{t("trackedObjectDetails")}</Title>
             <Description className="sr-only">
               {t("trackedObjectDetails")}
@@ -1339,7 +1339,7 @@ function ObjectDetailsTab({
                       <div className="text-sm text-primary/40">
                         {t("details.estimatedSpeed")}
                       </div>
-                      <div className="flex flex-col space-y-0.5 text-sm">
+                      <div className="space-y-0.5 flex flex-col text-sm">
                         <div className="flex flex-row items-center gap-2">
                           {averageEstimatedSpeed}{" "}
                           {config?.ui.unit_system == "imperial"
@@ -1375,7 +1375,7 @@ function ObjectDetailsTab({
               <div className="text-sm text-primary/40">
                 {t("details.recognizedLicensePlate")}
               </div>
-              <div className="flex flex-col space-y-0.5 text-sm">
+              <div className="space-y-0.5 flex flex-col text-sm">
                 <div className="flex flex-row items-center gap-2">
                   {search.data.recognized_license_plate}{" "}
                   {recognizedLicensePlateScore &&
@@ -1665,7 +1665,7 @@ export function ObjectSnapshotTab({
         )}
       >
         <TransformWrapper minScale={1.0} wheel={{ step: 0.005 }}>
-          <div className="flex w-full flex-col space-y-3 overflow-hidden">
+          <div className="space-y-3 flex w-full flex-col overflow-hidden">
             <TransformComponent
               wrapperStyle={{
                 width: "100%",

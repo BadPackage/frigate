@@ -176,7 +176,7 @@ export default function CameraReviewClassification({
   }
 
   return (
-    <div className="mb-4 space-y-6">
+    <div className="space-y-6 mb-4">
       <Heading as="h4" className="my-2">
         <Trans ns="views/settings">
           cameraReview.reviewClassification.title
@@ -184,7 +184,7 @@ export default function CameraReviewClassification({
       </Heading>
 
       <div className="max-w-6xl">
-        <div className="mb-5 mt-2 flex max-w-5xl flex-col gap-2 text-sm text-primary-variant">
+        <div className="mt-2 mb-5 flex max-w-5xl flex-col gap-2 text-sm text-primary-variant">
           <p>
             <Trans ns="views/settings">
               cameraReview.reviewClassification.desc
@@ -206,7 +206,7 @@ export default function CameraReviewClassification({
 
       <div
         className={cn(
-          "w-full max-w-5xl space-y-0",
+          "space-y-0 w-full max-w-5xl",
           zones && zones.length > 0 && "grid items-start gap-5 md:grid-cols-2",
         )}
       >
@@ -233,7 +233,7 @@ export default function CameraReviewClassification({
                 {zones.map((zone) => (
                   <div
                     key={zone.name}
-                    className="mb-3 flex flex-row items-center space-x-3 space-y-0 last:mb-0"
+                    className="space-x-3 space-y-0 mb-3 flex flex-row items-center last:mb-0"
                   >
                     <Checkbox
                       className="size-5 text-white accent-white data-[state=checked]:bg-selected data-[state=checked]:text-white"
@@ -302,7 +302,7 @@ export default function CameraReviewClassification({
                   {zones.map((zone) => (
                     <div
                       key={zone.name}
-                      className="mb-3 flex flex-row items-center space-x-3 space-y-0 last:mb-0"
+                      className="space-x-3 space-y-0 mb-3 flex flex-row items-center last:mb-0"
                     >
                       <Checkbox
                         className="size-5 text-white accent-white data-[state=checked]:bg-selected data-[state=checked]:text-white"
@@ -327,7 +327,7 @@ export default function CameraReviewClassification({
                 </div>
               )}
 
-              <div className="mb-0 mt-3 flex flex-row items-center gap-2">
+              <div className="mt-3 mb-0 flex flex-row items-center gap-2">
                 <Checkbox
                   id="select-detections"
                   className="size-5 text-white accent-white data-[state=checked]:bg-selected data-[state=checked]:text-white"
@@ -337,7 +337,7 @@ export default function CameraReviewClassification({
                 <div className="grid gap-1.5 leading-none">
                   <label
                     htmlFor="select-detections"
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    className="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                   >
                     <Trans ns="views/settings">
                       cameraReview.reviewClassification.limitDetections

@@ -365,7 +365,7 @@ export default function EventView({
     <div className="flex size-full flex-col pt-2 md:py-2">
       <Toaster closeButton={true} />
       {!motionPreviewsOpen && (
-        <div className="relative mb-2 flex h-11 items-center justify-between pl-2 pr-2 md:pl-3">
+        <div className="relative mb-2 flex h-11 items-center justify-between pr-2 pl-2 md:pl-3">
           {isMobile && (
             <Logo className="absolute inset-x-1/2 h-8 -translate-x-1/2" />
           )}
@@ -387,7 +387,7 @@ export default function EventView({
             >
               <div
                 className={cn(
-                  "flex size-6 items-center justify-center rounded text-severity_alert sm:hidden",
+                  "flex size-6 items-center justify-center rounded-sm text-severity_alert sm:hidden",
                   severityToggle == "alert" ? "font-semibold" : "font-medium",
                 )}
               >
@@ -418,7 +418,7 @@ export default function EventView({
             >
               <div
                 className={cn(
-                  "flex size-6 items-center justify-center rounded text-severity_detection sm:hidden",
+                  "flex size-6 items-center justify-center rounded-sm text-severity_detection sm:hidden",
                   severityToggle == "detection"
                     ? "font-semibold"
                     : "font-medium",
@@ -825,7 +825,7 @@ function DetectionReview({
       >
         {filter?.before == undefined && (
           <NewReviewData
-            className="pointer-events-none absolute left-1/2 z-[49] -translate-x-1/2"
+            className="pointer-events-none absolute left-1/2 z-49 -translate-x-1/2"
             contentRef={contentRef}
             reviewItems={currentItems}
             itemsToReview={loading ? 0 : itemsToReview}
@@ -834,14 +834,14 @@ function DetectionReview({
         )}
 
         {!currentItems && (
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <ActivityIndicator />
           </div>
         )}
 
         {!loading && currentItems?.length === 0 && (
           <EmptyCard
-            className="absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 items-center text-center"
+            className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 items-center text-center"
             title={emptyCardData.title}
             titleHeading={false}
             description={emptyCardData.description}
@@ -887,7 +887,7 @@ function DetectionReview({
                     </div>
                     <div
                       className={cn(
-                        "review-item-ring pointer-events-none absolute inset-0 z-10 size-full rounded-lg outline outline-[3px] -outline-offset-[2.8px]",
+                        "review-item-ring pointer-events-none absolute inset-0 z-10 size-full rounded-lg outline-[3px] outline-offset-[-2.8px] outline-solid",
                         selected
                           ? `outline-severity_${value.severity} shadow-severity_${value.severity}`
                           : "outline-transparent duration-500",
@@ -1313,7 +1313,7 @@ function MotionReview({
 
   if (motionData?.length === 0) {
     return (
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <EmptyCard
           title={emptyCardData.title}
           description={emptyCardData.description}
@@ -1331,7 +1331,7 @@ function MotionReview({
     <>
       {selectedMotionPreviewCamera && (
         <>
-          <div className="relative mb-2 flex h-11 items-center justify-between pl-2 pr-2 md:px-3">
+          <div className="relative mb-2 flex h-11 items-center justify-between pr-2 pl-2 md:px-3">
             <Button
               className="flex items-center gap-2.5 rounded-lg"
               aria-label={t("label.back", { ns: "common" })}
@@ -1654,9 +1654,9 @@ function MotionReview({
                       }
                     />
                     <div
-                      className={`review-item-ring pointer-events-none absolute inset-0 z-20 size-full rounded-lg outline outline-[3px] -outline-offset-[2.8px] ${detectionType ? `outline-severity_${detectionType} shadow-severity_${detectionType}` : "outline-transparent duration-500"}`}
+                      className={`review-item-ring pointer-events-none absolute inset-0 z-20 size-full rounded-lg outline-[3px] outline-offset-[-2.8px] outline-solid ${detectionType ? `outline-severity_${detectionType} shadow-severity_${detectionType}` : "outline-transparent duration-500"}`}
                     />
-                    <div className="absolute bottom-2 right-2 z-30">
+                    <div className="absolute right-2 bottom-2 z-30">
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                           <BlurredIconButton

@@ -709,8 +709,8 @@ function Exports() {
 
       <div
         className={cn(
-          "flex w-full flex-col items-start space-y-2 md:mb-2 lg:relative lg:h-10 lg:flex-row lg:items-center lg:space-y-0",
-          isMobileOnly && "mb-2 h-auto flex-wrap gap-2 space-y-0",
+          "space-y-2 flex w-full flex-col items-start md:mb-2 lg:relative lg:space-y-0 lg:h-10 lg:flex-row lg:items-center",
+          isMobileOnly && "space-y-0 mb-2 h-auto flex-wrap gap-2",
         )}
       >
         {selectionMode ? (
@@ -1031,9 +1031,9 @@ function AllExportsView({
           )}
         </div>
       ) : isLoading ? (
-        <ActivityIndicator className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+        <ActivityIndicator className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
       ) : (
-        <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center">
+        <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center">
           <LuFolderX className="size-16" />
           {t("noExports")}
         </div>
@@ -1162,7 +1162,7 @@ function CaseView({
             <div
               ref={descriptionRef}
               className={cn(
-                "whitespace-pre-wrap text-sm text-secondary-foreground",
+                "text-sm whitespace-pre-wrap text-secondary-foreground",
                 !descriptionExpanded && "line-clamp-3",
               )}
             >
@@ -1209,11 +1209,11 @@ function CaseView({
           ))}
         </div>
       ) : isLoading ? (
-        <div className="flex min-h-[16rem] flex-1 items-center justify-center">
+        <div className="flex min-h-64 flex-1 items-center justify-center">
           <ActivityIndicator />
         </div>
       ) : (
-        <div className="flex min-h-[16rem] flex-col items-center justify-center p-6 text-center">
+        <div className="flex min-h-64 flex-col items-center justify-center p-6 text-center">
           <LuFolderX className="size-12" />
           <div className="mt-3 text-lg font-medium">
             {t("caseView.emptyTitle")}
@@ -1390,7 +1390,7 @@ function CaseAddExportDialog({
             value={search}
             onChange={(event) => setSearch(event.target.value)}
           />
-          <div className="scrollbar-container min-h-0 flex-1 space-y-2 overflow-y-auto py-1 pr-1">
+          <div className="space-y-2 scrollbar-container min-h-0 flex-1 overflow-y-auto py-1 pr-1">
             {filteredExports.length > 0 ? (
               filteredExports.map((exportItem) => {
                 const isSelected = selectedIds.includes(exportItem.id);

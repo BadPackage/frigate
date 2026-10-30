@@ -279,7 +279,7 @@ function CopyJsonButton({ payload }: { payload: unknown }) {
   return (
     <button
       onClick={handleCopy}
-      className="rounded p-1 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+      className="rounded-sm p-1 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
       aria-label="Copy JSON"
     >
       {copied ? (
@@ -371,7 +371,7 @@ const WsMessageRow = memo(function WsMessageRow({
 
         <span
           className={cn(
-            "shrink-0 rounded border px-1.5 py-0.5 font-mono text-xs",
+            "shrink-0 rounded-sm border px-1.5 py-0.5 font-mono text-xs",
             TOPIC_CATEGORY_COLORS[category],
           )}
         >
@@ -381,7 +381,7 @@ const WsMessageRow = memo(function WsMessageRow({
         {showTypeBadge && messageType && (
           <span
             className={cn(
-              "shrink-0 rounded border px-1.5 py-0.5 text-xs",
+              "shrink-0 rounded-sm border px-1.5 py-0.5 text-xs",
               getTypeBadgeColor(messageType),
             )}
           >
@@ -390,7 +390,7 @@ const WsMessageRow = memo(function WsMessageRow({
         )}
 
         {showCameraBadge && cameraName && (
-          <span className="shrink-0 rounded bg-secondary px-1.5 py-0.5 text-xs text-secondary-foreground">
+          <span className="shrink-0 rounded-sm bg-secondary px-1.5 py-0.5 text-xs text-secondary-foreground">
             {cameraName}
           </span>
         )}
@@ -415,13 +415,13 @@ const WsMessageRow = memo(function WsMessageRow({
       {expanded && (
         <div className="border-t border-secondary/30 bg-background_alt/50 px-4 py-2">
           <div className="mb-1 flex items-center justify-between">
-            <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+            <span className="text-xs font-medium tracking-wider text-muted-foreground uppercase">
               {t("logs.websocket.expanded.payload")}
             </span>
             <CopyJsonButton payload={parsedPayload} />
           </div>
           <pre
-            className="scrollbar-container max-h-[60vh] overflow-auto rounded bg-background p-2 font-mono text-[11px] leading-relaxed"
+            className="scrollbar-container max-h-[60vh] overflow-auto rounded-sm bg-background p-2 font-mono text-[11px] leading-relaxed"
             dangerouslySetInnerHTML={{ __html: highlightJson(parsedPayload) }}
           />
         </div>

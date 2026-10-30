@@ -371,7 +371,7 @@ export default function LivePlayer({
     }
   } else {
     player = (
-      <ActivityIndicator className={"w-full [.bg-black_&]:text-white"} />
+      <ActivityIndicator className={"w-full in-[.bg-black]:text-white"} />
     );
   }
 
@@ -389,7 +389,7 @@ export default function LivePlayer({
       className={cn(
         // the card owns the corner: overflow-hidden clips the stream, the still
         // image, and every overlay to this one radius so they stay concentric
-        "relative flex w-full cursor-pointer justify-center overflow-hidden rounded-lg outline md:rounded-2xl",
+        "relative flex w-full cursor-pointer justify-center overflow-hidden rounded-lg outline-solid md:rounded-2xl",
         activeTracking &&
           ((showStillWithoutActivity && !liveReady) || liveReady)
           ? "shadow-severity_alert outline-[3px] outline-severity_alert"
@@ -407,10 +407,10 @@ export default function LivePlayer({
       {cameraEnabled &&
         ((showStillWithoutActivity && !liveReady) || liveReady) && (
           <div
-            className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center [container-type:size]"
+            className="@container-size pointer-events-none absolute inset-0 z-10 flex items-center justify-center"
             style={{ "--pic-ar": pictureAspect } as React.CSSProperties}
           >
-            <div className="relative aspect-[var(--pic-ar)] h-auto w-[min(100%,calc(100cqh*var(--pic-ar)))]">
+            <div className="relative aspect-(--pic-ar) h-auto w-[min(100%,calc(100cqh*var(--pic-ar)))]">
               <ImageShadowOverlay />
             </div>
           </div>
@@ -421,19 +421,19 @@ export default function LivePlayer({
         (!showStillWithoutActivity || isReEnabling) &&
         !liveReady && (
           <div className="absolute inset-0 flex items-center justify-center">
-            <ActivityIndicator className={"w-full [.bg-black_&]:text-white"} />
+            <ActivityIndicator className={"w-full in-[.bg-black]:text-white"} />
           </div>
         )}
 
       {((showStillWithoutActivity && !liveReady) || liveReady) &&
         objects.length > 0 && (
-          <div className="absolute left-0 top-2 z-40">
+          <div className="absolute top-2 left-0 z-40">
             <Tooltip>
               <div className="flex">
                 <TooltipTrigger asChild>
                   <div className="mx-3 pb-1 text-sm text-white">
                     <Chip
-                      className={`z-0 flex items-start justify-between space-x-1 bg-gray-500 bg-gradient-to-br from-gray-400 to-gray-500`}
+                      className={`z-0 space-x-1 flex items-start justify-between bg-gray-500 bg-linear-to-br from-gray-400 to-gray-500`}
                     >
                       {[
                         ...new Set([
@@ -501,7 +501,7 @@ export default function LivePlayer({
       {offline && inDashboard && (
         <>
           <div className="absolute inset-0 bg-black/50" />
-          <div className="absolute inset-0 left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center">
+          <div className="absolute inset-0 top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center">
             <div className="flex flex-col items-center justify-center gap-2 rounded-lg bg-background/50 p-3 text-center">
               <div>{t("streamOffline.title")}</div>
               <TbExclamationCircle className="size-6" />
@@ -523,7 +523,7 @@ export default function LivePlayer({
       )}
 
       {offline && !showStillWithoutActivity && cameraEnabled && (
-        <div className="absolute inset-0 left-1/2 top-1/2 flex h-96 w-96 -translate-x-1/2 -translate-y-1/2">
+        <div className="absolute inset-0 top-1/2 left-1/2 flex h-96 w-96 -translate-x-1/2 -translate-y-1/2">
           <div className="flex flex-col items-center justify-center rounded-lg bg-background/50 p-5">
             <p className="my-5 text-lg">{t("streamOffline.title")}</p>
             <TbExclamationCircle className="mb-3 size-10" />
@@ -554,12 +554,12 @@ export default function LivePlayer({
         </div>
       )}
 
-      <div className="absolute right-2 top-2 flex items-center gap-3">
+      <div className="absolute top-2 right-2 flex items-center gap-3">
         {(alwaysShowCameraName ||
           (offline && showStillWithoutActivity) ||
           !cameraEnabled) && (
           <Chip
-            className={`z-0 flex items-start justify-between space-x-1 bg-gray-500 bg-gradient-to-br from-gray-400 to-gray-500 text-xs capitalize`}
+            className={`z-0 space-x-1 flex items-start justify-between bg-gray-500 bg-linear-to-br from-gray-400 to-gray-500 text-xs capitalize`}
           >
             {cameraName}
           </Chip>

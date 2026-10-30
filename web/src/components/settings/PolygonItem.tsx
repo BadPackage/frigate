@@ -514,7 +514,7 @@ export default function PolygonItem({
         )}
         {!isMobile && hoveredPolygonIndex === index && (
           <div
-            className="absolute inset-y-0 right-0 flex flex-row items-center gap-2 rounded-r-lg pl-8 pr-1"
+            className="absolute inset-y-0 right-0 flex flex-row items-center gap-2 rounded-r-lg pr-1 pl-8"
             style={{
               background:
                 polygon.color.length === 3

@@ -125,7 +125,7 @@ export default function MotionRegionFilterGrid({
   return (
     <div className="space-y-2">
       <div
-        className="relative mx-auto select-none overflow-hidden rounded-lg"
+        className="relative mx-auto overflow-hidden rounded-lg select-none"
         style={{
           aspectRatio,
           width: `min(100%, calc(${MAX_GRID_HEIGHT} * ${aspectRatio}))`,

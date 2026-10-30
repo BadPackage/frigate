@@ -103,7 +103,7 @@ export function GeneralFilterContent({
   const { t } = useTranslation(["components/filter"]);
   return (
     <>
-      <div className="scrollbar-container h-auto overflow-y-auto overflow-x-hidden">
+      <div className="scrollbar-container h-auto overflow-x-hidden overflow-y-auto">
         <div className="mb-5 flex items-center justify-between">
           <Label
             className="mx-2 cursor-pointer text-primary"

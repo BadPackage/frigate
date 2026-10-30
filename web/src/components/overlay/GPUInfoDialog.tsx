@@ -51,7 +51,7 @@ export default function GPUInfoDialog({
             </DialogTitle>
           </DialogHeader>
           {vainfo ? (
-            <div className="scrollbar-container mb-2 max-h-96 overflow-y-scroll whitespace-pre-line">
+            <div className="mb-2 scrollbar-container max-h-96 overflow-y-scroll whitespace-pre-line">
               <div>
                 {t("general.hardwareInfo.gpuInfo.vainfoOutput.returnCode", {
                   code: vainfo.return_code,
@@ -99,7 +99,7 @@ export default function GPUInfoDialog({
             </DialogTitle>
           </DialogHeader>
           {nvinfo ? (
-            <div className="scrollbar-container mb-2 max-h-96 overflow-y-scroll whitespace-pre-line">
+            <div className="mb-2 scrollbar-container max-h-96 overflow-y-scroll whitespace-pre-line">
               <div>
                 {t("general.hardwareInfo.gpuInfo.nvidiaSMIOutput.name", {
                   name: nvinfo["0"].name,

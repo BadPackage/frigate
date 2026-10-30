@@ -259,7 +259,7 @@ export default function DebugReplayDialog({
   return (
     <>
       <SaveDebugReplayOverlay
-        className="pointer-events-none absolute left-1/2 top-8 z-50 -translate-x-1/2"
+        className="pointer-events-none absolute top-8 left-1/2 z-50 -translate-x-1/2"
         show={mode == "timeline"}
         isStarting={isStarting}
         onSave={handleStart}
@@ -338,7 +338,7 @@ export function SaveDebugReplayOverlay({
       <div
         className={cn(
           "pointer-events-auto flex items-center justify-center gap-2 rounded-lg px-2",
-          show ? "duration-500 animate-in slide-in-from-top" : "invisible",
+          show ? "animate-in duration-500 slide-in-from-top" : "invisible",
           "mx-auto mt-5 text-center",
         )}
       >

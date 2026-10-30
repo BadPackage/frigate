@@ -121,7 +121,7 @@ function StreamValueCombobox({
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
+      <PopoverContent className="w-(--radix-popover-trigger-width) p-0">
         <Command>
           <CommandInput
             placeholder={searchPlaceholder}
@@ -250,14 +250,14 @@ function StreamRow({
           type="button"
           disabled={locked}
           onPointerDown={(e) => controls.start(e)}
-          className="mb-2 cursor-grab touch-none rounded p-1 text-muted-foreground hover:text-primary active:cursor-grabbing disabled:cursor-not-allowed"
+          className="mb-2 cursor-grab touch-none rounded-sm p-1 text-muted-foreground hover:text-primary active:cursor-grabbing disabled:cursor-not-allowed"
           aria-label={t("configForm.liveStreams.reorderHandle", {
             ns: "views/settings",
           })}
         >
           <LuGripVertical className="size-4" />
         </button>
-        <div className="flex-1 space-y-2">
+        <div className="space-y-2 flex-1">
           <Label htmlFor={`${entryId}-key`}>
             {t("configForm.liveStreams.streamNameLabel", {
               ns: "views/settings",

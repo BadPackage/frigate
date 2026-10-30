@@ -609,7 +609,7 @@ export default function ZoneEditPane({
       <Separator className="my-3 bg-secondary" />
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="mt-2 space-y-6">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 mt-2">
           <NameAndIdFields
             type="zone"
             control={form.control}
@@ -654,7 +654,7 @@ export default function ZoneEditPane({
                 <FormLabel>{t("masksAndZones.zones.inertia.title")}</FormLabel>
                 <FormControl>
                   <Input
-                    className="w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground dark:[color-scheme:dark]"
+                    className="w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground dark:scheme-dark"
                     placeholder="3"
                     {...field}
                   />
@@ -679,7 +679,7 @@ export default function ZoneEditPane({
                 </FormLabel>
                 <FormControl>
                   <Input
-                    className="w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground dark:[color-scheme:dark]"
+                    className="w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground dark:scheme-dark"
                     placeholder="0"
                     {...field}
                   />
@@ -724,7 +724,7 @@ export default function ZoneEditPane({
             name="speedEstimation"
             render={({ field }) => (
               <FormItem>
-                <div className="flex items-center space-x-2">
+                <div className="space-x-2 flex items-center">
                   <FormControl>
                     <div className="my-2.5 flex w-full items-center justify-between">
                       <FormLabel
@@ -809,7 +809,7 @@ export default function ZoneEditPane({
                       </FormLabel>
                       <FormControl>
                         <Input
-                          className="w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground dark:[color-scheme:dark]"
+                          className="w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground dark:scheme-dark"
                           {...field}
                           onFocus={() => setActiveLine(1)}
                           onBlur={() => setActiveLine(undefined)}
@@ -836,7 +836,7 @@ export default function ZoneEditPane({
                       </FormLabel>
                       <FormControl>
                         <Input
-                          className="w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground dark:[color-scheme:dark]"
+                          className="w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground dark:scheme-dark"
                           {...field}
                           onFocus={() => setActiveLine(2)}
                           onBlur={() => setActiveLine(undefined)}
@@ -863,7 +863,7 @@ export default function ZoneEditPane({
                       </FormLabel>
                       <FormControl>
                         <Input
-                          className="w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground dark:[color-scheme:dark]"
+                          className="w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground dark:scheme-dark"
                           {...field}
                           onFocus={() => setActiveLine(3)}
                           onBlur={() => setActiveLine(undefined)}
@@ -890,7 +890,7 @@ export default function ZoneEditPane({
                       </FormLabel>
                       <FormControl>
                         <Input
-                          className="w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground dark:[color-scheme:dark]"
+                          className="w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground dark:scheme-dark"
                           {...field}
                           onFocus={() => setActiveLine(4)}
                           onBlur={() => setActiveLine(undefined)}
@@ -917,7 +917,7 @@ export default function ZoneEditPane({
                       </FormLabel>
                       <FormControl>
                         <Input
-                          className="w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground dark:[color-scheme:dark]"
+                          className="w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground dark:scheme-dark"
                           {...field}
                         />
                       </FormControl>
@@ -1039,7 +1039,7 @@ export function ZoneObjectSelector({
 
   return (
     <>
-      <div className="scrollbar-container h-auto overflow-y-auto overflow-x-hidden">
+      <div className="scrollbar-container h-auto overflow-x-hidden overflow-y-auto">
         <div className="my-2.5 flex items-center justify-between">
           <Label className="cursor-pointer text-primary" htmlFor="allLabels">
             {t("masksAndZones.zones.allObjects")}

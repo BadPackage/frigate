@@ -169,7 +169,7 @@ export default function ImageEntry({
                         type="button"
                         variant="destructive"
                         size="icon"
-                        className="absolute right-2 top-2 size-5 rounded-full"
+                        className="absolute top-2 right-2 size-5 rounded-full"
                         onClick={clearSelection}
                       >
                         <LuX className="size-3" />

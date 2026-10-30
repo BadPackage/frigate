@@ -456,7 +456,7 @@ export default function NotificationsSettingsExtras({
     const requiresPwaInstall = isIOS && window.isSecureContext && !isPWA;
 
     return (
-      <div className="scrollbar-container order-last mb-2 mt-2 flex h-full w-full flex-col overflow-y-auto pb-2 md:order-none">
+      <div className="order-last mt-2 mb-2 scrollbar-container flex h-full w-full flex-col overflow-y-auto pb-2 md:order-0">
         <div className="w-full max-w-5xl">
           <SettingsGroupCard
             title={t("notification.notificationSettings.title")}
@@ -499,8 +499,8 @@ export default function NotificationsSettingsExtras({
 
   return (
     <div className="flex size-full flex-col md:flex-row">
-      <div className="scrollbar-container order-last mb-2 mt-2 flex h-full w-full flex-col overflow-y-auto md:order-none">
-        <div className={cn("w-full max-w-5xl space-y-6")}>
+      <div className="order-last mt-2 mb-2 scrollbar-container flex h-full w-full flex-col overflow-y-auto md:order-0">
+        <div className={cn("space-y-6 w-full max-w-5xl")}>
           {isAdmin && (
             <SettingsGroupCard
               title={t("notification.notificationSettings.title")}
@@ -528,7 +528,7 @@ export default function NotificationsSettingsExtras({
                             <FormControl>
                               <Input
                                 id="notification-email"
-                                className="w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground dark:[color-scheme:dark] md:w-72"
+                                className="w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground md:w-72 dark:scheme-dark"
                                 placeholder={t(
                                   "notification.email.placeholder",
                                 )}
@@ -562,7 +562,7 @@ export default function NotificationsSettingsExtras({
                             className={`${CONTROL_COLUMN_CLASS_NAME} space-y-1.5`}
                           >
                             {allCameras.length > 0 ? (
-                              <div className="w-full space-y-2 rounded-lg bg-secondary p-4">
+                              <div className="space-y-2 w-full rounded-lg bg-secondary p-4">
                                 <FormField
                                   control={form.control}
                                   name="allEnabled"

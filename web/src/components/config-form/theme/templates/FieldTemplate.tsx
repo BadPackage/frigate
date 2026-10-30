@@ -619,7 +619,7 @@ export function FieldTemplate(props: FieldTemplateProps) {
         {renderDocsLink("hidden md:flex")}
       </div>
 
-      <div className="w-full max-w-2xl space-y-1">
+      <div className="space-y-1 w-full max-w-2xl">
         {children}
         {renderDescription("md:hidden")}
         {renderDocsLink("md:hidden")}
@@ -669,7 +669,7 @@ export function FieldTemplate(props: FieldTemplateProps) {
       rawErrors={rawErrors}
       hideError={false}
     >
-      <div className="flex flex-col space-y-6">
+      <div className="space-y-6 flex flex-col">
         {beforeContent}
         {beforeMessagesContent}
         <div className={cn("space-y-1")} data-field-id={translationPath}>

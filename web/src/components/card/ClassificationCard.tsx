@@ -117,7 +117,7 @@ export const ClassificationCard = forwardRef<
     <div
       ref={cardRef}
       className={cn(
-        "relative flex size-full select-none flex-col overflow-hidden rounded-lg outline outline-[3px]",
+        "relative flex size-full flex-col overflow-hidden rounded-lg outline-[3px] outline-solid select-none",
         className,
         selected
           ? "shadow-selected outline-selected"
@@ -136,7 +136,7 @@ export const ClassificationCard = forwardRef<
       <img
         ref={imgRef}
         className={cn(
-          "absolute bottom-0 left-0 right-0 top-0 size-full",
+          "absolute top-0 right-0 bottom-0 left-0 size-full",
           imgClassName,
           isMobile && "w-full",
         )}
@@ -147,17 +147,17 @@ export const ClassificationCard = forwardRef<
       />
       <ImageShadowOverlay upperClassName="z-0" lowerClassName="h-[30%] z-0" />
       {count && (
-        <div className="absolute right-2 top-2 flex flex-row items-center gap-1">
+        <div className="absolute top-2 right-2 flex flex-row items-center gap-1">
           <div className="text-gray-200">{count}</div>{" "}
           <HiSquare2Stack className="text-gray-200" />
         </div>
       )}
       {!count && imageArea != undefined && (
-        <div className="absolute right-1 top-1 rounded-lg bg-black/50 px-2 py-1 text-xs text-white">
+        <div className="absolute top-1 right-1 rounded-lg bg-black/50 px-2 py-1 text-xs text-white">
           {t("information.pixels", { ns: "common", area: imageArea })}
         </div>
       )}
-      <div className="absolute bottom-0 left-0 right-0 h-[50%] bg-gradient-to-t from-black/60 to-transparent" />
+      <div className="absolute right-0 bottom-0 left-0 h-[50%] bg-linear-to-t from-black/60 to-transparent" />
       <div className="absolute bottom-0 flex w-full flex-row items-center justify-between gap-2 p-2">
         <div
           className={cn(
@@ -372,7 +372,7 @@ export function GroupedClassificationCard({
         <Content
           className={cn(
             "scrollbar-container",
-            isDesktop && "min-w-[50%] max-w-[65%]",
+            isDesktop && "max-w-[65%] min-w-[50%]",
             isMobile && "overflow-y-auto",
           )}
           onOpenAutoFocus={(e) => e.preventDefault()}
@@ -409,7 +409,7 @@ export function GroupedClassificationCard({
                         <Popover>
                           <PopoverTrigger asChild>
                             <button
-                              className="focus:outline-none"
+                              className="focus:outline-hidden"
                               aria-label={t("details.scoreInfo", {
                                 ns: i18nLibrary,
                               })}
@@ -439,7 +439,7 @@ export function GroupedClassificationCard({
                   className={cn(
                     "flex",
                     isDesktop && "flex-row justify-between",
-                    isMobile && "absolute right-4 top-8",
+                    isMobile && "absolute top-8 right-4",
                   )}
                 >
                   <Tooltip open={isDesktop ? undefined : false}>

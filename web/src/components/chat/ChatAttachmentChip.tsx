@@ -84,7 +84,7 @@ export function ChatAttachmentChip({
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              "flex size-6 shrink-0 items-center justify-center rounded text-muted-foreground hover:text-foreground",
+              "flex size-6 shrink-0 items-center justify-center rounded-sm text-muted-foreground hover:text-foreground",
               mode === "bubble" &&
                 "text-primary-foreground/70 hover:text-primary-foreground",
             )}

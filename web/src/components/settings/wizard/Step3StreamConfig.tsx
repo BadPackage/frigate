@@ -498,7 +498,7 @@ export default function Step3StreamConfig({
                               </Button>
                             </div>
                           </PopoverTrigger>
-                          <PopoverContent className="w-[--radix-popover-trigger-width] p-2">
+                          <PopoverContent className="w-(--radix-popover-trigger-width) p-2">
                             <Command>
                               <CommandInput
                                 placeholder={t(
@@ -881,7 +881,7 @@ export default function Step3StreamConfig({
                     {t("cameraWizard.step3.ptz.connectionDetails")}
                   </Button>
                 </CollapsibleTrigger>
-                <CollapsibleContent className="mt-2 space-y-4 rounded-lg bg-background p-3">
+                <CollapsibleContent className="space-y-4 mt-2 rounded-lg bg-background p-3">
                   <div className="space-y-2">
                     <Label className="text-sm font-medium text-primary-variant">
                       {t("cameraWizard.step3.ptz.host")}
@@ -943,7 +943,7 @@ export default function Step3StreamConfig({
                         type="button"
                         variant="ghost"
                         size="sm"
-                        className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                        className="absolute top-0 right-0 h-full px-3 py-2 hover:bg-transparent"
                         onClick={() => setShowOnvifPassword((s) => !s)}
                       >
                         {showOnvifPassword ? (
