@@ -18,6 +18,7 @@ import { useTranslation } from "react-i18next";
 import { useRestart } from "@/api/ws";
 import { useResizeObserver } from "@/hooks/resize-observer";
 import { FrigateConfig } from "@/types/frigateConfig";
+import { withLegacyWebWorkers } from "@/utils/monacoUtil";
 
 type SaveOptions = "saveonly" | "restart";
 
@@ -118,7 +119,7 @@ function ConfigEditor() {
 
     // Configure Monaco YAML schema only once
     if (!schemaConfiguredRef.current) {
-      configureMonacoYaml(monaco, {
+      configureMonacoYaml(withLegacyWebWorkers(monaco), {
         enableSchemaRequest: true,
         hover: true,
         completion: true,
