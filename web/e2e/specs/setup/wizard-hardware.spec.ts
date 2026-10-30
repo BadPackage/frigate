@@ -124,10 +124,7 @@ test.describe("setup wizard hardware @high @mobile", () => {
     await expect.poll(() => restarts).toHaveLength(1);
   });
 
-  test("defers model setup for onnx hardware", async ({
-    frigateApp,
-    page,
-  }) => {
+  test("defers model setup for onnx hardware", async ({ frigateApp, page }) => {
     await installFirstRun(frigateApp, page, {
       hardware: NVIDIA_HARDWARE,
     });

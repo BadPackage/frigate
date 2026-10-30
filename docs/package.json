@@ -28,12 +28,12 @@
     "clsx": "^2.1.1",
     "docusaurus-plugin-openapi-docs": "^5.2.0",
     "docusaurus-theme-openapi-docs": "^5.2.0",
-    "js-yaml": "^5.2.0",
-    "marked": "^18.0.5",
+    "js-yaml": "^5.5.0",
+    "marked": "^18.1.2",
     "prism-react-renderer": "^2.4.1",
     "raw-loader": "^4.0.2",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   },
   "browserslist": {
     "production": [
@@ -50,7 +50,7 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.10.2",
     "@docusaurus/types": "^3.10.2",
-    "@types/react": "^19.2.17"
+    "@types/react": "^19.3.0"
   },
   "engines": {
     "node": ">=20.19"
