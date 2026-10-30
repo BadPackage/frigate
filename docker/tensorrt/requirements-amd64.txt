@@ -1,19 +1,20 @@
 # Nvidia ONNX Runtime GPU Support — CUDA 13
 --extra-index-url 'https://pypi.nvidia.com'
-onnx==1.22.*; platform_machine == 'x86_64'
+onnx==1.23.*; platform_machine == 'x86_64'
 protobuf==7.*; platform_machine == 'x86_64'
 # onnxruntime-gpu's [cuda,cudnn] extras pull the matching CUDA 13 runtime,
 # nvrtc, cufft, curand and cudnn wheels from the NVIDIA index automatically,
 # so they don't need to be enumerated here.
-onnxruntime-gpu[cuda,cudnn]==1.27.*; platform_machine == 'x86_64'
+onnxruntime-gpu[cuda,cudnn]==1.31.*; platform_machine == 'x86_64'
 # Supplementary CUDA 13 libraries the CUDA / TensorRT execution providers
 # dlopen but onnxruntime-gpu does not declare. Compatible-release ranges track
 # each library's own CUDA 13 version line; exact patch versions resolve from
-# the NVIDIA index at build time.
-nvidia-cublas-cu13~=13.0; platform_machine == 'x86_64'
-nvidia-cusolver-cu13~=12.0; platform_machine == 'x86_64'
-nvidia-cusparse-cu13~=12.0; platform_machine == 'x86_64'
-nvidia-cuda-cupti-cu13~=13.0; platform_machine == 'x86_64'
-nvidia-cuda-nvcc-cu13~=13.0; platform_machine == 'x86_64'
-nvidia-nvjitlink-cu13~=13.0; platform_machine == 'x86_64'
+# the NVIDIA index at build time. NVIDIA dropped the -cu13 suffix for CUDA 13
+# wheels (the suffixed names are now empty placeholders), except for NCCL.
+nvidia-cublas~=13.0; platform_machine == 'x86_64'
+nvidia-cusolver~=12.0; platform_machine == 'x86_64'
+nvidia-cusparse~=12.6; platform_machine == 'x86_64'
+nvidia-cuda-cupti~=13.0; platform_machine == 'x86_64'
+nvidia-cuda-nvcc~=13.0; platform_machine == 'x86_64'
+nvidia-nvjitlink~=13.0; platform_machine == 'x86_64'
 nvidia-nccl-cu13~=2.28; platform_machine == 'x86_64'
