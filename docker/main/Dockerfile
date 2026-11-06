@@ -335,13 +335,13 @@ COPY docker/main/fake_frigate_run /etc/s6-overlay/s6-rc.d/frigate/run
 RUN mkdir -p /opt/frigate \
     && ln -svf /workspace/frigate/frigate /opt/frigate/frigate
 
-# Install Node 20
+# Install Node 26
 RUN curl -SLO https://deb.nodesource.com/nsolid_setup_deb.sh && \
     chmod 500 nsolid_setup_deb.sh && \
-    ./nsolid_setup_deb.sh 20 && \
+    ./nsolid_setup_deb.sh 26 && \
     apt-get install nodejs -y \
     && rm -rf /var/lib/apt/lists/* \
-    && npm install -g npm@10
+    && npm install -g npm@12
 
 WORKDIR /workspace/frigate
 
@@ -359,7 +359,7 @@ CMD ["sleep", "infinity"]
 
 # Frigate web build
 # This should be architecture agnostic, so speed up the build on multiarch by not using QEMU.
-FROM --platform=$BUILDPLATFORM node:20 AS web-build
+FROM --platform=$BUILDPLATFORM node:26 AS web-build
 
 WORKDIR /work
 COPY web/package.json web/package-lock.json ./
